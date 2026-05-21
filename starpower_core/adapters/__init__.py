@@ -1,0 +1,1 @@
+"""Starpower Core adapters."""
