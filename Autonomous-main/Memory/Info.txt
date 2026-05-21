@@ -1,0 +1,3 @@
+all memory gets saved to this folder
+
+- agent threads at the end of each run or when trimming the context window will go to this folder

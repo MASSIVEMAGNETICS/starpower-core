@@ -1,0 +1,7 @@
+{
+  "name": "WvyVoiceMode2.0",
+  "description": "Real-time conversational AI using Gemini 2.5 Native Audio API",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
