@@ -18,9 +18,9 @@ from pathlib import Path
 import numpy as np
 
 from starpower_core.research.mri import (
-    MRIComponents,
-    MRICfg,
     MathRevolutionaryInitializer,
+    MRICfg,
+    MRIComponents,
     tensor_statistics,
 )
 
