@@ -9,16 +9,18 @@ from __future__ import annotations
 
 import argparse
 import json
+import platform
+import sys
 import time
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from pathlib import Path
 
 import numpy as np
 
 from starpower_core.research.mri import (
-    MRIComponents,
-    MRICfg,
     MathRevolutionaryInitializer,
+    MRICfg,
+    MRIComponents,
     tensor_statistics,
 )
 
@@ -54,7 +56,15 @@ def _variants() -> dict[str, MRIComponents]:
 
 
 def run(cfg: MRICfg, n_blocks: int = 1) -> dict[str, object]:
-    report: dict[str, object] = {"cfg": asdict(cfg), "variants": {}}
+    report: dict[str, object] = {
+        "cfg": asdict(cfg),
+        "environment": {
+            "python": sys.version,
+            "platform": platform.platform(),
+            "numpy": np.__version__,
+        },
+        "variants": {},
+    }
     for name, components in _variants().items():
         started = time.perf_counter()
         initializer = MathRevolutionaryInitializer(cfg, components)
@@ -88,6 +98,7 @@ def main() -> int:
         "--output", type=Path, default=Path("artifacts/mri0_benchmark.json")
     )
     parser.add_argument("--small", action="store_true", help="Use a fast CI-sized model")
+    parser.add_argument("--seed", type=int, default=None, help="Override the deterministic MRI seed")
     args = parser.parse_args()
     cfg = (
         MRICfg(
@@ -101,16 +112,28 @@ def main() -> int:
         if args.small
         else MRICfg()
     )
+    if args.seed is not None:
+        cfg = replace(cfg, seed=args.seed)
     report = run(cfg)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
+    failed = [
+        name
+        for name, result in report["variants"].items()
+        if not bool(result["deterministic"]) or not bool(result["all_finite"])
+    ]
     print(
         json.dumps(
-            {"output": str(args.output), "variants": list(report["variants"])},
+            {
+                "output": str(args.output),
+                "seed": cfg.seed,
+                "variants": list(report["variants"]),
+                "failed": failed,
+            },
             indent=2,
         )
     )
-    return 0
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

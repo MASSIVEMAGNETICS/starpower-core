@@ -4,7 +4,7 @@ import hashlib
 
 import numpy as np
 
-from starpower_core.research.mri import MRIComponents, MRICfg, MathRevolutionaryInitializer
+from starpower_core.research.mri import MathRevolutionaryInitializer, MRICfg, MRIComponents
 
 
 def _cfg() -> MRICfg:

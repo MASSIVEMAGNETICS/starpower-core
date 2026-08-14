@@ -1,0 +1,137 @@
+name: MRI-0 Research Automation
+
+on:
+  pull_request:
+    paths:
+      - "starpower_core/research/**"
+      - "benchmarks/mri0_benchmark.py"
+      - "tests/test_mri*.py"
+      - ".github/workflows/mri0-research.yml"
+  push:
+    branches:
+      - main
+      - "agent/**"
+    paths:
+      - "starpower_core/research/**"
+      - "benchmarks/mri0_benchmark.py"
+      - "tests/test_mri*.py"
+      - ".github/workflows/mri0-research.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mri0-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Quality / Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
+
+      - name: Lint MRI research surface
+        run: >-
+          ruff check
+          starpower_core/research
+          benchmarks/mri0_benchmark.py
+          tests/test_mri.py
+          tests/test_mri_agent.py
+
+      - name: Test MRI research surface
+        run: pytest -q tests/test_mri.py tests/test_mri_agent.py
+
+  research-agent:
+    name: MRI Agent / seed ${{ matrix.seed }}
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [440, 1337, 20250822]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install runtime
+        run: python -m pip install --upgrade pip && python -m pip install -e .
+
+      - name: Run MRI research agent through Starpower orchestrator
+        env:
+          MRI_SEED: ${{ matrix.seed }}
+        run: >-
+          python -m starpower_core.research.agent
+          --seed "$MRI_SEED"
+          --output "artifacts/mri0-agent/seed-${MRI_SEED}.json"
+
+      - name: Run independent benchmark harness
+        env:
+          MRI_SEED: ${{ matrix.seed }}
+        run: >-
+          python benchmarks/mri0_benchmark.py
+          --small
+          --seed "$MRI_SEED"
+          --output "artifacts/mri0-benchmark/seed-${MRI_SEED}.json"
+
+      - name: Write run summary
+        env:
+          MRI_SEED: ${{ matrix.seed }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          seed = os.environ["MRI_SEED"]
+          receipt = json.loads(Path(f"artifacts/mri0-agent/seed-{seed}.json").read_text())
+          benchmark = json.loads(Path(f"artifacts/mri0-benchmark/seed-{seed}.json").read_text())
+          failed = [
+              name
+              for name, row in benchmark["variants"].items()
+              if not row["deterministic"] or not row["all_finite"]
+          ]
+          summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
+          summary.write_text(
+              f"## MRI-0 seed {seed}\n\n"
+              f"- Agent receipt: `{receipt['receipt_sha256']}`\n"
+              f"- Agent failures: `{len(receipt['failures'])}`\n"
+              f"- Benchmark failures: `{failed}`\n"
+              f"- Authority: `{receipt['authority']}`\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Upload research receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mri0-seed-${{ matrix.seed }}
+          path: artifacts/
+          if-no-files-found: warn
+          retention-days: 30

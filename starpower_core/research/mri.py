@@ -12,9 +12,10 @@ import hashlib
 import json
 import math
 import os
+from collections.abc import Iterator, Mapping
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Iterator, Mapping
+from typing import Any
 
 import numpy as np
 
@@ -66,7 +67,7 @@ class MRIComponents:
     golden_layernorm: bool = True
 
     @classmethod
-    def baseline(cls) -> "MRIComponents":
+    def baseline(cls) -> MRIComponents:
         return cls(
             fractal=False,
             chaos_embedding=False,
