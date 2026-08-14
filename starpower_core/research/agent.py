@@ -17,10 +17,10 @@ from typing import Any
 
 import numpy as np
 
+from .mri import MathRevolutionaryInitializer, MRICfg, MRIComponents, tensor_statistics
 from ..agents import AgentResult, Orchestrator
 from ..memory import RemMemoryGraph
 from ..vsa import VSAEngine
-from .mri import MathRevolutionaryInitializer, MRICfg, MRIComponents, tensor_statistics
 
 
 SEED_RE = re.compile(r"(?:^|\s)seed=(\d+)(?:\s|$)")
