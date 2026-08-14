@@ -20,7 +20,7 @@ import numpy as np
 from ..agents import AgentResult, Orchestrator
 from ..memory import RemMemoryGraph
 from ..vsa import VSAEngine
-from .mri import MRIComponents, MRICfg, MathRevolutionaryInitializer, tensor_statistics
+from .mri import MathRevolutionaryInitializer, MRICfg, MRIComponents, tensor_statistics
 
 
 SEED_RE = re.compile(r"(?:^|\s)seed=(\d+)(?:\s|$)")
