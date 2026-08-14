@@ -22,7 +22,6 @@ from ..memory import RemMemoryGraph
 from ..vsa import VSAEngine
 from .mri import MathRevolutionaryInitializer, MRICfg, MRIComponents, tensor_statistics
 
-
 SEED_RE = re.compile(r"(?:^|\s)seed=(\d+)(?:\s|$)")
 
 
