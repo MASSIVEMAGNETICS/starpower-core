@@ -1,0 +1,136 @@
+name: MRI Learning Tournament
+
+on:
+  pull_request:
+    paths:
+      - "starpower_core/research/tournament.py"
+      - "starpower_core/research/mri.py"
+      - "benchmarks/mri_learning_tournament.py"
+      - "tests/test_mri_learning_tournament.py"
+      - "docs/MRI_LEARNING_TOURNAMENT.md"
+      - ".github/workflows/mri-learning-tournament.yml"
+  push:
+    branches:
+      - main
+      - "agent/**"
+    paths:
+      - "starpower_core/research/tournament.py"
+      - "starpower_core/research/mri.py"
+      - "benchmarks/mri_learning_tournament.py"
+      - "tests/test_mri_learning_tournament.py"
+      - "docs/MRI_LEARNING_TOURNAMENT.md"
+      - ".github/workflows/mri-learning-tournament.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "29 7 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mri-learning-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Quality / Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
+
+      - name: Lint tournament surface
+        run: >-
+          ruff check
+          starpower_core/research/tournament.py
+          benchmarks/mri_learning_tournament.py
+          tests/test_mri_learning_tournament.py
+
+      - name: Test tournament surface
+        run: pytest -q tests/test_mri_learning_tournament.py
+
+  tournament:
+    name: 3x2x3 Learning Tournament
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install runtime
+        run: python -m pip install --upgrade pip && python -m pip install -e .
+
+      - name: Run controlled tournament
+        run: >-
+          python benchmarks/mri_learning_tournament.py
+          --steps 120
+          --seeds 440,1337,20250822
+          --output artifacts/mri-learning-tournament/report.json
+
+      - name: Write tournament summary
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          report = json.loads(
+              Path("artifacts/mri-learning-tournament/report.json").read_text(encoding="utf-8")
+          )
+          aggregate = report["aggregate"]
+          evidence = aggregate["decision_evidence"]
+          lines = [
+              "## MRI Learning Tournament",
+              "",
+              f"**Decision:** `{aggregate['decision']}`",
+              "",
+              f"- Scientific receipt: `{report['scientific_receipt_sha256']}`",
+              f"- Trials: `{len(report['trials'])}`",
+              f"- MRI validation-loss wins: `{evidence['mri_validation_loss_wins_out_of_3']}/3`",
+              f"- Mean MRI-Xavier validation accuracy delta: `{evidence['mean_mri_minus_xavier_validation_accuracy']:.6f}`",
+              f"- All gradients finite: `{evidence['all_gradients_finite']}`",
+              "",
+              "| Architecture | Δ val loss (MRI-Xavier) | Δ val acc | Grad CV ratio | Throughput ratio |",
+              "|---|---:|---:|---:|---:|",
+          ]
+          for name, row in aggregate["initializer_comparisons"].items():
+              lines.append(
+                  f"| {name} | {row['mri_minus_xavier_validation_loss']:.6f} | "
+                  f"{row['mri_minus_xavier_validation_accuracy']:.6f} | "
+                  f"{row['mri_to_xavier_gradient_cv_ratio']:.4f} | "
+                  f"{row['mri_to_xavier_throughput_ratio']:.4f} |"
+              )
+          Path(os.environ["GITHUB_STEP_SUMMARY"]).write_text(
+              "\n".join(lines) + "\n", encoding="utf-8"
+          )
+          PY
+
+      - name: Upload tournament receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mri-learning-tournament-${{ github.run_id }}
+          path: artifacts/mri-learning-tournament/
+          if-no-files-found: error
+          retention-days: 60
