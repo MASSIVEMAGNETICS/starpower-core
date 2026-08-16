@@ -17,7 +17,7 @@ from typing import Literal
 
 import numpy as np
 
-from .mri import MRIComponents, MRICfg, MathRevolutionaryInitializer
+from .mri import MathRevolutionaryInitializer, MRICfg, MRIComponents
 
 Array = np.ndarray
 Architecture = Literal["standard", "gst", "fractal"]
