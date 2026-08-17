@@ -1,0 +1,167 @@
+name: MRI-1 Multitask Study
+
+on:
+  pull_request:
+    paths:
+      - "starpower_core/research/mri.py"
+      - "starpower_core/research/tournament.py"
+      - "starpower_core/research/mri1.py"
+      - "benchmarks/mri1_study.py"
+      - "tests/test_mri1.py"
+      - ".github/workflows/mri1-study.yml"
+  push:
+    branches:
+      - main
+      - "agent/**"
+    paths:
+      - "starpower_core/research/mri.py"
+      - "starpower_core/research/tournament.py"
+      - "starpower_core/research/mri1.py"
+      - "benchmarks/mri1_study.py"
+      - "tests/test_mri1.py"
+      - ".github/workflows/mri1-study.yml"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Study size"
+        required: true
+        default: full
+        type: choice
+        options:
+          - smoke
+          - full
+  schedule:
+    - cron: "17 6 * * 0"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mri1-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Quality / Python ${{ matrix.python }}
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
+      - name: Lint MRI-1 surface
+        run: >-
+          ruff check
+          starpower_core/research/mri1.py
+          benchmarks/mri1_study.py
+          tests/test_mri1.py
+      - name: Test MRI-1 surface
+        run: pytest -q tests/test_mri1.py
+
+  study:
+    name: Paired multitask study
+    needs: quality
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install runtime
+        run: python -m pip install --upgrade pip && python -m pip install -e .
+      - name: Select study mode
+        id: mode
+        shell: bash
+        run: |
+          mode="smoke"
+          if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
+            mode="full"
+          fi
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            mode="${{ inputs.mode }}"
+          fi
+          echo "mode=${mode}" >> "${GITHUB_OUTPUT}"
+      - name: Run MRI-1 study
+        run: >-
+          python benchmarks/mri1_study.py
+          --mode "${{ steps.mode.outputs.mode }}"
+          --output artifacts/mri1/report.json
+      - name: Write scientific summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          report = json.loads(Path("artifacts/mri1/report.json").read_text())
+          main = report["main"]
+          overall = main["overall_relative_loss_improvement"]
+          lines = [
+              "## MRI-1 Multitask Study",
+              "",
+              f"**Mode:** `{report['mode']}`",
+              f"**Decision:** `{report['decision']}`",
+              "",
+              f"- Main trials: `{report['design']['main_trial_count']}`",
+              f"- Ablation trials: `{report['design']['ablation_trial_count']}`",
+              f"- Qualifying cells: `{main['qualifying_cell_count']}`",
+              f"- Qualifying tasks: `{', '.join(main['qualifying_tasks']) or 'none'}`",
+              f"- Overall relative loss improvement: `{overall['mean']:.6f}`",
+              (
+                  "- P(improvement > 0), normal approximation: "
+                  f"`{overall['probability_positive_normal_approx']:.6f}`"
+              ),
+              (
+                  "- Component signal detected: "
+                  f"`{report['ablations']['component_signal_detected']}`"
+              ),
+              f"- All gradients finite: `{main['all_gradients_finite']}`",
+              f"- Scientific receipt: `{report['scientific_receipt_sha256']}`",
+              "",
+              "### Qualifying cells",
+              "",
+              "| Architecture | Task | Width | Optimizer | Best baseline | Mean relative gain | P(gain>0) |",
+              "|---|---|---:|---|---|---:|---:|",
+          ]
+          qualifying = [
+              row
+              for row in main["comparisons"]
+              if row["qualifies_for_scale_signal"]
+          ]
+          if qualifying:
+              for row in qualifying:
+                  ev = row["relative_loss_improvement"]
+                  lines.append(
+                      f"| {row['architecture']} | {row['task']} | "
+                      f"{row['hidden_dim']} | {row['optimizer']} | "
+                      f"{row['best_baseline']} | {ev['mean']:.6f} | "
+                      f"{ev['probability_positive_normal_approx']:.6f} |"
+                  )
+          else:
+              lines.append("| — | — | — | — | — | — | — |")
+          Path(os.environ["GITHUB_STEP_SUMMARY"]).write_text(
+              "\n".join(lines) + "\n",
+              encoding="utf-8",
+          )
+          PY
+      - name: Upload MRI-1 evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: mri1-study-${{ github.run_id }}
+          path: artifacts/mri1/
+          if-no-files-found: error
+          retention-days: 90
