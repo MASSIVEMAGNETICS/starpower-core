@@ -47,6 +47,18 @@ def test_linear_initialization_is_fan_aware() -> None:
     assert np.isclose(weight.std(), expected, rtol=0.05)
 
 
+def test_narrow_output_heads_keep_within_row_variance() -> None:
+    for out_dim in (1, 2, 4):
+        first = MathRevolutionaryInitializer(_cfg()).init_linear(24, out_dim)["weight"]
+        second = MathRevolutionaryInitializer(_cfg()).init_linear(24, out_dim)["weight"]
+        assert first.shape == (out_dim, 24)
+        assert np.array_equal(first, second)
+        assert np.isfinite(first).all()
+        assert np.all(np.std(first, axis=1) > 1e-6)
+        expected = np.sqrt(2.0 / (24.0 + out_dim))
+        assert np.isclose(first.std(), expected, rtol=0.05)
+
+
 def test_save_npz_is_atomic_and_hashes_artifact(tmp_path) -> None:
     model = MathRevolutionaryInitializer(_cfg()).init_transformer(1)
     target = tmp_path / "mri0.npz"
