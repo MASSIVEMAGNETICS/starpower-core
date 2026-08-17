@@ -89,3 +89,19 @@ def test_portfolio_report_is_json_serializable() -> None:
     payload = portfolio_report([evaluate_repository("demo", {"demo.py"})])
     rendered = json.dumps(payload)
     assert "receipt_sha256" in rendered
+
+
+def test_unknown_evidence_is_not_counted_as_missing() -> None:
+    known = evaluate_repository("known", {"known.py"})
+    unknown = evaluate_repository(
+        "unknown",
+        (),
+        evidence_status="unknown",
+        error="denied",
+    )
+    report = portfolio_report([known, unknown])
+    assert report["repository_count"] == 2
+    assert report["evaluated_repository_count"] == 1
+    assert report["partial_or_unknown_repository_count"] == 1
+    assert unknown.gaps == ()
+    assert all(row["affected_repositories"] == 1 for row in report["shared_bottlenecks"])
