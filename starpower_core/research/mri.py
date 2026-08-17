@@ -128,7 +128,7 @@ def _rescale_std(x: Array, target_std: float) -> Array:
 class MathRevolutionaryInitializer:
     """Deterministic, fan-aware structured initializer with ablation controls."""
 
-    VERSION = "MRI-0.2.0"
+    VERSION = "MRI-0.2.1"
 
     def __init__(
         self,
@@ -188,12 +188,26 @@ class MathRevolutionaryInitializer:
         out_dim, in_dim = shape
         if out_dim <= 0 or in_dim <= 0:
             raise ValueError("matrix dimensions must be positive")
-        base = _rescale_std(self._julia_grid(out_dim, in_dim), 1.0)
+
+        # Narrow Julia grids can quantize to one escape-time value, especially
+        # classifier/regression heads. Build the field on a minimum 8×8 canvas,
+        # perform the spectral phase operation there, then crop deterministically
+        # to the requested matrix and restore the requested fan-aware variance.
+        # A true 1×1 matrix remains intentionally unsupported because it cannot
+        # possess non-zero variance.
+        sample_out = out_dim if out_dim >= 8 else max(8, min(in_dim, 32))
+        sample_in = in_dim if in_dim >= 8 else max(8, min(out_dim, 32))
+        base = _rescale_std(self._julia_grid(sample_out, sample_in), 1.0)
         spectrum = np.fft.rfft(base, axis=1)
         phase = np.exp(
             1j * self._rng.uniform(spectrum.shape, -math.pi, math.pi).astype(np.float64)
         )
-        out = np.fft.irfft(np.abs(spectrum) * phase, n=in_dim, axis=1).astype(np.float32)
+        field = np.fft.irfft(
+            np.abs(spectrum) * phase,
+            n=sample_in,
+            axis=1,
+        ).astype(np.float32)
+        out = field[:out_dim, :in_dim]
         return _rescale_std(out, target_std or _fan_std(in_dim, out_dim))
 
     def fourier_positional(self) -> Array:
