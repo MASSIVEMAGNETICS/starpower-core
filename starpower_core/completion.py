@@ -37,12 +37,36 @@ SHARED_EFFORT: dict[str, int] = {
 }
 
 SOURCE_SUFFIXES = {
-    ".py", ".js", ".ts", ".tsx", ".jsx", ".rs", ".go", ".java", ".kt",
-    ".cpp", ".cc", ".c", ".h", ".hpp", ".cs", ".rb", ".php", ".swift",
+    ".py",
+    ".js",
+    ".ts",
+    ".tsx",
+    ".jsx",
+    ".rs",
+    ".go",
+    ".java",
+    ".kt",
+    ".cpp",
+    ".cc",
+    ".c",
+    ".h",
+    ".hpp",
+    ".cs",
+    ".rb",
+    ".php",
+    ".swift",
 }
 MANIFEST_NAMES = {
-    "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "package.json",
-    "cargo.toml", "go.mod", "pom.xml", "build.gradle", "build.gradle.kts",
+    "pyproject.toml",
+    "setup.py",
+    "setup.cfg",
+    "requirements.txt",
+    "package.json",
+    "cargo.toml",
+    "go.mod",
+    "pom.xml",
+    "build.gradle",
+    "build.gradle.kts",
 }
 README_NAMES = {"readme", "readme.md", "readme.rst", "readme.txt"}
 LICENSE_PREFIXES = ("license", "copying")
@@ -62,6 +86,8 @@ class RepoState:
     release: bool
     completion_score: int
     gaps: tuple[str, ...]
+    evidence_status: str
+    error: str | None
 
     def to_dict(self) -> dict[str, object]:
         data = asdict(self)
@@ -127,7 +153,15 @@ def _has_release_signal(paths: set[str]) -> bool:
     )
 
 
-def evaluate_repository(name: str, paths: Iterable[str]) -> RepoState:
+def evaluate_repository(
+    name: str,
+    paths: Iterable[str],
+    *,
+    evidence_status: str = "complete",
+    error: str | None = None,
+) -> RepoState:
+    if evidence_status not in {"complete", "partial", "unknown"}:
+        raise ValueError(f"invalid evidence_status: {evidence_status}")
     items = _normalize_paths(paths)
     lowers = {path.lower() for path in items}
     basenames = {Path(path).name for path in lowers}
@@ -142,8 +176,19 @@ def evaluate_repository(name: str, paths: Iterable[str]) -> RepoState:
         "release": _has_release_signal(items),
     }
     score = sum(SIGNAL_WEIGHTS[key] for key, present in signals.items() if present)
-    gaps = tuple(key for key in SIGNAL_WEIGHTS if not signals[key])
-    return RepoState(name=name, completion_score=score, gaps=gaps, **signals)
+    gaps = (
+        tuple(key for key in SIGNAL_WEIGHTS if not signals[key])
+        if evidence_status == "complete"
+        else ()
+    )
+    return RepoState(
+        name=name,
+        completion_score=score,
+        gaps=gaps,
+        evidence_status=evidence_status,
+        error=error,
+        **signals,
+    )
 
 
 def scan_local_repository(path: Path) -> RepoState:
@@ -180,11 +225,19 @@ def rank_shared_bottlenecks(states: Sequence[RepoState]) -> list[Bottleneck]:
 
 def portfolio_report(states: Sequence[RepoState]) -> dict[str, object]:
     ordered = sorted(states, key=lambda state: (state.completion_score, state.name.lower()))
-    average = round(sum(state.completion_score for state in ordered) / len(ordered), 2) if ordered else 0.0
-    bottlenecks = rank_shared_bottlenecks(ordered)
+    complete = [state for state in ordered if state.evidence_status == "complete"]
+    incomplete_evidence = [state for state in ordered if state.evidence_status != "complete"]
+    average = (
+        round(sum(state.completion_score for state in complete) / len(complete), 2)
+        if complete
+        else 0.0
+    )
+    bottlenecks = rank_shared_bottlenecks(complete)
     payload: dict[str, object] = {
         "schema_version": "scf-1",
         "repository_count": len(ordered),
+        "evaluated_repository_count": len(complete),
+        "partial_or_unknown_repository_count": len(incomplete_evidence),
         "average_completion_score": average,
         "repositories": [state.to_dict() for state in ordered],
         "shared_bottlenecks": [item.to_dict() for item in bottlenecks],
@@ -296,13 +349,9 @@ def safe_remediation_plan(
         if apply:
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(content, encoding="utf-8")
-        changes.append(
-            SafeChange(path=relative, action="create", reason=reason, applied=apply)
-        )
+        changes.append(SafeChange(path=relative, action="create", reason=reason, applied=apply))
 
-    create_if_missing(
-        "COMPLETION.md", _completion_markdown(state), "persist explicit completion state"
-    )
+    create_if_missing("COMPLETION.md", _completion_markdown(state), "persist explicit completion state")
     if not state.gitignore:
         create_if_missing(
             ".gitignore",
@@ -355,9 +404,7 @@ class GitHubOrgScanner:
                 return json.loads(response.read().decode("utf-8"))
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", errors="replace")
-            raise RuntimeError(
-                f"GitHub API {exc.code} for {url}: {body[:300]}"
-            ) from exc
+            raise RuntimeError(f"GitHub API {exc.code} for {url}: {body[:300]}") from exc
 
     def list_repositories(
         self, org: str, limit: int | None = None
@@ -386,7 +433,7 @@ class GitHubOrgScanner:
 
     def repository_paths(
         self, org: str, repo: str, default_branch: str
-    ) -> set[str]:
+    ) -> tuple[set[str], bool]:
         branch = urllib.parse.quote(default_branch, safe="")
         url = (
             f"https://api.github.com/repos/{urllib.parse.quote(org)}/"
@@ -397,14 +444,15 @@ class GitHubOrgScanner:
             raise RuntimeError(f"unexpected GitHub tree response for {org}/{repo}")
         tree = data.get("tree", [])
         if not isinstance(tree, list):
-            return set()
-        return {
+            return set(), bool(data.get("truncated"))
+        paths = {
             str(item["path"])
             for item in tree
             if isinstance(item, dict)
             and item.get("type") == "blob"
             and isinstance(item.get("path"), str)
         }
+        return paths, bool(data.get("truncated"))
 
     def scan_org(self, org: str, limit: int | None = None) -> list[RepoState]:
         states: list[RepoState] = []
@@ -414,9 +462,30 @@ class GitHubOrgScanner:
             if not name:
                 continue
             try:
-                paths = self.repository_paths(org, name, branch)
-            except RuntimeError:
-                paths = set()
+                paths, truncated = self.repository_paths(org, name, branch)
+            except RuntimeError as exc:
+                states.append(
+                    evaluate_repository(
+                        f"{org}/{name}",
+                        (),
+                        evidence_status="unknown",
+                        error=str(exc),
+                    )
+                )
+                continue
+            if truncated:
+                states.append(
+                    evaluate_repository(
+                        f"{org}/{name}",
+                        paths,
+                        evidence_status="partial",
+                        error=(
+                            "GitHub recursive tree was truncated; score is a lower bound and "
+                            "missing signals were not classified as gaps"
+                        ),
+                    )
+                )
+                continue
             states.append(evaluate_repository(f"{org}/{name}", paths))
         return states
 
@@ -440,9 +509,7 @@ def build_parser() -> argparse.ArgumentParser:
     local = sub.add_parser("scan-local", help="scan one local repository")
     local.add_argument("path", type=Path)
     local.add_argument("--output", type=Path)
-    org = sub.add_parser(
-        "scan-org", help="scan a GitHub organization using one tree request per repo"
-    )
+    org = sub.add_parser("scan-org", help="scan a GitHub organization using one tree request per repo")
     org.add_argument("org")
     org.add_argument("--limit", type=int)
     org.add_argument("--token-env", default="GITHUB_TOKEN")
