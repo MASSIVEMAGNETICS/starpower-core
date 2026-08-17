@@ -95,7 +95,10 @@ class _DRand:
 def _n_primes(n: int) -> Array:
     if n <= 0:
         raise ValueError("n must be positive")
-    limit = max(100, int(n * (math.log(max(n, 2)) + math.log(math.log(max(n, 3)))) + 16))
+    limit = max(
+        100,
+        int(n * (math.log(max(n, 2)) + math.log(math.log(max(n, 3)))) + 16),
+    )
     while True:
         sieve = np.ones(limit + 1, dtype=bool)
         sieve[:2] = False
@@ -128,7 +131,7 @@ def _rescale_std(x: Array, target_std: float) -> Array:
 class MathRevolutionaryInitializer:
     """Deterministic, fan-aware structured initializer with ablation controls."""
 
-    VERSION = "MRI-0.2.1"
+    VERSION = "MRI-0.2.2"
 
     def __init__(
         self,
@@ -184,30 +187,63 @@ class MathRevolutionaryInitializer:
             x[i] = value
         return _rescale_std(x, 1.0)
 
-    def fractal_matrix(self, shape: tuple[int, int], target_std: float | None = None) -> Array:
+    @staticmethod
+    def _informative_crop(field: Array, out_dim: int, in_dim: int) -> Array:
+        """Select deterministic high-variance rows/columns for narrow heads."""
+        if out_dim > field.shape[0] or in_dim > field.shape[1]:
+            raise ValueError("requested crop exceeds sampled field")
+
+        if out_dim < field.shape[0]:
+            row_variance = np.var(field, axis=1)
+            ranked_rows = np.argsort(-row_variance, kind="stable")[:out_dim]
+            row_indices = np.sort(ranked_rows)
+            cropped = field[row_indices, :]
+        else:
+            cropped = field
+
+        if in_dim < cropped.shape[1]:
+            column_variance = np.var(cropped, axis=0)
+            ranked_columns = np.argsort(-column_variance, kind="stable")[:in_dim]
+            column_indices = np.sort(ranked_columns)
+            cropped = cropped[:, column_indices]
+
+        return cropped.astype(np.float32, copy=True)
+
+    def fractal_matrix(
+        self,
+        shape: tuple[int, int],
+        target_std: float | None = None,
+    ) -> Array:
         out_dim, in_dim = shape
         if out_dim <= 0 or in_dim <= 0:
             raise ValueError("matrix dimensions must be positive")
+        if out_dim == 1 and in_dim == 1:
+            raise FloatingPointError("1x1 fractal matrix cannot have non-zero variance")
 
-        # Narrow Julia grids can quantize to one escape-time value, especially
-        # classifier/regression heads. Build the field on a minimum 8×8 canvas,
-        # perform the spectral phase operation there, then crop deterministically
-        # to the requested matrix and restore the requested fan-aware variance.
-        # A true 1×1 matrix remains intentionally unsupported because it cannot
-        # possess non-zero variance.
-        sample_out = out_dim if out_dim >= 8 else max(8, min(in_dim, 32))
-        sample_in = in_dim if in_dim >= 8 else max(8, min(out_dim, 32))
+        # Narrow Julia grids can quantize to a single escape-time value. Sample
+        # a larger field first, randomize its spectral phase, then choose the
+        # most informative deterministic rows/columns rather than blindly
+        # taking the top-left corner. This guarantees narrow classifier and
+        # regression heads inherit within-row structure when such structure
+        # exists in the sampled field.
+        sample_out = out_dim if out_dim >= 8 else max(8, min(max(in_dim, 8), 32))
+        sample_in = in_dim if in_dim >= 8 else max(8, min(max(out_dim, 8), 32))
         base = _rescale_std(self._julia_grid(sample_out, sample_in), 1.0)
         spectrum = np.fft.rfft(base, axis=1)
         phase = np.exp(
-            1j * self._rng.uniform(spectrum.shape, -math.pi, math.pi).astype(np.float64)
+            1j
+            * self._rng.uniform(
+                spectrum.shape,
+                -math.pi,
+                math.pi,
+            ).astype(np.float64)
         )
         field = np.fft.irfft(
             np.abs(spectrum) * phase,
             n=sample_in,
             axis=1,
         ).astype(np.float32)
-        out = field[:out_dim, :in_dim]
+        out = self._informative_crop(field, out_dim, in_dim)
         return _rescale_std(out, target_std or _fan_std(in_dim, out_dim))
 
     def fourier_positional(self) -> Array:
@@ -257,10 +293,19 @@ class MathRevolutionaryInitializer:
             q = q_t.T
         return _rescale_std(q.astype(np.float32), _fan_std(in_dim, out_dim))
 
-    def _structured_matrix(self, shape: tuple[int, int], *, use_laplacian: bool) -> Array:
+    def _structured_matrix(
+        self,
+        shape: tuple[int, int],
+        *,
+        use_laplacian: bool,
+    ) -> Array:
         out_dim, in_dim = shape
         target = _fan_std(in_dim, out_dim)
-        w = self.fractal_matrix(shape, target_std=target) if self.components.fractal else self.xavier_matrix(shape)
+        w = (
+            self.fractal_matrix(shape, target_std=target)
+            if self.components.fractal
+            else self.xavier_matrix(shape)
+        )
         if use_laplacian and self.components.laplacian:
             lap = self.laplacian_matrix(in_dim)
             w = w + np.float32(self.cfg.laplacian_strength) * (w @ lap)
@@ -274,12 +319,22 @@ class MathRevolutionaryInitializer:
             return self._rng.normal((vocab_size, dim), scale=target)
 
         embedding = np.zeros((vocab_size, dim), dtype=np.float32)
-        anchors = _n_primes(vocab_size) % dim if self.components.prime_embedding else np.arange(vocab_size, dtype=np.int64) % dim
-        values = self.chaos_vector(vocab_size) if self.components.chaos_embedding else self._rng.normal((vocab_size,))
+        anchors = (
+            _n_primes(vocab_size) % dim
+            if self.components.prime_embedding
+            else np.arange(vocab_size, dtype=np.int64) % dim
+        )
+        values = (
+            self.chaos_vector(vocab_size)
+            if self.components.chaos_embedding
+            else self._rng.normal((vocab_size,))
+        )
         embedding[np.arange(vocab_size), anchors] = values
         spectrum = np.fft.rfft(embedding, axis=1)
         lowpass = np.linspace(1.0, 0.6, spectrum.shape[1], dtype=np.float32)[None, :]
-        embedding = np.fft.irfft(spectrum * lowpass, n=dim, axis=1).astype(np.float32)
+        embedding = np.fft.irfft(spectrum * lowpass, n=dim, axis=1).astype(
+            np.float32
+        )
 
         if self.components.zipf_scale:
             ranks = np.arange(1, vocab_size + 1, dtype=np.float32)
@@ -289,21 +344,36 @@ class MathRevolutionaryInitializer:
             embedding *= scales[:, None]
         return _rescale_std(embedding, target)
 
-    def init_linear(self, in_dim: int, out_dim: int, *, use_laplacian: bool = False) -> dict[str, Array]:
+    def init_linear(
+        self,
+        in_dim: int,
+        out_dim: int,
+        *,
+        use_laplacian: bool = False,
+    ) -> dict[str, Array]:
         return {
-            "weight": self._structured_matrix((out_dim, in_dim), use_laplacian=use_laplacian),
+            "weight": self._structured_matrix(
+                (out_dim, in_dim),
+                use_laplacian=use_laplacian,
+            ),
             "bias": np.zeros(out_dim, dtype=np.float32),
         }
 
     def init_attention(self) -> dict[str, Array]:
         dim = self.cfg.d_model
-        result = {name: self._structured_matrix((dim, dim), use_laplacian=False) for name in ("Wq", "Wk", "Wv")}
+        result = {
+            name: self._structured_matrix((dim, dim), use_laplacian=False)
+            for name in ("Wq", "Wk", "Wv")
+        }
         wo = self._structured_matrix((dim, dim), use_laplacian=False)
         if self.components.prime_embedding:
             mask = np.zeros_like(wo)
             columns = _n_primes(dim) % dim
             mask[np.arange(dim), columns] = np.float32(_fan_std(dim, dim))
-            wo = _rescale_std(np.float32(0.85) * wo + np.float32(0.15) * mask, _fan_std(dim, dim))
+            wo = _rescale_std(
+                np.float32(0.85) * wo + np.float32(0.15) * mask,
+                _fan_std(dim, dim),
+            )
         result["Wo"] = wo
         for name in ("bq", "bk", "bv", "bo"):
             result[name] = np.zeros(dim, dtype=np.float32)
@@ -312,8 +382,16 @@ class MathRevolutionaryInitializer:
         return result
 
     def init_mlp(self) -> dict[str, Array]:
-        first = self.init_linear(self.cfg.d_model, self.cfg.d_ff, use_laplacian=True)
-        second = self.init_linear(self.cfg.d_ff, self.cfg.d_model, use_laplacian=False)
+        first = self.init_linear(
+            self.cfg.d_model,
+            self.cfg.d_ff,
+            use_laplacian=True,
+        )
+        second = self.init_linear(
+            self.cfg.d_ff,
+            self.cfg.d_model,
+            use_laplacian=False,
+        )
         return {
             "fc1.W": first["weight"],
             "fc1.b": first["bias"],
@@ -322,7 +400,9 @@ class MathRevolutionaryInitializer:
         }
 
     def init_layernorm(self) -> dict[str, Array]:
-        gamma_value = 1.0 / self.cfg.phi_scale if self.components.golden_layernorm else 1.0
+        gamma_value = (
+            1.0 / self.cfg.phi_scale if self.components.golden_layernorm else 1.0
+        )
         return {
             "gamma": np.full(self.cfg.d_model, gamma_value, dtype=np.float32),
             "beta": np.zeros(self.cfg.d_model, dtype=np.float32),
@@ -341,17 +421,31 @@ class MathRevolutionaryInitializer:
         if n_blocks <= 0:
             raise ValueError("n_blocks must be positive")
         model = {
-            "meta": {"version": self.VERSION, "seed": self.cfg.seed, "components": asdict(self.components)},
+            "meta": {
+                "version": self.VERSION,
+                "seed": self.cfg.seed,
+                "components": asdict(self.components),
+            },
             "cfg": asdict(self.cfg),
-            "embeddings": {"tok": self.token_embedding(self.cfg.vocab_size, self.cfg.d_model), "pos": self.fourier_positional()},
+            "embeddings": {
+                "tok": self.token_embedding(self.cfg.vocab_size, self.cfg.d_model),
+                "pos": self.fourier_positional(),
+            },
             "blocks": {f"b{i}": self.init_block() for i in range(n_blocks)},
-            "lm_head": self.init_linear(self.cfg.d_model, self.cfg.vocab_size, use_laplacian=True),
+            "lm_head": self.init_linear(
+                self.cfg.d_model,
+                self.cfg.vocab_size,
+                use_laplacian=True,
+            ),
         }
         self.assert_finite(model)
         return model
 
     @staticmethod
-    def iter_arrays(tree: Mapping[str, Any], prefix: str = "") -> Iterator[tuple[str, Array]]:
+    def iter_arrays(
+        tree: Mapping[str, Any],
+        prefix: str = "",
+    ) -> Iterator[tuple[str, Array]]:
         for key, value in tree.items():
             path = f"{prefix}.{key}" if prefix else key
             if isinstance(value, np.ndarray):
@@ -370,14 +464,25 @@ class MathRevolutionaryInitializer:
         return {path: array for path, array in cls.iter_arrays(model)}
 
     @classmethod
-    def save_npz(cls, model: Mapping[str, Any], path: str | os.PathLike[str]) -> str:
+    def save_npz(
+        cls,
+        model: Mapping[str, Any],
+        path: str | os.PathLike[str],
+    ) -> str:
         """Atomically serialize model arrays and return SHA-256 of final artifact."""
         destination = Path(path)
         destination.parent.mkdir(parents=True, exist_ok=True)
         temp = destination.with_name(f".{destination.name}.tmp")
         arrays = cls.flatten_arrays(model)
-        metadata = {"meta": model.get("meta", {}), "cfg": model.get("cfg", {}), "array_paths": sorted(arrays)}
-        payload = {**arrays, "__metadata_json__": np.asarray(json.dumps(metadata, sort_keys=True))}
+        metadata = {
+            "meta": model.get("meta", {}),
+            "cfg": model.get("cfg", {}),
+            "array_paths": sorted(arrays),
+        }
+        payload = {
+            **arrays,
+            "__metadata_json__": np.asarray(json.dumps(metadata, sort_keys=True)),
+        }
         try:
             with temp.open("wb") as handle:
                 np.savez_compressed(handle, **payload)
