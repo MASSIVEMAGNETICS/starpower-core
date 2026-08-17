@@ -27,6 +27,7 @@ dev = [
 
 [project.scripts]
 starpower = "starpower_core.cli:main"
+starpower-complete = "starpower_core.completion:main"
 
 [tool.setuptools.packages.find]
 include = ["starpower_core*"]
