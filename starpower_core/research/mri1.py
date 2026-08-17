@@ -1,10 +1,8 @@
-"""MRI-1: multi-task screening study for structured initialization.
+"""MRI-1: paired multi-task screening for structured initialization.
 
-This module expands MRI-0 from a single-task Xavier comparison into a paired,
-multi-baseline screening experiment. It remains CPU-only and deliberately small:
-the architecture families are compact research proxies, not production
-transformers. Promotion means "worth a PyTorch-scale trial", never "proven
-superior".
+MRI-1 is a CPU-only evidence gate. The architecture families are compact
+research proxies, not production transformers. A promotion decision means only
+that MRI deserves a larger PyTorch experiment.
 """
 
 from __future__ import annotations
@@ -19,12 +17,7 @@ from typing import Literal
 import numpy as np
 
 from .mri import MathRevolutionaryInitializer, MRICfg, MRIComponents
-from .tournament import (
-    _backward,
-    _clip_gradients,
-    _forward,
-    _gradient_norm,
-)
+from .tournament import _backward, _clip_gradients, _forward, _gradient_norm
 
 Array = np.ndarray
 Architecture = Literal["standard", "gst", "fractal"]
@@ -55,8 +48,6 @@ ABLATIONS: tuple[AblationKind, ...] = ("full", "no_fractal", "no_laplacian", "no
 
 @dataclass(frozen=True)
 class StudyCfg:
-    """Fixed scientific budget for one MRI-1 trial."""
-
     input_dim: int = 12
     hidden_dim: int = 24
     train_size: int = 512
@@ -72,7 +63,7 @@ class StudyCfg:
     gradient_clip_norm: float = 5.0
 
     def __post_init__(self) -> None:
-        positive_ints = (
+        positive = (
             self.input_dim,
             self.hidden_dim,
             self.train_size,
@@ -80,7 +71,7 @@ class StudyCfg:
             self.batch_size,
             self.steps,
         )
-        if any(value <= 0 for value in positive_ints):
+        if any(value <= 0 for value in positive):
             raise ValueError("dimensions and budgets must be positive")
         if self.batch_size > self.train_size:
             raise ValueError("batch_size cannot exceed train_size")
@@ -109,6 +100,22 @@ def _components(ablation: AblationKind) -> MRIComponents:
     raise ValueError(f"unknown ablation: {ablation}")
 
 
+def _fan_std(in_dim: int, out_dim: int) -> float:
+    return math.sqrt(2.0 / float(in_dim + out_dim))
+
+
+def _renormalize(weight: Array, target_std: float) -> Array:
+    result = np.asarray(weight, dtype=np.float32).copy()
+    result -= np.float32(result.mean())
+    std = float(result.std())
+    if not math.isfinite(std) or std <= 1e-12:
+        raise FloatingPointError("degenerate scalar-head initialization")
+    result *= np.float32(target_std / std)
+    if not np.isfinite(result).all():
+        raise FloatingPointError("non-finite scalar-head initialization")
+    return result
+
+
 class _WeightFactory:
     def __init__(
         self,
@@ -121,16 +128,18 @@ class _WeightFactory:
         self.initializer = initializer
         self.rng = np.random.default_rng(seed)
         n_heads = 4 if cfg.hidden_dim % 4 == 0 else 1
-        mri_cfg = MRICfg(
-            vocab_size=128,
-            d_model=cfg.hidden_dim,
-            n_heads=n_heads,
-            d_ff=max(cfg.hidden_dim * 2, 8),
-            max_len=32,
-            seed=seed,
-            julia_iters=16,
+        self.mri = MathRevolutionaryInitializer(
+            MRICfg(
+                vocab_size=128,
+                d_model=cfg.hidden_dim,
+                n_heads=n_heads,
+                d_ff=max(cfg.hidden_dim * 2, 8),
+                max_len=32,
+                seed=seed,
+                julia_iters=16,
+            ),
+            _components(ablation),
         )
-        self.mri = MathRevolutionaryInitializer(mri_cfg, _components(ablation))
 
     def linear(
         self,
@@ -143,19 +152,33 @@ class _WeightFactory:
             limit = math.sqrt(6.0 / float(in_dim + out_dim))
             weight = self.rng.uniform(-limit, limit, size=(in_dim, out_dim))
         elif self.initializer == "kaiming":
-            std = math.sqrt(2.0 / float(in_dim))
-            weight = self.rng.normal(0.0, std, size=(in_dim, out_dim))
+            weight = self.rng.normal(
+                0.0,
+                math.sqrt(2.0 / float(in_dim)),
+                size=(in_dim, out_dim),
+            )
         elif self.initializer == "orthogonal":
-            raw = self.rng.normal(0.0, 1.0, size=(in_dim, out_dim))
+            raw = self.rng.normal(size=(in_dim, out_dim))
             if in_dim >= out_dim:
-                q, _ = np.linalg.qr(raw, mode="reduced")
+                weight, _ = np.linalg.qr(raw, mode="reduced")
             else:
                 q_t, _ = np.linalg.qr(raw.T, mode="reduced")
-                q = q_t.T
-            weight = q
+                weight = q_t.T
         elif self.initializer == "mri":
-            layer = self.mri.init_linear(in_dim, out_dim, use_laplacian=structured)
-            return layer["weight"].T.copy(), layer["bias"].copy()
+            # A 1×N Julia escape grid can be constant. Preserve MRI-0's
+            # fail-closed core and adapt scalar heads here by creating two
+            # structured outputs, cropping deterministically, then restoring
+            # the exact fan-aware variance for the requested 1-output head.
+            generated_out = max(out_dim, 2)
+            layer = self.mri.init_linear(
+                in_dim,
+                generated_out,
+                use_laplacian=structured,
+            )
+            weight = layer["weight"][:out_dim].T.copy()
+            if generated_out != out_dim:
+                weight = _renormalize(weight, _fan_std(in_dim, out_dim))
+            return weight, np.zeros(out_dim, dtype=np.float32)
         else:
             raise ValueError(f"unknown initializer: {self.initializer}")
 
@@ -213,13 +236,11 @@ def _build_model(
 
 def _classification_dataset(cfg: StudyCfg, rng: np.random.Generator) -> tuple[Array, ...]:
     total = cfg.train_size + cfg.val_size
-    x = rng.normal(0.0, 1.0, size=(total, cfg.input_dim)).astype(np.float32)
-    teacher_width = 32
-    w1 = rng.normal(0.0, 0.55, size=(cfg.input_dim, teacher_width)).astype(np.float32)
-    b1 = rng.normal(0.0, 0.15, size=teacher_width).astype(np.float32)
-    w2 = rng.normal(0.0, 0.65, size=(teacher_width, 4)).astype(np.float32)
-    hidden = np.tanh(x @ w1 + b1).astype(np.float32)
-    logits = hidden @ w2
+    x = rng.normal(size=(total, cfg.input_dim)).astype(np.float32)
+    w1 = rng.normal(0.0, 0.55, size=(cfg.input_dim, 32)).astype(np.float32)
+    b1 = rng.normal(0.0, 0.15, size=32).astype(np.float32)
+    w2 = rng.normal(0.0, 0.65, size=(32, 4)).astype(np.float32)
+    logits = np.tanh(x @ w1 + b1).astype(np.float32) @ w2
     logits += np.float32(0.08) * rng.normal(size=logits.shape).astype(np.float32)
     y = np.argmax(logits, axis=1).astype(np.int64)
     return x[: cfg.train_size], y[: cfg.train_size], x[cfg.train_size :], y[cfg.train_size :]
@@ -227,7 +248,7 @@ def _classification_dataset(cfg: StudyCfg, rng: np.random.Generator) -> tuple[Ar
 
 def _regression_dataset(cfg: StudyCfg, rng: np.random.Generator) -> tuple[Array, ...]:
     total = cfg.train_size + cfg.val_size
-    x = rng.normal(0.0, 1.0, size=(total, cfg.input_dim)).astype(np.float32)
+    x = rng.normal(size=(total, cfg.input_dim)).astype(np.float32)
     y = (
         np.sin(x[:, 0] * x[:, 1])
         + np.float32(0.45) * x[:, 2] ** 2
@@ -237,9 +258,7 @@ def _regression_dataset(cfg: StudyCfg, rng: np.random.Generator) -> tuple[Array,
     )
     y += np.float32(0.04) * rng.normal(size=total).astype(np.float32)
     train_y = y[: cfg.train_size]
-    mean = np.float32(train_y.mean())
-    std = np.float32(train_y.std() + 1e-6)
-    y = ((y - mean) / std).astype(np.float32)
+    y = ((y - train_y.mean()) / (train_y.std() + np.float32(1e-6))).astype(np.float32)
     return x[: cfg.train_size], y[: cfg.train_size], x[cfg.train_size :], y[cfg.train_size :]
 
 
@@ -255,10 +274,7 @@ def _sequence_dataset(cfg: StudyCfg, rng: np.random.Generator) -> tuple[Array, .
     )
     series += np.float32(0.03) * rng.normal(size=length).astype(np.float32)
     x = np.stack([series[i : i + cfg.input_dim] for i in range(total)]).astype(np.float32)
-    y = np.asarray(
-        [series[i + cfg.input_dim] for i in range(total)],
-        dtype=np.float32,
-    )
+    y = np.asarray([series[i + cfg.input_dim] for i in range(total)], dtype=np.float32)
     train_x = x[: cfg.train_size]
     mean = np.float32(train_x.mean())
     std = np.float32(train_x.std() + 1e-6)
@@ -280,15 +296,13 @@ def _xor_dataset(cfg: StudyCfg, rng: np.random.Generator) -> tuple[Array, ...]:
 def _dataset(task: TaskKind, cfg: StudyCfg) -> tuple[Array, ...]:
     offsets = {"classification": 11, "regression": 23, "sequence": 37, "xor": 53}
     rng = np.random.default_rng(cfg.data_seed + offsets[task])
-    if task == "classification":
-        return _classification_dataset(cfg, rng)
-    if task == "regression":
-        return _regression_dataset(cfg, rng)
-    if task == "sequence":
-        return _sequence_dataset(cfg, rng)
-    if task == "xor":
-        return _xor_dataset(cfg, rng)
-    raise ValueError(f"unknown task: {task}")
+    builders = {
+        "classification": _classification_dataset,
+        "regression": _regression_dataset,
+        "sequence": _sequence_dataset,
+        "xor": _xor_dataset,
+    }
+    return builders[task](cfg, rng)
 
 
 def _softmax_loss(logits: Array, labels: Array) -> tuple[float, Array]:
@@ -300,21 +314,19 @@ def _softmax_loss(logits: Array, labels: Array) -> tuple[float, Array]:
     return loss, probs
 
 
-def _loss_and_gradient(task: TaskKind, outputs: Array, targets: Array) -> tuple[float, Array]:
+def _loss_gradient(task: TaskKind, outputs: Array, targets: Array) -> tuple[float, Array]:
     if task in ("classification", "xor"):
-        loss, probs = _softmax_loss(outputs, targets.astype(np.int64))
+        labels = targets.astype(np.int64)
+        loss, probs = _softmax_loss(outputs, labels)
         grad = probs.copy()
-        grad[np.arange(targets.size), targets.astype(np.int64)] -= np.float32(1.0)
-        grad /= np.float32(targets.size)
+        grad[np.arange(labels.size), labels] -= np.float32(1.0)
+        grad /= np.float32(labels.size)
         return loss, grad
-
-    prediction = outputs[:, 0]
     target = targets.astype(np.float32)
-    error = prediction - target
-    loss = float(np.mean(error * error))
+    error = outputs[:, 0] - target
     grad = np.zeros_like(outputs)
     grad[:, 0] = np.float32(2.0 / target.size) * error
-    return loss, grad
+    return float(np.mean(error * error)), grad
 
 
 def _evaluate(
@@ -329,15 +341,13 @@ def _evaluate(
         loss, probs = _softmax_loss(outputs, targets.astype(np.int64))
         metric = float(np.mean(np.argmax(probs, axis=1) == targets))
     else:
-        prediction = outputs[:, 0]
-        error = prediction - targets.astype(np.float32)
+        error = outputs[:, 0] - targets.astype(np.float32)
         loss = float(np.mean(error * error))
-        metric = float(math.sqrt(loss))
-    activation_variance = float(np.var(hidden, axis=0).mean())
-    return loss, metric, activation_variance
+        metric = math.sqrt(loss)
+    return loss, metric, float(np.var(hidden, axis=0).mean())
 
 
-def _arrays_nbytes(values: dict[str, Array]) -> int:
+def _nbytes(values: dict[str, Array]) -> int:
     return int(sum(value.nbytes for value in values.values()))
 
 
@@ -391,8 +401,6 @@ def run_trial(
     *,
     ablation: AblationKind = "full",
 ) -> dict[str, object]:
-    """Train one paired condition under a fixed data and optimization budget."""
-
     config = cfg or StudyCfg()
     x_train, y_train, x_val, y_val = _dataset(task, config)
     params = _build_model(architecture, initializer, task, config, seed, ablation=ablation)
@@ -406,7 +414,7 @@ def run_trial(
     convergence_step: int | None = None
     gradient_norms: list[float] = []
     activation_variances: list[float] = []
-    finite_gradient_steps = 0
+    finite_steps = 0
     eval_interval = max(1, config.steps // 12)
 
     started = time.perf_counter()
@@ -414,32 +422,28 @@ def run_trial(
         indices = batch_rng.choice(config.train_size, size=config.batch_size, replace=False)
         x_batch = x_train[indices]
         y_batch = y_train[indices]
-        outputs, hidden, cache = _forward(architecture, params, x_batch)
-        _, doutputs = _loss_and_gradient(task, outputs, y_batch)
+        outputs, _, cache = _forward(architecture, params, x_batch)
+        _, doutputs = _loss_gradient(task, outputs, y_batch)
         grads = _backward(architecture, params, cache, doutputs)
         raw_norm = _gradient_norm(grads)
         gradient_norms.append(raw_norm)
-        finite_gradient_steps += int(
-            math.isfinite(raw_norm) and all(np.isfinite(grad).all() for grad in grads.values())
+        finite = math.isfinite(raw_norm) and all(
+            np.isfinite(grad).all() for grad in grads.values()
         )
-        if finite_gradient_steps != step:
+        finite_steps += int(finite)
+        if not finite:
             raise FloatingPointError(
                 f"non-finite gradient: {architecture}/{initializer}/{task}/{optimizer}/{seed}"
             )
         _clip_gradients(grads, config.gradient_clip_norm)
-
         if optimizer == "adamw":
             _adamw_step(params, grads, first, second, step, config)
-        elif optimizer == "sgd":
-            _sgd_step(params, grads, velocity, config)
         else:
-            raise ValueError(f"unknown optimizer: {optimizer}")
-
+            _sgd_step(params, grads, velocity, config)
         if not all(np.isfinite(param).all() for param in params.values()):
             raise FloatingPointError(
                 f"non-finite parameter: {architecture}/{initializer}/{task}/{optimizer}/{seed}"
             )
-
         if step % eval_interval == 0 or step == config.steps:
             train_loss, _, activation_variance = _evaluate(
                 architecture,
@@ -464,8 +468,6 @@ def run_trial(
     norms = np.asarray(gradient_norms, dtype=np.float64)
     mean_norm = float(norms.mean())
     std_norm = float(norms.std())
-    metric_name = "accuracy" if task in ("classification", "xor") else "rmse"
-
     return {
         "architecture": architecture,
         "initializer": initializer,
@@ -481,21 +483,19 @@ def run_trial(
         "final_train_metric": final_train_metric,
         "validation_loss": validation_loss,
         "validation_metric": validation_metric,
-        "metric_name": metric_name,
+        "metric_name": "accuracy" if task in ("classification", "xor") else "rmse",
         "convergence_step": convergence_step,
         "gradient_norm_mean": mean_norm,
         "gradient_norm_std": std_norm,
         "gradient_norm_max": float(norms.max()),
         "gradient_norm_cv": std_norm / mean_norm if mean_norm > 1e-12 else 0.0,
-        "finite_gradient_fraction": finite_gradient_steps / float(config.steps),
+        "finite_gradient_fraction": finite_steps / float(config.steps),
         "activation_variance": final_activation_variance,
         "activation_variance_trace_mean": float(np.mean(activation_variances)),
         "parameter_count": int(sum(value.size for value in params.values())),
-        "parameter_bytes": _arrays_nbytes(params),
+        "parameter_bytes": _nbytes(params),
         "optimizer_state_bytes": (
-            _arrays_nbytes(first) + _arrays_nbytes(second)
-            if optimizer == "adamw"
-            else _arrays_nbytes(velocity)
+            _nbytes(first) + _nbytes(second) if optimizer == "adamw" else _nbytes(velocity)
         ),
         "elapsed_seconds": elapsed,
         "samples_per_second": config.steps * config.batch_size / max(elapsed, 1e-12),
@@ -541,50 +541,44 @@ def _group_key(trial: dict[str, object]) -> tuple[str, str, int, str]:
 
 
 def aggregate_main_trials(trials: list[dict[str, object]]) -> dict[str, object]:
-    """Compare MRI to the best conventional initializer within paired cells."""
-
-    by_group: dict[tuple[str, str, int, str], list[dict[str, object]]] = {}
+    grouped: dict[tuple[str, str, int, str], list[dict[str, object]]] = {}
     for trial in trials:
-        by_group.setdefault(_group_key(trial), []).append(trial)
+        grouped.setdefault(_group_key(trial), []).append(trial)
 
     comparisons: list[dict[str, object]] = []
     qualifying_tasks: set[str] = set()
-    all_relative_improvements: list[float] = []
-    all_gradients_finite = True
-
-    for key, rows in sorted(by_group.items()):
+    all_improvements: list[float] = []
+    all_finite = True
+    for key, rows in sorted(grouped.items()):
         architecture, task, width, optimizer = key
         by_initializer: dict[str, list[dict[str, object]]] = {}
         for row in rows:
             by_initializer.setdefault(str(row["initializer"]), []).append(row)
-            all_gradients_finite &= float(row["finite_gradient_fraction"]) == 1.0
-
+            all_finite &= float(row["finite_gradient_fraction"]) == 1.0
         baseline_means = {
-            name: _mean([float(row["validation_loss"]) for row in initializer_rows])
-            for name, initializer_rows in by_initializer.items()
+            name: _mean([float(row["validation_loss"]) for row in values])
+            for name, values in by_initializer.items()
             if name != "mri"
         }
         best_baseline = min(baseline_means, key=baseline_means.__getitem__)
-        mri_by_seed = {int(row["seed"]): row for row in by_initializer.get("mri", [])}
-        baseline_by_seed = {int(row["seed"]): row for row in by_initializer[best_baseline]}
-        common_seeds = sorted(set(mri_by_seed) & set(baseline_by_seed))
-        relative_improvements = []
-        metric_deltas = []
-        for seed in common_seeds:
+        mri_by_seed = {int(row["seed"]): row for row in by_initializer["mri"]}
+        base_by_seed = {int(row["seed"]): row for row in by_initializer[best_baseline]}
+        common = sorted(set(mri_by_seed) & set(base_by_seed))
+        improvements: list[float] = []
+        metric_advantages: list[float] = []
+        for seed in common:
             mri_loss = float(mri_by_seed[seed]["validation_loss"])
-            baseline_loss = float(baseline_by_seed[seed]["validation_loss"])
-            relative_improvements.append(
-                (baseline_loss - mri_loss) / max(abs(baseline_loss), 1e-12)
-            )
+            base_loss = float(base_by_seed[seed]["validation_loss"])
+            improvements.append((base_loss - mri_loss) / max(abs(base_loss), 1e-12))
             mri_metric = float(mri_by_seed[seed]["validation_metric"])
-            baseline_metric = float(baseline_by_seed[seed]["validation_metric"])
-            if task in ("classification", "xor"):
-                metric_deltas.append(mri_metric - baseline_metric)
-            else:
-                metric_deltas.append(baseline_metric - mri_metric)
-
-        evidence = _paired_evidence(relative_improvements)
-        metric_evidence = _paired_evidence(metric_deltas)
+            base_metric = float(base_by_seed[seed]["validation_metric"])
+            metric_advantages.append(
+                mri_metric - base_metric
+                if task in ("classification", "xor")
+                else base_metric - mri_metric
+            )
+        evidence = _paired_evidence(improvements)
+        metric_evidence = _paired_evidence(metric_advantages)
         qualifies = (
             int(evidence["n"]) >= 5
             and float(evidence["mean"]) >= 0.05
@@ -593,7 +587,7 @@ def aggregate_main_trials(trials: list[dict[str, object]]) -> dict[str, object]:
         )
         if qualifies:
             qualifying_tasks.add(task)
-        all_relative_improvements.extend(relative_improvements)
+        all_improvements.extend(improvements)
         comparisons.append(
             {
                 "architecture": architecture,
@@ -610,46 +604,41 @@ def aggregate_main_trials(trials: list[dict[str, object]]) -> dict[str, object]:
                 "qualifies_for_scale_signal": qualifies,
             }
         )
-
     return {
         "comparisons": comparisons,
         "qualifying_tasks": sorted(qualifying_tasks),
         "qualifying_cell_count": sum(
             int(bool(row["qualifies_for_scale_signal"])) for row in comparisons
         ),
-        "overall_relative_loss_improvement": _paired_evidence(all_relative_improvements),
-        "all_gradients_finite": all_gradients_finite,
+        "overall_relative_loss_improvement": _paired_evidence(all_improvements),
+        "all_gradients_finite": all_finite,
     }
 
 
 def aggregate_ablations(trials: list[dict[str, object]]) -> dict[str, object]:
-    """Find evidence that at least one active MRI component contributes value."""
-
-    groups: dict[tuple[str, str, int, str], list[dict[str, object]]] = {}
+    grouped: dict[tuple[str, str, int, str], list[dict[str, object]]] = {}
     for trial in trials:
-        groups.setdefault(_group_key(trial), []).append(trial)
-
+        grouped.setdefault(_group_key(trial), []).append(trial)
     signals: list[dict[str, object]] = []
-    component_signal = False
-    for key, rows in sorted(groups.items()):
-        full_by_seed = {
+    any_signal = False
+    for key, rows in sorted(grouped.items()):
+        full = {
             int(row["seed"]): row
             for row in rows
             if row["initializer"] == "mri" and row["ablation"] == "full"
         }
         for ablation in ("no_fractal", "no_laplacian", "no_entropy"):
-            ablated_by_seed = {
+            reduced = {
                 int(row["seed"]): row
                 for row in rows
                 if row["initializer"] == "mri" and row["ablation"] == ablation
             }
-            common = sorted(set(full_by_seed) & set(ablated_by_seed))
             improvements = []
-            for seed in common:
-                full_loss = float(full_by_seed[seed]["validation_loss"])
-                ablated_loss = float(ablated_by_seed[seed]["validation_loss"])
+            for seed in sorted(set(full) & set(reduced)):
+                full_loss = float(full[seed]["validation_loss"])
+                reduced_loss = float(reduced[seed]["validation_loss"])
                 improvements.append(
-                    (ablated_loss - full_loss) / max(abs(ablated_loss), 1e-12)
+                    (reduced_loss - full_loss) / max(abs(reduced_loss), 1e-12)
                 )
             evidence = _paired_evidence(improvements)
             detected = (
@@ -657,7 +646,7 @@ def aggregate_ablations(trials: list[dict[str, object]]) -> dict[str, object]:
                 and float(evidence["mean"]) >= 0.02
                 and float(evidence["probability_positive_normal_approx"]) >= 0.90
             )
-            component_signal |= detected
+            any_signal |= detected
             signals.append(
                 {
                     "architecture": key[0],
@@ -669,18 +658,18 @@ def aggregate_ablations(trials: list[dict[str, object]]) -> dict[str, object]:
                     "component_signal_detected": detected,
                 }
             )
-    return {"signals": signals, "component_signal_detected": component_signal}
+    return {"signals": signals, "component_signal_detected": any_signal}
 
 
 def _scientific_projection(report: dict[str, object]) -> dict[str, object]:
-    timing_keys = {"elapsed_seconds", "samples_per_second", "steps_per_second"}
+    timing = {"elapsed_seconds", "samples_per_second", "steps_per_second"}
 
     def strip(value: object) -> object:
         if isinstance(value, dict):
             return {
                 key: strip(item)
                 for key, item in sorted(value.items())
-                if key not in timing_keys and key != "scientific_receipt_sha256"
+                if key not in timing and key != "scientific_receipt_sha256"
             }
         if isinstance(value, list):
             return [strip(item) for item in value]
@@ -697,15 +686,16 @@ def _receipt(report: dict[str, object]) -> str:
         sort_keys=True,
         separators=(",", ":"),
         allow_nan=False,
-    ).encode("utf-8")
+    ).encode()
     return hashlib.sha256(payload).hexdigest()
 
 
 def _decision(main: dict[str, object], ablations: dict[str, object]) -> str:
     if not bool(main["all_gradients_finite"]):
         return "REJECT_NUMERICAL_INSTABILITY"
-    qualifying_tasks = set(main["qualifying_tasks"])
-    if len(qualifying_tasks) >= 2 and bool(ablations["component_signal_detected"]):
+    if len(set(main["qualifying_tasks"])) >= 2 and bool(
+        ablations["component_signal_detected"]
+    ):
         return "PROMOTE_FOR_PYTORCH_TRIAL"
     overall = main["overall_relative_loss_improvement"]
     assert isinstance(overall, dict)
@@ -724,8 +714,6 @@ def run_study(
     steps: int | None = None,
     seeds: tuple[int, ...] | None = None,
 ) -> dict[str, object]:
-    """Run MRI-1 and return a deterministic-receipted research report."""
-
     if mode == "smoke":
         tasks: tuple[TaskKind, ...] = ("classification", "xor")
         widths = (24,)
@@ -763,8 +751,10 @@ def run_study(
                             )
 
     ablation_trials: list[dict[str, object]] = []
-    ablation_width = 64 if mode == "full" else 24
-    ablation_cfg = StudyCfg(hidden_dim=ablation_width, steps=study_steps)
+    ablation_cfg = StudyCfg(
+        hidden_dim=64 if mode == "full" else 24,
+        steps=study_steps,
+    )
     for task in ablation_tasks:
         for architecture in ARCHITECTURES:
             for seed in ablation_seeds:
@@ -781,8 +771,8 @@ def run_study(
                         )
                     )
 
-    main_aggregate = aggregate_main_trials(trials)
-    ablation_aggregate = aggregate_ablations(ablation_trials)
+    main = aggregate_main_trials(trials)
+    ablations = aggregate_ablations(ablation_trials)
     report: dict[str, object] = {
         "schema": "MRI-1.0",
         "mode": mode,
@@ -804,9 +794,9 @@ def run_study(
                 "component_ablation_minimum_probability": 0.90,
             },
         },
-        "main": main_aggregate,
-        "ablations": ablation_aggregate,
-        "decision": _decision(main_aggregate, ablation_aggregate),
+        "main": main,
+        "ablations": ablations,
+        "decision": _decision(main, ablations),
         "trials": trials,
         "ablation_trials": ablation_trials,
     }
