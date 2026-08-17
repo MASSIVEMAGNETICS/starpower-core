@@ -13,7 +13,7 @@ import hashlib
 import json
 import math
 import time
-from dataclasses import asdict, dataclass, replace
+from dataclasses import dataclass, replace
 from typing import Literal
 
 import numpy as np
