@@ -416,10 +416,10 @@ class GitHubOrgScanner:
             if remaining <= 0:
                 break
             query = urllib.parse.urlencode(
-                {"per_page": remaining, "page": page, "type": "all", "sort": "full_name"}
+                {"per_page": remaining, "page": page, "type": "owner", "sort": "full_name"}
             )
             data = self._json(
-                f"https://api.github.com/orgs/{urllib.parse.quote(org)}/repos?{query}"
+                f"https://api.github.com/users/{urllib.parse.quote(org)}/repos?{query}"
             )
             if not isinstance(data, list):
                 raise RuntimeError("unexpected GitHub repository-list response")
@@ -509,7 +509,7 @@ def build_parser() -> argparse.ArgumentParser:
     local = sub.add_parser("scan-local", help="scan one local repository")
     local.add_argument("path", type=Path)
     local.add_argument("--output", type=Path)
-    org = sub.add_parser("scan-org", help="scan a GitHub organization using one tree request per repo")
+    org = sub.add_parser("scan-org", help="scan a GitHub account's public repositories using one tree request per repo")
     org.add_argument("org")
     org.add_argument("--limit", type=int)
     org.add_argument("--token-env", default="GITHUB_TOKEN")
