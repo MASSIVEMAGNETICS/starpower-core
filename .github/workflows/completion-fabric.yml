@@ -1,0 +1,120 @@
+name: Shared Completion Fabric
+
+on:
+  pull_request:
+    paths:
+      - "starpower_core/completion.py"
+      - "tests/test_completion_fabric.py"
+      - "docs/SHARED_COMPLETION_FABRIC.md"
+      - ".github/workflows/completion-fabric.yml"
+      - "pyproject.toml"
+  push:
+    branches:
+      - main
+      - "agent/**"
+    paths:
+      - "starpower_core/completion.py"
+      - "tests/test_completion_fabric.py"
+      - "docs/SHARED_COMPLETION_FABRIC.md"
+      - ".github/workflows/completion-fabric.yml"
+      - "pyproject.toml"
+  workflow_dispatch:
+    inputs:
+      repo_limit:
+        description: "Optional maximum repositories to scan; 0 means all visible repos"
+        required: false
+        default: "0"
+  schedule:
+    - cron: "17 8 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: shared-completion-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
+      - name: Lint SCF surface
+        run: ruff check starpower_core/completion.py tests/test_completion_fabric.py
+      - name: Test SCF surface
+        run: pytest -q tests/test_completion_fabric.py
+
+  portfolio-scan:
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MASSIVE_MAGNETICS_ORG_TOKEN: ${{ secrets.MASSIVE_MAGNETICS_ORG_TOKEN || github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install runtime
+        run: python -m pip install --upgrade pip && python -m pip install -e .
+      - name: Scan visible Massive Magnetics repositories
+        shell: bash
+        run: |
+          mkdir -p artifacts/completion
+          LIMIT="${{ github.event.inputs.repo_limit || '0' }}"
+          if [ "$LIMIT" != "0" ]; then
+            starpower-complete scan-org MASSIVEMAGNETICS \
+              --token-env MASSIVE_MAGNETICS_ORG_TOKEN \
+              --limit "$LIMIT" \
+              --output artifacts/completion/portfolio.json
+          else
+            starpower-complete scan-org MASSIVEMAGNETICS \
+              --token-env MASSIVE_MAGNETICS_ORG_TOKEN \
+              --output artifacts/completion/portfolio.json
+          fi
+      - name: Write leverage summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          report = json.loads(Path("artifacts/completion/portfolio.json").read_text())
+          lines = [
+              "## Shared Completion Fabric",
+              "",
+              f"- Repositories scanned: `{report['repository_count']}`",
+              f"- Average structural completion: `{report['average_completion_score']}/100`",
+              f"- Receipt: `{report['receipt_sha256']}`",
+              "",
+              "| Rank | Shared gap | Repos affected | Weighted impact | Effort | Leverage |",
+              "|---:|---|---:|---:|---:|---:|",
+          ]
+          for index, row in enumerate(report["shared_bottlenecks"][:12], start=1):
+              lines.append(
+                  f"| {index} | {row['gap']} | {row['affected_repositories']} | "
+                  f"{row['weighted_impact']} | {row['estimated_shared_effort']} | "
+                  f"{row['leverage_score']:.3f} |"
+              )
+          Path(os.environ["GITHUB_STEP_SUMMARY"]).write_text("\n".join(lines) + "\n")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: shared-completion-portfolio-${{ github.run_id }}
+          path: artifacts/completion/
+          if-no-files-found: error
+          retention-days: 90
