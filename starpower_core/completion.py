@@ -9,10 +9,10 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from collections import Counter
+from collections.abc import Iterable, Sequence
 from dataclasses import asdict, dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Iterable, Sequence
 
 SIGNAL_WEIGHTS: dict[str, int] = {
     "source": 20,
@@ -243,7 +243,7 @@ def portfolio_report(states: Sequence[RepoState]) -> dict[str, object]:
         "shared_bottlenecks": [item.to_dict() for item in bottlenecks],
     }
     payload["receipt_sha256"] = deterministic_receipt(payload)
-    payload["generated_at"] = datetime.now(timezone.utc).isoformat()
+    payload["generated_at"] = datetime.now(UTC).isoformat()
     return payload
 
 
@@ -551,7 +551,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             "verification": verification,
         }
         payload["receipt_sha256"] = deterministic_receipt(payload)
-        payload["generated_at"] = datetime.now(timezone.utc).isoformat()
+        payload["generated_at"] = datetime.now(UTC).isoformat()
         _write_json(payload, args.output)
         return 0 if verification["verified"] else 2
     raise AssertionError(f"unhandled command: {args.command}")
