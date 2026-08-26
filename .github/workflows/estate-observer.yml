@@ -4,23 +4,29 @@ on:
   pull_request:
     paths:
       - "starpower_core/estate.py"
+      - "starpower_core/development.py"
       - "starpower_core/completion.py"
       - "starpower_core/continuity.py"
       - "tests/test_estate_observer.py"
+      - "tests/test_development_observer.py"
       - "tests/test_continuity_fabric.py"
       - ".github/workflows/estate-observer.yml"
       - "docs/ESTATE_OBSERVER.md"
+      - "docs/DEVELOPMENT_OBSERVER.md"
   push:
     branches:
       - main
     paths:
       - "starpower_core/estate.py"
+      - "starpower_core/development.py"
       - "starpower_core/completion.py"
       - "starpower_core/continuity.py"
       - "tests/test_estate_observer.py"
+      - "tests/test_development_observer.py"
       - "tests/test_continuity_fabric.py"
       - ".github/workflows/estate-observer.yml"
       - "docs/ESTATE_OBSERVER.md"
+      - "docs/DEVELOPMENT_OBSERVER.md"
   workflow_dispatch:
   schedule:
     - cron: "43 */6 * * *"
@@ -48,16 +54,25 @@ jobs:
           cache: pip
       - name: Install
         run: python -m pip install --upgrade pip && python -m pip install -e ".[dev]"
-      - name: Lint estate observer
-        run: ruff check starpower_core/estate.py tests/test_estate_observer.py
-      - name: Test estate and continuity contracts
-        run: pytest -q tests/test_estate_observer.py tests/test_continuity_fabric.py
+      - name: Lint estate and development observers
+        run: |
+          ruff check \
+            starpower_core/estate.py \
+            starpower_core/development.py \
+            tests/test_estate_observer.py \
+            tests/test_development_observer.py
+      - name: Test estate, development, conflict, and continuity contracts
+        run: |
+          pytest -q \
+            tests/test_estate_observer.py \
+            tests/test_development_observer.py \
+            tests/test_continuity_fabric.py
 
   reconcile-estate:
     if: github.event_name != 'pull_request'
     needs: quality
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     permissions:
       contents: write
     env:
@@ -93,7 +108,7 @@ jobs:
           starpower-complete scan-org MASSIVEMAGNETICS \
             --token-env MASSIVE_MAGNETICS_ORG_TOKEN \
             --output artifacts/estate/portfolio.json
-      - name: Ingest verified estate snapshot
+      - name: Ingest verified repository estate snapshot
         shell: bash
         run: |
           set -euo pipefail
@@ -104,6 +119,28 @@ jobs:
             --source-ref "${GITHUB_SHA}" \
             | tee artifacts/estate/estate-report.json
           python -m starpower_core.estate --root .starpower/ledgers verify
+      - name: Scan open pull-request development state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m starpower_core.development \
+            --root .starpower/ledgers \
+            scan \
+            --owner MASSIVEMAGNETICS \
+            --token-env MASSIVE_MAGNETICS_ORG_TOKEN \
+            --source-ref "${GITHUB_SHA}" \
+            --output artifacts/estate/development.json
+      - name: Ingest development state and derive conflicts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m starpower_core.development \
+            --root .starpower/ledgers \
+            ingest \
+            --snapshot artifacts/estate/development.json \
+            | tee artifacts/estate/development-report.json
+          python -m starpower_core.development --root .starpower/ledgers verify
+          rm -rf artifacts/estate/derived
           cp -R .starpower/ledgers/derived artifacts/estate/derived
       - name: Stage durable state outside checkout
         shell: bash
@@ -113,6 +150,7 @@ jobs:
           mkdir -p /tmp/estate-publish/estate/source /tmp/estate-artifacts
           cp -R .starpower/ledgers /tmp/estate-publish/estate/ledgers
           cp artifacts/estate/portfolio.json /tmp/estate-publish/estate/source/portfolio.json
+          cp artifacts/estate/development.json /tmp/estate-publish/estate/source/development.json
           cp -R artifacts/estate/. /tmp/estate-artifacts/
       - name: Persist append-only estate state branch
         shell: bash
@@ -132,7 +170,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Estate state unchanged; no state commit required."
           else
-            git commit -m "estate: append verified repository snapshot ${GITHUB_RUN_ID}"
+            git commit -m "estate: append verified repository and development snapshot ${GITHUB_RUN_ID}"
             git push origin HEAD:estate-state
           fi
       - name: Upload reconciliation evidence
