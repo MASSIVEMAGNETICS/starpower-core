@@ -1059,7 +1059,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1123,7 +1123,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1470,7 +1470,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -3550,6 +3550,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "8c08286adbe78fa0b276cfd9ca3f18342b840b5720fbf85928085c3d254b6334",
-  "source_development_receipt_sha256": "f86704f5de06a2aabc816fbe009e0135792d9febb74444bd7b15ca670a82dcf9"
+  "snapshot_sha256": "0cc01e9beee2dc082f02d7d8f8a4c7c6a5f46a5598abd6bdffbdfcb7e29f130d",
+  "source_development_receipt_sha256": "8469ef9a989c3d45bda8ee3c70eecb8cbcf2827d51b8a5234b0ab490d35505de"
 }
