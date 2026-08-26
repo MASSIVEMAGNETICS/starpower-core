@@ -1,0 +1,126 @@
+{
+  "candidates": [
+    {
+      "action": "REVIEW_LINEAGE",
+      "kind": "NEAR_NAME_COLLISION",
+      "normalized": [
+        "bandofiai",
+        "bandofyai"
+      ],
+      "repositories": [
+        "MASSIVEMAGNETICS/Bando-Fi-AI",
+        "MASSIVEMAGNETICS/bandofy-ai"
+      ]
+    },
+    {
+      "action": "REVIEW_LINEAGE",
+      "kind": "NEAR_NAME_COLLISION",
+      "normalized": [
+        "devville",
+        "devvville"
+      ],
+      "repositories": [
+        "MASSIVEMAGNETICS/dev-ville",
+        "MASSIVEMAGNETICS/devv-ville"
+      ]
+    },
+    {
+      "action": "REVIEW_LINEAGE",
+      "kind": "NEAR_NAME_COLLISION",
+      "normalized": [
+        "victor",
+        "victor3"
+      ],
+      "repositories": [
+        "MASSIVEMAGNETICS/victor",
+        "MASSIVEMAGNETICS/VICTOR-3"
+      ]
+    },
+    {
+      "action": "REVIEW_LINEAGE",
+      "kind": "NEAR_NAME_COLLISION",
+      "normalized": [
+        "victor",
+        "victoro"
+      ],
+      "repositories": [
+        "MASSIVEMAGNETICS/victor",
+        "MASSIVEMAGNETICS/Victor-O"
+      ]
+    },
+    {
+      "action": "REVIEW_LINEAGE",
+      "kind": "NEAR_NAME_COLLISION",
+      "normalized": [
+        "victor3",
+        "victoro"
+      ],
+      "repositories": [
+        "MASSIVEMAGNETICS/VICTOR-3",
+        "MASSIVEMAGNETICS/Victor-O"
+      ]
+    },
+    {
+      "action": "REVIEW_LINEAGE",
+      "kind": "NEAR_NAME_COLLISION",
+      "normalized": [
+        "victorai",
+        "victoragi"
+      ],
+      "repositories": [
+        "MASSIVEMAGNETICS/VICTOR-AI",
+        "MASSIVEMAGNETICS/Victor.AGI"
+      ]
+    },
+    {
+      "action": "REVIEW_LINEAGE",
+      "kind": "NEAR_NAME_COLLISION",
+      "normalized": [
+        "victoro",
+        "victoros"
+      ],
+      "repositories": [
+        "MASSIVEMAGNETICS/Victor-O",
+        "MASSIVEMAGNETICS/victorOS"
+      ]
+    },
+    {
+      "action": "REVIEW_LINEAGE",
+      "kind": "NORMALIZED_NAME_COLLISION",
+      "normalized": "comfycortex",
+      "repositories": [
+        "MASSIVEMAGNETICS/comfy-cortex",
+        "MASSIVEMAGNETICS/ComfyCortex"
+      ]
+    },
+    {
+      "action": "REVIEW_LINEAGE",
+      "kind": "NORMALIZED_NAME_COLLISION",
+      "normalized": "imagefusion",
+      "repositories": [
+        "MASSIVEMAGNETICS/Image-Fusion",
+        "MASSIVEMAGNETICS/imagefusion"
+      ]
+    },
+    {
+      "action": "REVIEW_LINEAGE",
+      "kind": "NORMALIZED_NAME_COLLISION",
+      "normalized": "paradigmshatter",
+      "repositories": [
+        "MASSIVEMAGNETICS/paradigm-shatter",
+        "MASSIVEMAGNETICS/paradigm_shatter"
+      ]
+    },
+    {
+      "action": "REVIEW_LINEAGE",
+      "kind": "NORMALIZED_NAME_COLLISION",
+      "normalized": "voiceclonestudio",
+      "repositories": [
+        "MASSIVEMAGNETICS/voice_clone_studio",
+        "MASSIVEMAGNETICS/voiceclone-studio"
+      ]
+    }
+  ],
+  "schema_version": "lineage-candidates/v1",
+  "snapshot_sha256": "6be5e5b84f7147f9a3e78bba78a61303a41318e8d1f0fc75a48d3efd3c5b77d6"
+}
