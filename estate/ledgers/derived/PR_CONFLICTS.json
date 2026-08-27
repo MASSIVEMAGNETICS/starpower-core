@@ -1,5 +1,5 @@
 {
-  "conflict_count": 82,
+  "conflict_count": 81,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -19,11 +19,13 @@
       "right_pr": 26,
       "risk_score": 95,
       "shared_basenames": [
-        "deploy.yml"
+        "deploy.yml",
+        "post-deploy-verify.yml"
       ],
       "shared_components": [],
       "shared_paths": [
-        ".github/workflows/deploy.yml"
+        ".github/workflows/deploy.yml",
+        ".github/workflows/post-deploy-verify.yml"
       ],
       "shared_semantic_tokens": [
         "action",
@@ -34,15 +36,12 @@
         "changelog",
         "code",
         "compare",
-        "compatibility",
-        "dependabot",
         "details",
         "github",
         "href",
         "https",
         "issues",
         "notes",
-        "package",
         "pages",
         "previous",
         "redirect",
@@ -51,9 +50,7 @@
         "since",
         "sourced",
         "summary",
-        "updates",
-        "version",
-        "will"
+        "version"
       ]
     },
     {
@@ -83,24 +80,19 @@
         "code",
         "commits",
         "compare",
-        "dependabot",
-        "dependency",
         "details",
-        "docs",
         "full",
         "github",
         "href",
         "https",
         "include",
         "input",
-        "made",
         "notes",
         "redirect",
         "release",
         "releases",
         "sourced",
-        "summary",
-        "upgrade"
+        "summary"
       ]
     },
     {
@@ -122,7 +114,6 @@
       "shared_components": [],
       "shared_paths": [],
       "shared_semantic_tokens": [
-        "about",
         "action",
         "actions",
         "blockquote",
@@ -131,44 +122,17 @@
         "changelog",
         "code",
         "compare",
-        "dependabot",
         "details",
         "full",
         "github",
         "href",
         "https",
-        "made",
-        "minor",
-        "more",
         "notes",
         "redirect",
         "release",
         "releases",
         "sourced",
-        "summary",
-        "updates",
-        "upgrade"
-      ]
-    },
-    {
-      "action": "REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 25,
-      "protected_concepts": [],
-      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
-      "right_pr": 30,
-      "risk_score": 60,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "dependency",
-        "https",
-        "that"
+        "summary"
       ]
     },
     {
@@ -300,13 +264,11 @@
       "right_pr": 28,
       "risk_score": 95,
       "shared_basenames": [
-        "registry.yml",
-        "store.yml"
+        "registry.yml"
       ],
       "shared_components": [],
       "shared_paths": [
-        ".github/workflows/registry.yml",
-        ".github/workflows/store.yml"
+        ".github/workflows/registry.yml"
       ],
       "shared_semantic_tokens": [
         "actions",
@@ -3544,6 +3506,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "cc33b18002f93cfd2cc86208835b00427e3fb48191e6474ea2511eb01eee1386",
-  "source_development_receipt_sha256": "b167639c4e45695e0f2afb8dfee3cfb4d3c0cd14ccb1e44413ef659ff9a669bf"
+  "snapshot_sha256": "60039712771052c017a183808fca1d0738a633426944c1337b3fb44f91423963",
+  "source_development_receipt_sha256": "61ebf1a241060b3c6b5e3552bc9acc6a196352733ab1d11e15f399f4b9137f7b"
 }
