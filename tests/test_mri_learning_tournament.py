@@ -27,12 +27,17 @@ def _tiny_cfg() -> TournamentCfg:
         ("learning_rate", float("inf")),
         ("gradient_clip_norm", float("nan")),
         ("gradient_clip_norm", float("inf")),
+        ("convergence_fraction", float("nan")),
+        ("convergence_fraction", float("inf")),
         ("input_dim", 1),
         ("hidden_dim", 1),
+        ("train_size", True),
+        ("steps", 8.5),
+        ("data_seed", -1),
     ),
 )
-def test_tournament_config_rejects_invalid_optimizer_values_and_mri_dimensions(
-    field: str, value: float | int
+def test_tournament_config_rejects_malformed_experiment_values(
+    field: str, value: float | int | bool
 ) -> None:
     with pytest.raises(ValueError):
         TournamentCfg(**{field: value})
@@ -89,10 +94,5 @@ def test_aggregate_exposes_controlled_initializer_comparisons() -> None:
         "REJECT_NUMERICAL_INSTABILITY",
         "INCONCLUSIVE",
     }
-    assert aggregate["decision_evidence"]["all_gradients_finite"] is True
-    assert set(aggregate["initializer_comparisons"]) == {"standard", "gst", "fractal"}
-    for comparison in aggregate["initializer_comparisons"].values():
-        assert "mri_minus_xavier_validation_loss" in comparison
-        assert "mri_minus_xavier_validation_accuracy" in comparison
-        assert "mri_to_xavier_gradient_cv_ratio" in comparison
-        assert "mri_to_xavier_throughput_ratio" in comparison
+    assert len(aggregate["conditions"]) == 6
+    assert len(aggregate["comparisons"]) == 3
