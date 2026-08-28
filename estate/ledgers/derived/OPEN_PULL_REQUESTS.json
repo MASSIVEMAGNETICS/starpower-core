@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 25,
-  "generated_at": "2026-08-27T22:38:47.498316+00:00",
+  "generated_at": "2026-08-28T12:14:49.816010+00:00",
   "open_pull_request_count": 62,
   "pull_requests": [
     {
@@ -3116,7 +3116,7 @@
       ],
       "state": "open",
       "title": "Bump actions/checkout from 6 to 7",
-      "updated_at": "2026-08-27T16:57:54Z"
+      "updated_at": "2026-08-27T23:05:33Z"
     },
     {
       "additions": 162,
@@ -8053,7 +8053,7 @@
       "error": null,
       "evidence_status": "complete",
       "head_ref": "agent/harden-mri-tournament-validation",
-      "head_sha": "016efa10140ac49c76a1cbad1df98be3746d9b29",
+      "head_sha": "b83e20883d7ef7ed5ff1f15618a9ac621321a66b",
       "mergeable": true,
       "mergeable_state": "clean",
       "number": 4,
@@ -8149,7 +8149,7 @@
       ],
       "state": "open",
       "title": "fix: harden MRI tournament validation",
-      "updated_at": "2026-08-17T00:27:57Z"
+      "updated_at": "2026-08-27T23:05:53Z"
     },
     {
       "additions": 1835,
@@ -12397,7 +12397,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "61ebf1a241060b3c6b5e3552bc9acc6a196352733ab1d11e15f399f4b9137f7b",
+  "receipt_sha256": "0413ec1d23cd8973ddb8e4c0aece4889699c503ec0515ff5f40e92c1326d3bb9",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
