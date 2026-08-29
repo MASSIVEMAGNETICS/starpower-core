@@ -1,5 +1,5 @@
 {
-  "conflict_count": 81,
+  "conflict_count": 86,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -140,6 +140,46 @@
       "base_ref": "main",
       "both_mergeable_false": false,
       "kinds": [
+        "FILE_OVERLAP",
+        "STRUCTURAL_BASENAME_COLLISION",
+        "SEMANTIC_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 25,
+      "protected_concepts": [],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 43,
+      "risk_score": 80,
+      "shared_basenames": [
+        "deploy.yml",
+        "post-deploy-verify.yml"
+      ],
+      "shared_components": [],
+      "shared_paths": [
+        ".github/workflows/deploy.yml",
+        ".github/workflows/post-deploy-verify.yml"
+      ],
+      "shared_semantic_tokens": [
+        "action",
+        "actions",
+        "artifact",
+        "branch",
+        "commits",
+        "files",
+        "github",
+        "hidden",
+        "https",
+        "include",
+        "pages",
+        "previous",
+        "upload",
+        "version"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
       ],
@@ -253,6 +293,46 @@
       "kinds": [
         "FILE_OVERLAP",
         "STRUCTURAL_BASENAME_COLLISION",
+        "SEMANTIC_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 26,
+      "protected_concepts": [],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 43,
+      "risk_score": 80,
+      "shared_basenames": [
+        "deploy.yml",
+        "post-deploy-verify.yml"
+      ],
+      "shared_components": [],
+      "shared_paths": [
+        ".github/workflows/deploy.yml",
+        ".github/workflows/post-deploy-verify.yml"
+      ],
+      "shared_semantic_tokens": [
+        "action",
+        "actions",
+        "compatibility",
+        "deploy",
+        "directory",
+        "file",
+        "github",
+        "https",
+        "pages",
+        "previous",
+        "surface",
+        "version",
+        "will",
+        "workflow"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "FILE_OVERLAP",
+        "STRUCTURAL_BASENAME_COLLISION",
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
       ],
@@ -327,6 +407,42 @@
       ]
     },
     {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "FILE_OVERLAP",
+        "STRUCTURAL_BASENAME_COLLISION",
+        "SEMANTIC_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 27,
+      "protected_concepts": [],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 43,
+      "risk_score": 80,
+      "shared_basenames": [
+        "registry.yml"
+      ],
+      "shared_components": [],
+      "shared_paths": [
+        ".github/workflows/registry.yml"
+      ],
+      "shared_semantic_tokens": [
+        "actions",
+        "changed",
+        "commits",
+        "dependencies",
+        "github",
+        "https",
+        "include",
+        "manifest",
+        "python",
+        "setup",
+        "tests",
+        "validate"
+      ]
+    },
+    {
       "action": "REVIEW",
       "base_ref": "main",
       "both_mergeable_false": false,
@@ -344,6 +460,84 @@
       "shared_semantic_tokens": [
         "first",
         "https"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "FILE_OVERLAP",
+        "STRUCTURAL_BASENAME_COLLISION",
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 28,
+      "protected_concepts": [
+        "checkout"
+      ],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 43,
+      "risk_score": 95,
+      "shared_basenames": [
+        "registry.yml"
+      ],
+      "shared_components": [],
+      "shared_paths": [
+        ".github/workflows/registry.yml"
+      ],
+      "shared_semantic_tokens": [
+        "action",
+        "actions",
+        "changed",
+        "checkout",
+        "dependencies",
+        "directory",
+        "github",
+        "https",
+        "target",
+        "workflow"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 30,
+      "protected_concepts": [
+        "deployment",
+        "production"
+      ],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 43,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "closed",
+        "deployment",
+        "exact",
+        "existing",
+        "explicit",
+        "gate",
+        "head",
+        "https",
+        "iambandobandz",
+        "merged",
+        "objective",
+        "passed",
+        "production",
+        "public",
+        "source",
+        "that",
+        "until",
+        "verify",
+        "would"
       ]
     },
     {
@@ -3506,6 +3700,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "ddd242d0e3a2de8e32ce298234ada9cebc8ce47a721515aa46695967d47f5a59",
-  "source_development_receipt_sha256": "0413ec1d23cd8973ddb8e4c0aece4889699c503ec0515ff5f40e92c1326d3bb9"
+  "snapshot_sha256": "907510571a1dbe7850bcf47336c740c388bce2b037b2ab2fb655177542b5f6f0",
+  "source_development_receipt_sha256": "fb5da94e3d2d06b08cdb5edc5eab5acd922d60df4f5fdbc7ce31b0a76fc99760"
 }
