@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 27,
-  "generated_at": "2026-08-30T17:01:25.664382+00:00",
+  "generated_at": "2026-08-30T21:36:12.286665+00:00",
   "open_pull_request_count": 60,
   "pull_requests": [
     {
@@ -12106,8 +12106,8 @@
       "evidence_status": "complete",
       "head_ref": "production-grade-improvements-8700244692492898997",
       "head_sha": "300fc6b3efe8f522e6c5f00b3d7af1cf78def2e0",
-      "mergeable": null,
-      "mergeable_state": "unknown",
+      "mergeable": true,
+      "mergeable_state": "clean",
       "number": 2,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victorOS",
@@ -12408,7 +12408,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "ed62c684fb8c0806e9c274349e42210bb9ac4373bc2b570bb65494e5bd8b074c",
+  "receipt_sha256": "0d9338f10ee35e5ee06360ea519a50a80e6db1110f3488556a3559c2119b3817",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
