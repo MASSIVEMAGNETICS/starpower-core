@@ -1,5 +1,5 @@
 {
-  "conflict_count": 73,
+  "conflict_count": 75,
   "conflicts": [
     {
       "action": "REVIEW",
@@ -2854,6 +2854,126 @@
       ]
     },
     {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 3,
+      "protected_concepts": [
+        "authority",
+        "continuity",
+        "kernel"
+      ],
+      "repository": "MASSIVEMAGNETICS/victor_empire",
+      "right_pr": 7,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [
+        "tests"
+      ],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "after",
+        "authority",
+        "boundary",
+        "bounded",
+        "capability",
+        "changed",
+        "commits",
+        "continuity",
+        "discover",
+        "does",
+        "establishes",
+        "execution",
+        "files",
+        "future",
+        "github",
+        "history",
+        "independent",
+        "kernel",
+        "leases",
+        "model",
+        "only",
+        "organ",
+        "path",
+        "policy",
+        "projection",
+        "python",
+        "rejection",
+        "repository",
+        "rollback",
+        "should",
+        "state",
+        "tests",
+        "unittest",
+        "verification",
+        "ville",
+        "what"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 4,
+      "protected_concepts": [
+        "authority",
+        "canonical",
+        "kernel"
+      ],
+      "repository": "MASSIVEMAGNETICS/victor_empire",
+      "right_pr": 7,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [
+        "tests"
+      ],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "authority",
+        "boundary",
+        "bounded",
+        "cannot",
+        "canonical",
+        "capability",
+        "changed",
+        "code",
+        "command",
+        "control",
+        "discover",
+        "establishes",
+        "execution",
+        "explicit",
+        "first",
+        "keeps",
+        "kernel",
+        "only",
+        "organ",
+        "organs",
+        "path",
+        "plane",
+        "projection",
+        "python",
+        "rather",
+        "rejection",
+        "separate",
+        "state",
+        "tests",
+        "than",
+        "unittest",
+        "verification",
+        "ville",
+        "what"
+      ]
+    },
+    {
       "action": "REVIEW",
       "base_ref": "main",
       "both_mergeable_false": true,
@@ -3183,6 +3303,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "15ebe1b11936db42fd494a9f9944c00352bc4054c2599a1a8503e053c205322a",
-  "source_development_receipt_sha256": "78e1f5e0c0cdc8b20439fd6975ad7fe6ad097534d8333030d5aa6c72f6be37e0"
+  "snapshot_sha256": "44e7d9c226333b6e5f8b1832c8038d4fd78f3a7700dc9396e29d3500b875f1d1",
+  "source_development_receipt_sha256": "c8d2a83690b222b5e05177c0d488686ffc4f7e6064927fbdf27edbb7a4f57d31"
 }
