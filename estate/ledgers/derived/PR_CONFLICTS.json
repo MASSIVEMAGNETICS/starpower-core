@@ -1,6 +1,56 @@
 {
-  "conflict_count": 75,
+  "conflict_count": 76,
   "conflicts": [
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "STRUCTURAL_BASENAME_COLLISION",
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 30,
+      "protected_concepts": [
+        "deployment",
+        "production"
+      ],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 45,
+      "risk_score": 95,
+      "shared_basenames": [
+        "app.js"
+      ],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "backend",
+        "browser",
+        "closed",
+        "control",
+        "deployment",
+        "exact",
+        "existing",
+        "explicit",
+        "fails",
+        "first",
+        "gate",
+        "head",
+        "local",
+        "massivemagnetics",
+        "objective",
+        "plane",
+        "private",
+        "production",
+        "public",
+        "remains",
+        "source",
+        "that",
+        "unavailable",
+        "verified",
+        "without"
+      ]
+    },
     {
       "action": "REVIEW",
       "base_ref": "main",
@@ -3303,6 +3353,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "246f0010959ac4d038bbb314348d9bc9907b88481cc931c0f4085b13002a79e6",
-  "source_development_receipt_sha256": "2442cdebb3c39cafc0481a18a078f3298a673da4f8d461613dc896bfc56113c7"
+  "snapshot_sha256": "d3cf580bb1cdbf1f7ab08506dc832c388ce12bedff878082ec1556f63aa170cb",
+  "source_development_receipt_sha256": "e069407cbb1d798dd1d037cb94fe2812c0080d0bcbc8515852db5ba1e5873c20"
 }
