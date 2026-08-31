@@ -1,9 +1,9 @@
 {
-  "average_completion_score": 58.46,
+  "average_completion_score": 58.49,
   "evaluated_repository_count": 289,
-  "generated_at": "2026-08-30T21:34:33.417479+00:00",
+  "generated_at": "2026-08-31T06:07:58.944794+00:00",
   "partial_or_unknown_repository_count": 8,
-  "receipt_sha256": "1c02ddd345f2d6ddda3ab1aae3e883200a50d534318ed33661285b8c7d3da8e7",
+  "receipt_sha256": "eaebdc03f236315fcd146a4125579a1448ac82fb9f0738bde53266fb20071d00",
   "repositories": [
     {
       "ci": false,
@@ -4712,24 +4712,6 @@
     },
     {
       "ci": true,
-      "completion_score": 85,
-      "error": null,
-      "evidence_status": "complete",
-      "gaps": [
-        "license",
-        "release"
-      ],
-      "gitignore": true,
-      "license": false,
-      "manifest": true,
-      "name": "MASSIVEMAGNETICS/victorOS",
-      "readme": true,
-      "release": false,
-      "source": true,
-      "tests": true
-    },
-    {
-      "ci": true,
       "completion_score": 90,
       "error": null,
       "evidence_status": "complete",
@@ -5047,6 +5029,23 @@
       "license": false,
       "manifest": true,
       "name": "MASSIVEMAGNETICS/PROJECT-ECO",
+      "readme": true,
+      "release": true,
+      "source": true,
+      "tests": true
+    },
+    {
+      "ci": true,
+      "completion_score": 95,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "license"
+      ],
+      "gitignore": true,
+      "license": false,
+      "manifest": true,
+      "name": "MASSIVEMAGNETICS/victorOS",
       "readme": true,
       "release": true,
       "source": true,
@@ -5723,11 +5722,11 @@
       "weighted_impact": 500
     },
     {
-      "affected_repositories": 225,
+      "affected_repositories": 224,
       "estimated_shared_effort": 5,
       "gap": "release",
-      "leverage_score": 450.0,
-      "weighted_impact": 2250
+      "leverage_score": 448.0,
+      "weighted_impact": 2240
     },
     {
       "affected_repositories": 95,

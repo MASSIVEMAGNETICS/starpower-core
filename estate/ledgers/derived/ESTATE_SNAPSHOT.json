@@ -1,5 +1,5 @@
 {
-  "average_completion_score": 58.46,
+  "average_completion_score": 58.49,
   "evaluated_repository_count": 289,
   "lineage_candidates": [
     {
@@ -6419,13 +6419,12 @@
       }
     },
     {
-      "completion_score": 85,
+      "completion_score": 95,
       "error": null,
       "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/victorOS",
       "gaps": [
-        "license",
-        "release"
+        "license"
       ],
       "normalized_slug": "victoros",
       "signals": {
@@ -6434,7 +6433,7 @@
         "license": false,
         "manifest": true,
         "readme": true,
-        "release": false,
+        "release": true,
         "source": true,
         "tests": true
       }
@@ -6712,9 +6711,9 @@
   ],
   "repository_count": 297,
   "schema_version": "estate-snapshot/v1",
-  "snapshot_sha256": "6be5e5b84f7147f9a3e78bba78a61303a41318e8d1f0fc75a48d3efd3c5b77d6",
-  "source_receipt_sha256": "1c02ddd345f2d6ddda3ab1aae3e883200a50d534318ed33661285b8c7d3da8e7",
-  "source_ref": "d429507d284bb0bb22f2f1c69306d2077e06a210",
+  "snapshot_sha256": "89f47b53d2ef074ed961981afe85c75f1d9826b301ab71c357cc8d6d203a55fc",
+  "source_receipt_sha256": "eaebdc03f236315fcd146a4125579a1448ac82fb9f0738bde53266fb20071d00",
+  "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "source_schema": "scf-1",
   "unknown_repositories": [
     "MASSIVEMAGNETICS/black-hole-prime",
