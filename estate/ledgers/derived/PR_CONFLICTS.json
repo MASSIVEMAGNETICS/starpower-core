@@ -2794,17 +2794,20 @@
       ]
     },
     {
-      "action": "REVIEW",
+      "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
       "both_mergeable_false": false,
       "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE"
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
       ],
       "left_pr": 2,
-      "protected_concepts": [],
+      "protected_concepts": [
+        "production"
+      ],
       "repository": "MASSIVEMAGNETICS/victorOS",
       "right_pr": 4,
-      "risk_score": 60,
+      "risk_score": 95,
       "shared_basenames": [],
       "shared_components": [],
       "shared_paths": [],
@@ -2812,6 +2815,7 @@
         "created",
         "files",
         "https",
+        "production",
         "test"
       ]
     },
@@ -2926,40 +2930,42 @@
       ],
       "shared_paths": [],
       "shared_semantic_tokens": [
+        "adapter",
         "after",
         "authority",
+        "before",
         "boundary",
         "bounded",
         "capability",
         "changed",
-        "commits",
         "continuity",
-        "discover",
+        "dispatch",
         "does",
         "establishes",
         "execution",
-        "files",
         "future",
         "github",
         "history",
         "independent",
+        "independently",
         "kernel",
         "leases",
         "model",
+        "must",
         "only",
         "organ",
         "path",
-        "policy",
         "projection",
-        "python",
         "rejection",
-        "repository",
+        "remain",
+        "requires",
         "rollback",
         "should",
         "state",
         "tests",
-        "unittest",
+        "time",
         "verification",
+        "verified",
         "ville",
         "what"
       ]
@@ -2988,6 +2994,7 @@
       "shared_paths": [],
       "shared_semantic_tokens": [
         "authority",
+        "before",
         "boundary",
         "bounded",
         "cannot",
@@ -2997,10 +3004,11 @@
         "code",
         "command",
         "control",
-        "discover",
+        "dispatch",
         "establishes",
         "execution",
         "explicit",
+        "failure",
         "first",
         "keeps",
         "kernel",
@@ -3010,15 +3018,17 @@
         "path",
         "plane",
         "projection",
-        "python",
         "rather",
         "rejection",
-        "separate",
+        "semantics",
         "state",
+        "still",
         "tests",
         "than",
-        "unittest",
+        "unverified",
         "verification",
+        "verified",
+        "verifies",
         "ville",
         "what"
       ]
@@ -3353,6 +3363,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "d3cf580bb1cdbf1f7ab08506dc832c388ce12bedff878082ec1556f63aa170cb",
-  "source_development_receipt_sha256": "e069407cbb1d798dd1d037cb94fe2812c0080d0bcbc8515852db5ba1e5873c20"
+  "snapshot_sha256": "cfbd13c1678be558bd44bb336f469f459db491d69553a65dbb79795f81fae3e1",
+  "source_development_receipt_sha256": "8ca74535d461b37418df3ae2649be8562dd66566ef76d779d890be35bd905a07"
 }
