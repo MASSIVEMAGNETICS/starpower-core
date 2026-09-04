@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 29,
-  "generated_at": "2026-09-04T16:38:18.397516+00:00",
+  "generated_at": "2026-09-04T21:05:21.791516+00:00",
   "open_pull_request_count": 65,
   "pull_requests": [
     {
@@ -9863,8 +9863,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-03-pr-disposition-guard",
       "head_sha": "54f124fb809dc3434ec53ea080bb68f5fd2a00e7",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 2,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -12907,8 +12907,8 @@
       "evidence_status": "complete",
       "head_ref": "production-grade-improvements-8700244692492898997",
       "head_sha": "300fc6b3efe8f522e6c5f00b3d7af1cf78def2e0",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 2,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victorOS",
@@ -12982,8 +12982,8 @@
       "evidence_status": "complete",
       "head_ref": "feature/victor-gev-mobile-control-v0.2",
       "head_sha": "ca6bea452aea449e27dd96c076fea632bafb1f4d",
-      "mergeable": false,
-      "mergeable_state": "dirty",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 4,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victorOS",
@@ -13262,8 +13262,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-03-android-empire-control-plane",
       "head_sha": "4b30fdf5eaead09df161a70a435f2131e3be4b24",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 10,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victorOS",
@@ -13480,7 +13480,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "bfba490e5d98eff1282de8e15902176a1c26ab9e683a4be04bc51f4c71fc52e7",
+  "receipt_sha256": "de1609068b2e6884e299c87498e1682d7c4af9bd9537aaf4dd944f9b5e8f80b2",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0

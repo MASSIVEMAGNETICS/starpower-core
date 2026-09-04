@@ -3472,6 +3472,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "c2a8ad408f31d63593fc5bd364f7e97dc0538032d7a37041b4b49bf601dcc461",
-  "source_development_receipt_sha256": "bfba490e5d98eff1282de8e15902176a1c26ab9e683a4be04bc51f4c71fc52e7"
+  "snapshot_sha256": "79149776e28daf68d3c0382ce7c618583d3bfcc2a7482acd5d0d294e8949b91c",
+  "source_development_receipt_sha256": "de1609068b2e6884e299c87498e1682d7c4af9bd9537aaf4dd944f9b5e8f80b2"
 }
