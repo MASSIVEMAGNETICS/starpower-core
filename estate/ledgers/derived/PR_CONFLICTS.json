@@ -1,5 +1,5 @@
 {
-  "conflict_count": 76,
+  "conflict_count": 78,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -2822,6 +2822,134 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 2,
+      "protected_concepts": [
+        "production"
+      ],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 10,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "automatically",
+        "core",
+        "files",
+        "production",
+        "test"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 4,
+      "protected_concepts": [
+        "authority",
+        "continuity",
+        "deployment",
+        "production",
+        "security"
+      ],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 10,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [
+        "android-app"
+      ],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "acceptance",
+        "android",
+        "authority",
+        "boundary",
+        "branch",
+        "cannot",
+        "capability",
+        "checks",
+        "chronos",
+        "continuity",
+        "control",
+        "current",
+        "deployment",
+        "device",
+        "does",
+        "donor",
+        "empire",
+        "evidence",
+        "exact",
+        "existing",
+        "files",
+        "first",
+        "forbidden",
+        "force",
+        "fusion",
+        "gate",
+        "human",
+        "importing",
+        "installed",
+        "integration",
+        "internet",
+        "local",
+        "manifest",
+        "material",
+        "memory",
+        "merged",
+        "model",
+        "network",
+        "objective",
+        "owner",
+        "perception",
+        "permission",
+        "permissions",
+        "physical",
+        "physiology",
+        "plane",
+        "preserving",
+        "prime",
+        "production",
+        "projection",
+        "projects",
+        "remains",
+        "revenue",
+        "reviewed",
+        "security",
+        "seeded",
+        "selectively",
+        "sensorium",
+        "separate",
+        "separately",
+        "signing",
+        "source",
+        "start",
+        "state",
+        "steward",
+        "stop",
+        "sync",
+        "systems",
+        "test",
+        "that",
+        "topology",
+        "verification",
+        "verified",
+        "victoros",
+        "while"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
       "both_mergeable_false": true,
       "kinds": [
         "STRUCTURAL_BASENAME_COLLISION",
@@ -3344,6 +3472,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "b543da21e8a5cd840ff37a1df47c2faa3324c59b6499245970f8ad7b5e1add7f",
-  "source_development_receipt_sha256": "3a6f7bea87dddc7bbe34be92f2afb2433c4a28563cfc9de31dfd7e4dcd64ae62"
+  "snapshot_sha256": "4f7bc429c9821db359fcb362af892209d87b03ab71249ca2670eb2bb52a26842",
+  "source_development_receipt_sha256": "2b45410fd462c690a894d633fdf580b39afc5322b2b40f44a8eb01f04462302b"
 }
