@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 30,
-  "generated_at": "2026-09-05T04:58:18.145200+00:00",
+  "generated_at": "2026-09-05T10:58:06.936781+00:00",
   "open_pull_request_count": 66,
   "pull_requests": [
     {
@@ -1372,8 +1372,8 @@
       "evidence_status": "complete",
       "head_ref": "agent/admin-session-auth-2026-08-23",
       "head_sha": "da0edc21d00cbd73df091dd3f1a8f5f668c2ac6f",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 19,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/dev-ville",
@@ -1592,8 +1592,8 @@
       "evidence_status": "complete",
       "head_ref": "victor-regenerative-continuity-v0",
       "head_sha": "f89d76ab44aa5bb60277ee6962551ab1b8bee038",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 24,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/dev-ville",
@@ -13702,7 +13702,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "6e262e9f5f6fffa9461351b220d707da7e1fba859a125372ee56e54629f41830",
+  "receipt_sha256": "782470780b0efab3b803382c66b073d9750ceab78dcd4ab01fffadc4e6e73968",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
