@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 30,
-  "generated_at": "2026-09-05T15:35:47.487737+00:00",
+  "generated_at": "2026-09-05T20:45:38.389327+00:00",
   "open_pull_request_count": 66,
   "pull_requests": [
     {
@@ -2874,8 +2874,8 @@
       "evidence_status": "complete",
       "head_ref": "prototype/convergence-engine-v0",
       "head_sha": "0b679414824399ac6234ac37a72118dd4a3c6eee",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 45,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
@@ -9895,8 +9895,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-03-pr-disposition-guard",
       "head_sha": "54f124fb809dc3434ec53ea080bb68f5fd2a00e7",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 2,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -13702,7 +13702,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "a248cfd28069da4508b10d650a87c8b62c488eb37736615862fa20587c7ca717",
+  "receipt_sha256": "3e4986397ea29fb80375d9c06886bbe4813d95bdf1d903a9919c93e1eb35ce00",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
