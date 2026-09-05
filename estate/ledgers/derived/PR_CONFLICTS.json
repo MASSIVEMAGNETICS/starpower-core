@@ -1,5 +1,5 @@
 {
-  "conflict_count": 78,
+  "conflict_count": 81,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -2846,6 +2846,26 @@
       ]
     },
     {
+      "action": "REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 2,
+      "protected_concepts": [],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 12,
+      "risk_score": 60,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "automatically",
+        "files"
+      ]
+    },
+    {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
       "both_mergeable_false": false,
@@ -2945,6 +2965,171 @@
         "verified",
         "victoros",
         "while"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "FILE_OVERLAP",
+        "STRUCTURAL_BASENAME_COLLISION",
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 4,
+      "protected_concepts": [
+        "authority",
+        "release"
+      ],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 12,
+      "risk_score": 95,
+      "shared_basenames": [
+        "MainActivity.java"
+      ],
+      "shared_components": [
+        "android-app"
+      ],
+      "shared_paths": [
+        "android-app/app/src/main/java/ai/ethica/victoros/MainActivity.java"
+      ],
+      "shared_semantic_tokens": [
+        "acceptance",
+        "actions",
+        "android",
+        "appears",
+        "authority",
+        "before",
+        "bounded",
+        "branch",
+        "camera",
+        "chronos",
+        "current",
+        "device",
+        "does",
+        "exact",
+        "existing",
+        "files",
+        "first",
+        "gate",
+        "github",
+        "governed",
+        "head",
+        "human",
+        "internet",
+        "local",
+        "manifest",
+        "memory",
+        "microphone",
+        "network",
+        "objective",
+        "owner",
+        "permission",
+        "permissions",
+        "physical",
+        "receipts",
+        "release",
+        "remains",
+        "required",
+        "sensory",
+        "should",
+        "signing",
+        "source",
+        "state",
+        "stop",
+        "that",
+        "verification",
+        "victoros",
+        "view",
+        "while"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 10,
+      "protected_concepts": [
+        "authority",
+        "identity",
+        "persistence"
+      ],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 12,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [
+        "android-app"
+      ],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "acceptance",
+        "allowlist",
+        "already",
+        "android",
+        "approval",
+        "authority",
+        "automatically",
+        "behavior",
+        "branch",
+        "changing",
+        "chronos",
+        "close",
+        "current",
+        "debug",
+        "device",
+        "does",
+        "ethica",
+        "exact",
+        "existing",
+        "files",
+        "first",
+        "gate",
+        "human",
+        "identity",
+        "internet",
+        "involved",
+        "java",
+        "local",
+        "mainactivity",
+        "manifest",
+        "memory",
+        "migration",
+        "network",
+        "objective",
+        "only",
+        "owner",
+        "permission",
+        "permissions",
+        "persistence",
+        "persistent",
+        "physical",
+        "remains",
+        "revert",
+        "rewrite",
+        "risk",
+        "rollback",
+        "runtime",
+        "screen",
+        "sensor",
+        "signing",
+        "source",
+        "state",
+        "stop",
+        "surface",
+        "tests",
+        "that",
+        "unit",
+        "user",
+        "verification",
+        "victoros",
+        "while",
+        "without"
       ]
     },
     {
@@ -3472,6 +3657,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "79149776e28daf68d3c0382ce7c618583d3bfcc2a7482acd5d0d294e8949b91c",
-  "source_development_receipt_sha256": "de1609068b2e6884e299c87498e1682d7c4af9bd9537aaf4dd944f9b5e8f80b2"
+  "snapshot_sha256": "ad4e0ab44d194420556dd6712c57a5a822ca823374b53e4dd4cd9db519017e16",
+  "source_development_receipt_sha256": "6e262e9f5f6fffa9461351b220d707da7e1fba859a125372ee56e54629f41830"
 }
