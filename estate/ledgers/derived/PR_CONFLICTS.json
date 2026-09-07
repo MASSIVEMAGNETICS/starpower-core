@@ -1,5 +1,5 @@
 {
-  "conflict_count": 82,
+  "conflict_count": 86,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -2912,6 +2912,28 @@
       ]
     },
     {
+      "action": "REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 2,
+      "protected_concepts": [],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 13,
+      "risk_score": 60,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "coverage",
+        "expanding",
+        "files",
+        "test"
+      ]
+    },
+    {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
       "both_mergeable_false": false,
@@ -3106,6 +3128,70 @@
       "base_ref": "main",
       "both_mergeable_false": false,
       "kinds": [
+        "FILE_OVERLAP",
+        "STRUCTURAL_BASENAME_COLLISION",
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 4,
+      "protected_concepts": [
+        "authority"
+      ],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 13,
+      "risk_score": 95,
+      "shared_basenames": [
+        "MainActivity.java"
+      ],
+      "shared_components": [
+        "android-app"
+      ],
+      "shared_paths": [
+        "android-app/app/src/main/java/ai/ethica/victoros/MainActivity.java"
+      ],
+      "shared_semantic_tokens": [
+        "android",
+        "authority",
+        "auto",
+        "before",
+        "branch",
+        "checks",
+        "chronos",
+        "commits",
+        "exact",
+        "existing",
+        "files",
+        "gate",
+        "handling",
+        "head",
+        "human",
+        "internet",
+        "keep",
+        "model",
+        "must",
+        "network",
+        "objective",
+        "permissions",
+        "preserve",
+        "provenance",
+        "receipt",
+        "remains",
+        "separately",
+        "signing",
+        "source",
+        "stop",
+        "test",
+        "treat",
+        "until",
+        "verification",
+        "verified"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
       ],
@@ -3195,6 +3281,142 @@
         "verification",
         "victoros",
         "while",
+        "without"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 10,
+      "protected_concepts": [
+        "authority",
+        "identity",
+        "persistence"
+      ],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 13,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [
+        "android-app"
+      ],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "added",
+        "android",
+        "approval",
+        "authority",
+        "branch",
+        "changing",
+        "checks",
+        "chronos",
+        "close",
+        "ethica",
+        "exact",
+        "execution",
+        "existing",
+        "files",
+        "gate",
+        "green",
+        "human",
+        "identity",
+        "independent",
+        "internet",
+        "model",
+        "network",
+        "objective",
+        "permissions",
+        "persistence",
+        "remains",
+        "revert",
+        "risk",
+        "rollback",
+        "separately",
+        "signing",
+        "source",
+        "stop",
+        "test",
+        "tests",
+        "verification",
+        "verified",
+        "without"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "FILE_OVERLAP",
+        "STRUCTURAL_BASENAME_COLLISION",
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 12,
+      "protected_concepts": [
+        "authority",
+        "identity",
+        "persistence"
+      ],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 13,
+      "risk_score": 95,
+      "shared_basenames": [
+        "MainActivity.java"
+      ],
+      "shared_components": [
+        "android-app"
+      ],
+      "shared_paths": [
+        "android-app/app/src/main/java/ai/ethica/victoros/MainActivity.java"
+      ],
+      "shared_semantic_tokens": [
+        "android",
+        "approval",
+        "authority",
+        "before",
+        "boundaries",
+        "branch",
+        "changing",
+        "chronos",
+        "close",
+        "digest",
+        "ethica",
+        "exact",
+        "existing",
+        "files",
+        "gate",
+        "green",
+        "head",
+        "human",
+        "identity",
+        "immediately",
+        "internet",
+        "network",
+        "objective",
+        "package",
+        "permissions",
+        "persistence",
+        "rams",
+        "remains",
+        "revert",
+        "risk",
+        "rollback",
+        "semantics",
+        "signing",
+        "source",
+        "stop",
+        "test",
+        "tests",
+        "unresolved",
+        "verification",
+        "victorstore",
+        "vrco",
         "without"
       ]
     },
@@ -3723,6 +3945,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "fe59c36ebb72ea3506ef01fdfdb41e513f37fc316b806550a89b491a06b98314",
-  "source_development_receipt_sha256": "6f7a61f663e30ccfbc4041d5555f9ce69d6858d9ec2075fb9da41af95744126e"
+  "snapshot_sha256": "31153cf4a1bd46bc496bf5a4447c01fed4fdb1fe9b30100f874c65b1d087b639",
+  "source_development_receipt_sha256": "5bbdd5fed36824585b9536b1e7356cb9206a63b00b455ffba61c9c6a55c35729"
 }
