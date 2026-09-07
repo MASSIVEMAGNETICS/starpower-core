@@ -26,11 +26,11 @@
       "shared_semantic_tokens": [
         "backend",
         "browser",
+        "checks",
         "closed",
         "control",
         "deployment",
         "exact",
-        "existing",
         "explicit",
         "fails",
         "first",
@@ -39,16 +39,17 @@
         "local",
         "massivemagnetics",
         "objective",
+        "page",
         "plane",
         "private",
         "production",
         "public",
-        "remains",
         "source",
         "that",
         "unavailable",
+        "until",
         "verified",
-        "without"
+        "verify"
       ]
     },
     {
@@ -3722,6 +3723,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "fdb53c3a0878ceee2ce44e92e80a79f6f32a84d7e8443ed5b97674a5c78a7ccc",
-  "source_development_receipt_sha256": "7d75721e662019767bccbf617aa9a76cb3213fd2f2a705c3e0a9e75198e408fa"
+  "snapshot_sha256": "fe59c36ebb72ea3506ef01fdfdb41e513f37fc316b806550a89b491a06b98314",
+  "source_development_receipt_sha256": "6f7a61f663e30ccfbc4041d5555f9ce69d6858d9ec2075fb9da41af95744126e"
 }
