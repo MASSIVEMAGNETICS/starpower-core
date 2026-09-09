@@ -1,5 +1,5 @@
 {
-  "conflict_count": 87,
+  "conflict_count": 89,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -50,6 +50,106 @@
         "until",
         "verified",
         "verify"
+      ]
+    },
+    {
+      "action": "REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 30,
+      "protected_concepts": [],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 51,
+      "risk_score": 60,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "closed",
+        "exact",
+        "explicit",
+        "first",
+        "local",
+        "page",
+        "passed",
+        "preserves",
+        "public",
+        "remains",
+        "routing",
+        "session",
+        "source",
+        "that",
+        "until",
+        "verified"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "FILE_OVERLAP",
+        "STRUCTURAL_BASENAME_COLLISION",
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 45,
+      "protected_concepts": [
+        "identity"
+      ],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 51,
+      "risk_score": 95,
+      "shared_basenames": [
+        "build_site.py",
+        "index.html"
+      ],
+      "shared_components": [
+        "tests",
+        "tools"
+      ],
+      "shared_paths": [
+        "tools/build_site.py"
+      ],
+      "shared_semantic_tokens": [
+        "closed",
+        "contract",
+        "current",
+        "exact",
+        "explicit",
+        "fail",
+        "files",
+        "first",
+        "frontier",
+        "identity",
+        "language",
+        "latest",
+        "live",
+        "local",
+        "only",
+        "page",
+        "pages",
+        "payment",
+        "privacy",
+        "product",
+        "proof",
+        "public",
+        "publishes",
+        "radar",
+        "registry",
+        "scope",
+        "site",
+        "source",
+        "suite",
+        "test",
+        "that",
+        "truth",
+        "until",
+        "verification",
+        "verified"
       ]
     },
     {
@@ -4089,6 +4189,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "03abf382d7de7ac44875f1df451ac5f6b2b4be7060d5a6b6393544f34e3eb5e9",
-  "source_development_receipt_sha256": "446c68110931bd28042487ae608ea71db8b050e1b261eb3cd4006360a3d2ceea"
+  "snapshot_sha256": "86a5ed837d2a0627af466534647340c37365e5b9fc4a617a84719b91fd1d687c",
+  "source_development_receipt_sha256": "97e8b92e8022246ee03c819f47ada64e721f43d94a6a5b17e0941891277ad508"
 }
