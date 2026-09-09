@@ -1,5 +1,5 @@
 {
-  "conflict_count": 86,
+  "conflict_count": 87,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -2845,6 +2845,96 @@
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
       ],
+      "left_pr": 3,
+      "protected_concepts": [
+        "authority",
+        "canonical",
+        "production"
+      ],
+      "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
+      "right_pr": 4,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [
+        "tests"
+      ],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "actions",
+        "actual",
+        "after",
+        "approval",
+        "assembly",
+        "authority",
+        "automatically",
+        "autopilot",
+        "behavior",
+        "blocker",
+        "canonical",
+        "changed",
+        "claim",
+        "close",
+        "commits",
+        "correctly",
+        "current",
+        "daily",
+        "data",
+        "does",
+        "empire",
+        "euss",
+        "event",
+        "exact",
+        "files",
+        "gate",
+        "github",
+        "green",
+        "head",
+        "human",
+        "json",
+        "matters",
+        "model",
+        "mutating",
+        "objective",
+        "only",
+        "path",
+        "post",
+        "production",
+        "prove",
+        "provenance",
+        "receipt",
+        "regression",
+        "remaining",
+        "repo",
+        "required",
+        "result",
+        "revert",
+        "review",
+        "rollback",
+        "routing",
+        "scan",
+        "skipped",
+        "sovereignty",
+        "state",
+        "still",
+        "success",
+        "test",
+        "tests",
+        "that",
+        "verification",
+        "verified",
+        "verify",
+        "workflow",
+        "wrong"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
       "left_pr": 2,
       "protected_concepts": [
         "production"
@@ -3999,6 +4089,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "5fbac83ae9452a3aea3ac57f774cd2ab6f869f2fe5740e16888da43e2aa1eabe",
-  "source_development_receipt_sha256": "941da04896b97d7286f67caee7786e160713361fd51fad8c8dde31e9dade284b"
+  "snapshot_sha256": "03abf382d7de7ac44875f1df451ac5f6b2b4be7060d5a6b6393544f34e3eb5e9",
+  "source_development_receipt_sha256": "446c68110931bd28042487ae608ea71db8b050e1b261eb3cd4006360a3d2ceea"
 }
