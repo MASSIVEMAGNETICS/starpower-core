@@ -1,9 +1,9 @@
 {
-  "average_completion_score": 58.49,
+  "average_completion_score": 58.55,
   "evaluated_repository_count": 289,
-  "generated_at": "2026-09-09T11:51:53.023965+00:00",
+  "generated_at": "2026-09-09T16:55:12.470653+00:00",
   "partial_or_unknown_repository_count": 8,
-  "receipt_sha256": "eaebdc03f236315fcd146a4125579a1448ac82fb9f0738bde53266fb20071d00",
+  "receipt_sha256": "22068f65c5eb8e33fdbf66481b0ca4437d206b9b433f28601f51f8087a18350c",
   "repositories": [
     {
       "ci": false,
@@ -4305,24 +4305,6 @@
       "tests": true
     },
     {
-      "ci": true,
-      "completion_score": 75,
-      "error": null,
-      "evidence_status": "complete",
-      "gaps": [
-        "manifest",
-        "release"
-      ],
-      "gitignore": true,
-      "license": true,
-      "manifest": false,
-      "name": "MASSIVEMAGNETICS/truth-compiler-ai",
-      "readme": true,
-      "release": false,
-      "source": true,
-      "tests": true
-    },
-    {
       "ci": false,
       "completion_score": 75,
       "error": null,
@@ -4892,6 +4874,23 @@
       "license": true,
       "manifest": true,
       "name": "MASSIVEMAGNETICS/starpower-core",
+      "readme": true,
+      "release": false,
+      "source": true,
+      "tests": true
+    },
+    {
+      "ci": true,
+      "completion_score": 90,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "release"
+      ],
+      "gitignore": true,
+      "license": true,
+      "manifest": true,
+      "name": "MASSIVEMAGNETICS/truth-compiler-ai",
       "readme": true,
       "release": false,
       "source": true,
@@ -5729,11 +5728,11 @@
       "weighted_impact": 2240
     },
     {
-      "affected_repositories": 95,
+      "affected_repositories": 94,
       "estimated_shared_effort": 5,
       "gap": "manifest",
-      "leverage_score": 285.0,
-      "weighted_impact": 1425
+      "leverage_score": 282.0,
+      "weighted_impact": 1410
     },
     {
       "affected_repositories": 173,

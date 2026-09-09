@@ -4966,12 +4966,11 @@
       }
     },
     {
-      "completion_score": 75,
+      "completion_score": 90,
       "error": null,
       "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/truth-compiler-ai",
       "gaps": [
-        "manifest",
         "release"
       ],
       "normalized_slug": "truthcompilerai",
@@ -4979,7 +4978,7 @@
         "ci": true,
         "gitignore": true,
         "license": true,
-        "manifest": false,
+        "manifest": true,
         "readme": true,
         "release": false,
         "source": true,
@@ -6584,5 +6583,5 @@
     }
   ],
   "schema_version": "repository-registry/v1",
-  "snapshot_sha256": "89f47b53d2ef074ed961981afe85c75f1d9826b301ab71c357cc8d6d203a55fc"
+  "snapshot_sha256": "e4fa4bf312544c4bfc1f751de7b6f7b90c5e68e254ddd8c9819a9f504794d5d7"
 }
