@@ -2861,7 +2861,6 @@
       "shared_paths": [],
       "shared_semantic_tokens": [
         "actions",
-        "actual",
         "after",
         "approval",
         "assembly",
@@ -2869,7 +2868,7 @@
         "automatically",
         "autopilot",
         "behavior",
-        "blocker",
+        "being",
         "canonical",
         "changed",
         "claim",
@@ -2877,25 +2876,29 @@
         "commits",
         "correctly",
         "current",
+        "currently",
         "daily",
-        "data",
         "does",
         "empire",
         "euss",
         "event",
         "exact",
+        "execution",
+        "external",
         "files",
         "gate",
         "github",
         "green",
         "head",
         "human",
+        "involved",
         "json",
         "matters",
+        "migration",
         "model",
         "mutating",
+        "mutation",
         "objective",
-        "only",
         "path",
         "post",
         "production",
@@ -2904,7 +2907,8 @@
         "receipt",
         "regression",
         "remaining",
-        "repo",
+        "remains",
+        "repository",
         "required",
         "result",
         "revert",
@@ -2923,8 +2927,8 @@
         "verification",
         "verified",
         "verify",
-        "workflow",
-        "wrong"
+        "warning",
+        "workflow"
       ]
     },
     {
@@ -4089,6 +4093,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "8e55926fe6350ca4feef24bb2da106808dc3277fb00ea8f8deb0c1248b314c96",
-  "source_development_receipt_sha256": "a7571e2598231de0538321880edd2bbeff2ceb2077c3552f8a31d1b0cc67e09e"
+  "snapshot_sha256": "720fae6bc235dd8bccca398681900684ac4ef654c9ba928a0622075b45b6dc3d",
+  "source_development_receipt_sha256": "bd54e4a2c220cb8de5ebe00fb23f928cd9dee721261230e08bfa38f1fde334b1"
 }
