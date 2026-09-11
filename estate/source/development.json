@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 33,
-  "generated_at": "2026-09-11T11:51:28.851578+00:00",
+  "generated_at": "2026-09-11T16:47:51.783670+00:00",
   "open_pull_request_count": 69,
   "pull_requests": [
     {
@@ -8349,7 +8349,7 @@
       "updated_at": "2026-09-03T13:37:39Z"
     },
     {
-      "additions": 2832,
+      "additions": 2606,
       "author_association": "OWNER",
       "author_login": "MASSIVEMAGNETICS",
       "author_type": "User",
@@ -8375,7 +8375,7 @@
       "error": null,
       "evidence_status": "complete",
       "head_ref": "feat/sovereign-runtime-boundary",
-      "head_sha": "5804270e3c29a8df017444b9ddd3cb5b4044882c",
+      "head_sha": "7a16e7923c1b0bc9d7bd57ce1dc2b64456887576",
       "mergeable": true,
       "mergeable_state": "clean",
       "number": 4,
@@ -8653,7 +8653,7 @@
       ],
       "state": "open",
       "title": "Build sovereign runtime boundary and OMEN mastering harness",
-      "updated_at": "2026-09-10T23:08:54Z"
+      "updated_at": "2026-09-11T13:13:49Z"
     },
     {
       "additions": 1835,
@@ -14412,7 +14412,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "8656d13c4fe4c62d3a45a78fd490177d342965a0f7104130ea7f283476252941",
+  "receipt_sha256": "7dc74b0b42d9ddfdfab182f257d2e5d90f1f70a925226a8181abb686317cf481",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
