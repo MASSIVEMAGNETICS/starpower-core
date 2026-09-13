@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 35,
-  "generated_at": "2026-09-13T05:25:35.829413+00:00",
+  "generated_at": "2026-09-13T12:18:50.984771+00:00",
   "open_pull_request_count": 70,
   "pull_requests": [
     {
@@ -1372,8 +1372,8 @@
       "evidence_status": "complete",
       "head_ref": "agent/admin-session-auth-2026-08-23",
       "head_sha": "da0edc21d00cbd73df091dd3f1a8f5f668c2ac6f",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 19,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/dev-ville",
@@ -1592,8 +1592,8 @@
       "evidence_status": "complete",
       "head_ref": "victor-regenerative-continuity-v0",
       "head_sha": "f89d76ab44aa5bb60277ee6962551ab1b8bee038",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 24,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/dev-ville",
@@ -8619,7 +8619,7 @@
       ],
       "state": "open",
       "title": "Build sovereign runtime boundary and OMEN mastering harness",
-      "updated_at": "2026-09-12T23:42:07Z"
+      "updated_at": "2026-09-13T12:10:05Z"
     },
     {
       "additions": 1835,
@@ -14718,7 +14718,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "f02495d8c4c7d5463691bdcfdfa3ee712d334ff03369728d84deacfc0ce909c9",
+  "receipt_sha256": "0fb4625f8e760e9a2e4d7b9b5de86ef78e93a56368e92f65863a9b303fc3f487",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
