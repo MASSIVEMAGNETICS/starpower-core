@@ -1,9 +1,9 @@
 {
-  "average_completion_score": 58.55,
+  "average_completion_score": 58.58,
   "evaluated_repository_count": 289,
-  "generated_at": "2026-09-15T21:47:16.500742+00:00",
+  "generated_at": "2026-09-16T05:15:52.291216+00:00",
   "partial_or_unknown_repository_count": 8,
-  "receipt_sha256": "22068f65c5eb8e33fdbf66481b0ca4437d206b9b433f28601f51f8087a18350c",
+  "receipt_sha256": "79e4291ca7715439975ab019b68cc73530c8a8e1a5e0cfdfd292178ed9f9fbf9",
   "repositories": [
     {
       "ci": false,
@@ -4500,24 +4500,6 @@
       "tests": true
     },
     {
-      "ci": true,
-      "completion_score": 85,
-      "error": null,
-      "evidence_status": "complete",
-      "gaps": [
-        "license",
-        "release"
-      ],
-      "gitignore": true,
-      "license": false,
-      "manifest": true,
-      "name": "MASSIVEMAGNETICS/dev-ville",
-      "readme": true,
-      "release": false,
-      "source": true,
-      "tests": true
-    },
-    {
       "ci": false,
       "completion_score": 85,
       "error": null,
@@ -4996,6 +4978,23 @@
       "name": "MASSIVEMAGNETICS/VICTOR-SSI",
       "readme": true,
       "release": false,
+      "source": true,
+      "tests": true
+    },
+    {
+      "ci": true,
+      "completion_score": 95,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "license"
+      ],
+      "gitignore": true,
+      "license": false,
+      "manifest": true,
+      "name": "MASSIVEMAGNETICS/dev-ville",
+      "readme": true,
+      "release": true,
       "source": true,
       "tests": true
     },
@@ -5721,11 +5720,11 @@
       "weighted_impact": 500
     },
     {
-      "affected_repositories": 224,
+      "affected_repositories": 223,
       "estimated_shared_effort": 5,
       "gap": "release",
-      "leverage_score": 448.0,
-      "weighted_impact": 2240
+      "leverage_score": 446.0,
+      "weighted_impact": 2230
     },
     {
       "affected_repositories": 94,

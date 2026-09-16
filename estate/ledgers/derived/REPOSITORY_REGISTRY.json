@@ -1345,13 +1345,12 @@
       }
     },
     {
-      "completion_score": 85,
+      "completion_score": 95,
       "error": null,
       "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/dev-ville",
       "gaps": [
-        "license",
-        "release"
+        "license"
       ],
       "normalized_slug": "devville",
       "signals": {
@@ -1360,7 +1359,7 @@
         "license": false,
         "manifest": true,
         "readme": true,
-        "release": false,
+        "release": true,
         "source": true,
         "tests": true
       }
@@ -6583,5 +6582,5 @@
     }
   ],
   "schema_version": "repository-registry/v1",
-  "snapshot_sha256": "e4fa4bf312544c4bfc1f751de7b6f7b90c5e68e254ddd8c9819a9f504794d5d7"
+  "snapshot_sha256": "adf48329e175b081192b3da664358e29499f5f957a41afc0562be034d8271a69"
 }

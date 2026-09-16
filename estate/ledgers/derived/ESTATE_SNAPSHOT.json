@@ -1,5 +1,5 @@
 {
-  "average_completion_score": 58.55,
+  "average_completion_score": 58.58,
   "evaluated_repository_count": 289,
   "lineage_candidates": [
     {
@@ -1471,13 +1471,12 @@
       }
     },
     {
-      "completion_score": 85,
+      "completion_score": 95,
       "error": null,
       "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/dev-ville",
       "gaps": [
-        "license",
-        "release"
+        "license"
       ],
       "normalized_slug": "devville",
       "signals": {
@@ -1486,7 +1485,7 @@
         "license": false,
         "manifest": true,
         "readme": true,
-        "release": false,
+        "release": true,
         "source": true,
         "tests": true
       }
@@ -6710,8 +6709,8 @@
   ],
   "repository_count": 297,
   "schema_version": "estate-snapshot/v1",
-  "snapshot_sha256": "e4fa4bf312544c4bfc1f751de7b6f7b90c5e68e254ddd8c9819a9f504794d5d7",
-  "source_receipt_sha256": "22068f65c5eb8e33fdbf66481b0ca4437d206b9b433f28601f51f8087a18350c",
+  "snapshot_sha256": "adf48329e175b081192b3da664358e29499f5f957a41afc0562be034d8271a69",
+  "source_receipt_sha256": "79e4291ca7715439975ab019b68cc73530c8a8e1a5e0cfdfd292178ed9f9fbf9",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "source_schema": "scf-1",
   "unknown_repositories": [
