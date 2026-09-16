@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 30,
-  "generated_at": "2026-09-16T05:17:17.958028+00:00",
+  "generated_at": "2026-09-16T17:20:03.866163+00:00",
   "open_pull_request_count": 64,
   "pull_requests": [
     {
@@ -13246,8 +13246,8 @@
       "evidence_status": "complete",
       "head_ref": "feature/victor-gev-mobile-control-v0.2",
       "head_sha": "ca6bea452aea449e27dd96c076fea632bafb1f4d",
-      "mergeable": null,
-      "mergeable_state": "unknown",
+      "mergeable": false,
+      "mergeable_state": "dirty",
       "number": 4,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victorOS",
@@ -13545,7 +13545,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "0f67539286bc681b496d0695734e8aa0c0d45a3f80b2c8a3282e2ff8c66db8fa",
+  "receipt_sha256": "c0d78bbef2efaf1fa5e47b2bde4c1c47ee6bbdc5b5dd56ef5566342d1d61d6f1",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
