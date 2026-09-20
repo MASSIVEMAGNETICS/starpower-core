@@ -2909,21 +2909,23 @@
       "shared_paths": [],
       "shared_semantic_tokens": [
         "authority",
+        "before",
         "boundary",
-        "branch",
+        "cannot",
         "capability",
         "commits",
         "current",
         "deployment",
-        "evidence",
         "exact",
         "exactly",
+        "first",
         "handling",
         "head",
         "human",
         "merged",
         "provenance",
         "remains",
+        "required",
         "security",
         "separately",
         "source",
@@ -3660,6 +3662,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "6f5c619ecbaafd57f877b51b324789626d2323b836ebec665db4691aa00cb2f6",
-  "source_development_receipt_sha256": "5a43e7ce39359312b061991209ed0f4924577c0fef09fcaa02b5b78a77aaefb9"
+  "snapshot_sha256": "9e5f3a889dd5c8bf99ed0fe6b3c7f4cfe232bbebd7fc686895c901c1c2513ac3",
+  "source_development_receipt_sha256": "b6ae290b9f188c94127fc0fa138b31e3240458a4935734d1034d253e11e419de"
 }
