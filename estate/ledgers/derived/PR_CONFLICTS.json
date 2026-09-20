@@ -1,5 +1,5 @@
 {
-  "conflict_count": 79,
+  "conflict_count": 80,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -2890,6 +2890,52 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 4,
+      "protected_concepts": [
+        "authority",
+        "deployment",
+        "security"
+      ],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 17,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "authority",
+        "boundary",
+        "branch",
+        "capability",
+        "commits",
+        "current",
+        "deployment",
+        "evidence",
+        "exact",
+        "exactly",
+        "handling",
+        "head",
+        "human",
+        "merged",
+        "provenance",
+        "remains",
+        "security",
+        "separately",
+        "source",
+        "stop",
+        "until",
+        "verification",
+        "work"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
       "both_mergeable_false": true,
       "kinds": [
         "STRUCTURAL_BASENAME_COLLISION",
@@ -3614,6 +3660,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "7c5e8bfc02a4314c8df70a9edea8b7cd296c8a95f359934732203377046505ab",
-  "source_development_receipt_sha256": "78e3c250cba02386868e07f4ead78c60c9ffa39a89739a668f6c7b228d538aa7"
+  "snapshot_sha256": "f92becb490c63b66d3fd795e79d8d317fedfbe3599b981f9d9181f0b0208a82f",
+  "source_development_receipt_sha256": "832b7a0efbd4b0f866c2f68c5a8d875c1e852f1c4dd7073fd8e5d5d23e570a3f"
 }
