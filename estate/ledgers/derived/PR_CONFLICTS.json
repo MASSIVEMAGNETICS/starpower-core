@@ -2909,22 +2909,26 @@
       "shared_components": [],
       "shared_paths": [],
       "shared_semantic_tokens": [
+        "acceptance",
+        "arbitrary",
         "authority",
         "before",
         "boundary",
+        "bounded",
         "canonical",
         "capability",
         "claims",
         "commits",
         "current",
         "deployment",
+        "does",
         "exact",
         "exactly",
-        "existing",
         "handling",
         "head",
         "human",
         "merged",
+        "physical",
         "provenance",
         "remains",
         "required",
@@ -2934,7 +2938,8 @@
         "until",
         "verification",
         "verified",
-        "work"
+        "work",
+        "zero"
       ]
     },
     {
@@ -3664,6 +3669,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "883212a1f8d988ef12210254d687ec76aff6f14133beea31e8541639690cb4cd",
-  "source_development_receipt_sha256": "b424979e2e877eb47001d4365308c6cce06035ca7bc0ce6bad4253146ae20440"
+  "snapshot_sha256": "85f4b8c45f8e8137df74cb66c870c7c12e57ebeada24c7e96a62a0cf21088771",
+  "source_development_receipt_sha256": "2429d2cc564317c3cdda7adf428eda93e503c01a399b60d07bc6df24350c711a"
 }
