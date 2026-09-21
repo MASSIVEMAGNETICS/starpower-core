@@ -2898,6 +2898,7 @@
       "left_pr": 4,
       "protected_concepts": [
         "authority",
+        "canonical",
         "deployment",
         "security"
       ],
@@ -2911,14 +2912,15 @@
         "authority",
         "before",
         "boundary",
-        "cannot",
+        "canonical",
         "capability",
+        "claims",
         "commits",
         "current",
         "deployment",
         "exact",
         "exactly",
-        "first",
+        "existing",
         "handling",
         "head",
         "human",
@@ -2928,10 +2930,10 @@
         "required",
         "security",
         "separately",
-        "source",
         "stop",
         "until",
         "verification",
+        "verified",
         "work"
       ]
     },
@@ -3662,6 +3664,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "d3a8ca488e5641bc542802838017f7a070fd7f866322e07a8a709401923b7392",
-  "source_development_receipt_sha256": "3acdc353a75b78176ba0afb5eb36f5709828ca0221d521a196f069d83dd31334"
+  "snapshot_sha256": "883212a1f8d988ef12210254d687ec76aff6f14133beea31e8541639690cb4cd",
+  "source_development_receipt_sha256": "b424979e2e877eb47001d4365308c6cce06035ca7bc0ce6bad4253146ae20440"
 }
