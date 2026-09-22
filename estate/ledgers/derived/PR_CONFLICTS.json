@@ -2827,7 +2827,6 @@
         "docs",
         "empire",
         "evidence",
-        "exact",
         "exists",
         "experimental",
         "explicitly",
@@ -2836,6 +2835,7 @@
         "github",
         "godcore",
         "head",
+        "historical",
         "human",
         "incomplete",
         "inventory",
@@ -2880,7 +2880,6 @@
         "that",
         "therefore",
         "truth",
-        "unittest",
         "unseen",
         "verification",
         "while",
@@ -3669,6 +3668,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "35c2e9eea47922e871d08f5a4d487fed47c6531dc641c3a316dc64947c73fb4d",
-  "source_development_receipt_sha256": "93dca100240dbc57a534a4308f80d940b5835a686cce717c2426d36e19821a7e"
+  "snapshot_sha256": "1e74bd0695e0fd399f8c24f50b651bf3b7985a3ac15e6cdf5df68b54209712da",
+  "source_development_receipt_sha256": "561bb04cea7d446504717e146f0fd940de8ad7e3dd75ec2a703127fd7994d6c5"
 }
