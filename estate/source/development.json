@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 32,
-  "generated_at": "2026-09-24T17:35:53.875783+00:00",
+  "generated_at": "2026-09-24T21:51:45.949845+00:00",
   "open_pull_request_count": 66,
   "pull_requests": [
     {
@@ -10050,8 +10050,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-08-assembler-sunokiller-canonical",
       "head_sha": "780c30dba29d8b0824d61dc57a4d585ca5284c15",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 3,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -10254,8 +10254,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-09-assembler-receipt-provenance",
       "head_sha": "2a4c5f3782517984a404235abd7aad344b3b28bf",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 4,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -14093,7 +14093,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "17262c3341d84275748fd7e446b2b6b6534e0ca5675f50182e064f1cca44714d",
+  "receipt_sha256": "be98c755c10ed8537f55e1c1abc85bd72903a143fafcd2cfb7062fcf567aaaeb",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
