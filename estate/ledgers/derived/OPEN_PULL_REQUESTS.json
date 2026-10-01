@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 27,
-  "generated_at": "2026-10-01T06:36:24.878457+00:00",
+  "generated_at": "2026-10-01T13:56:04.843815+00:00",
   "open_pull_request_count": 60,
   "pull_requests": [
     {
@@ -9054,8 +9054,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-08-assembler-sunokiller-canonical",
       "head_sha": "780c30dba29d8b0824d61dc57a4d585ca5284c15",
-      "mergeable": null,
-      "mergeable_state": "unknown",
+      "mergeable": true,
+      "mergeable_state": "clean",
       "number": 3,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -12397,8 +12397,8 @@
       "evidence_status": "complete",
       "head_ref": "feature/victor-gev-mobile-control-v0.2",
       "head_sha": "ca6bea452aea449e27dd96c076fea632bafb1f4d",
-      "mergeable": null,
-      "mergeable_state": "unknown",
+      "mergeable": false,
+      "mergeable_state": "dirty",
       "number": 4,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victorOS",
@@ -12696,7 +12696,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "5b91e45df89baaefa9a6f293214bb425a831a18de57bb308050449cadb81b99d",
+  "receipt_sha256": "0f62af5059f01729b9b63569b8a03711f4f20a19b59601b22287c364e8b65eb5",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
