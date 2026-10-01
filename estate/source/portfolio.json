@@ -1,9 +1,9 @@
 {
-  "average_completion_score": 58.58,
+  "average_completion_score": 58.88,
   "evaluated_repository_count": 289,
-  "generated_at": "2026-09-30T22:39:04.743755+00:00",
+  "generated_at": "2026-10-01T06:34:29.491309+00:00",
   "partial_or_unknown_repository_count": 8,
-  "receipt_sha256": "79e4291ca7715439975ab019b68cc73530c8a8e1a5e0cfdfd292178ed9f9fbf9",
+  "receipt_sha256": "789e9a4f877a9d44057efa828d966c54b9584c464a22a665ea184b60ccd3e379",
   "repositories": [
     {
       "ci": false,
@@ -741,29 +741,6 @@
       "license": false,
       "manifest": false,
       "name": "MASSIVEMAGNETICS/steel-city",
-      "readme": true,
-      "release": false,
-      "source": false,
-      "tests": false
-    },
-    {
-      "ci": false,
-      "completion_score": 10,
-      "error": null,
-      "evidence_status": "complete",
-      "gaps": [
-        "source",
-        "manifest",
-        "tests",
-        "ci",
-        "license",
-        "gitignore",
-        "release"
-      ],
-      "gitignore": false,
-      "license": false,
-      "manifest": false,
-      "name": "MASSIVEMAGNETICS/suno-clone-mycelial",
       "readme": true,
       "release": false,
       "source": false,
@@ -3188,6 +3165,26 @@
       "error": null,
       "evidence_status": "complete",
       "gaps": [
+        "manifest",
+        "license",
+        "gitignore",
+        "release"
+      ],
+      "gitignore": false,
+      "license": false,
+      "manifest": false,
+      "name": "MASSIVEMAGNETICS/suno-clone-mycelial",
+      "readme": true,
+      "release": false,
+      "source": true,
+      "tests": true
+    },
+    {
+      "ci": true,
+      "completion_score": 65,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
         "tests",
         "gitignore",
         "release"
@@ -3655,25 +3652,6 @@
       "release": false,
       "source": true,
       "tests": false
-    },
-    {
-      "ci": false,
-      "completion_score": 70,
-      "error": null,
-      "evidence_status": "complete",
-      "gaps": [
-        "ci",
-        "license",
-        "release"
-      ],
-      "gitignore": true,
-      "license": false,
-      "manifest": true,
-      "name": "MASSIVEMAGNETICS/shared-intelligence",
-      "readme": true,
-      "release": false,
-      "source": true,
-      "tests": true
     },
     {
       "ci": false,
@@ -4298,24 +4276,6 @@
       "gitignore": true,
       "license": true,
       "manifest": true,
-      "name": "MASSIVEMAGNETICS/SUNOKILLER",
-      "readme": true,
-      "release": false,
-      "source": true,
-      "tests": true
-    },
-    {
-      "ci": false,
-      "completion_score": 75,
-      "error": null,
-      "evidence_status": "complete",
-      "gaps": [
-        "ci",
-        "release"
-      ],
-      "gitignore": true,
-      "license": true,
-      "manifest": true,
       "name": "MASSIVEMAGNETICS/victor-audio-ssi-studio",
       "readme": true,
       "release": false,
@@ -4604,6 +4564,24 @@
       "tests": true
     },
     {
+      "ci": true,
+      "completion_score": 85,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "license",
+        "release"
+      ],
+      "gitignore": true,
+      "license": false,
+      "manifest": true,
+      "name": "MASSIVEMAGNETICS/shared-intelligence",
+      "readme": true,
+      "release": false,
+      "source": true,
+      "tests": true
+    },
+    {
       "ci": false,
       "completion_score": 85,
       "error": null,
@@ -4856,6 +4834,23 @@
       "license": true,
       "manifest": true,
       "name": "MASSIVEMAGNETICS/starpower-core",
+      "readme": true,
+      "release": false,
+      "source": true,
+      "tests": true
+    },
+    {
+      "ci": true,
+      "completion_score": 90,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "release"
+      ],
+      "gitignore": true,
+      "license": true,
+      "manifest": true,
+      "name": "MASSIVEMAGNETICS/SUNOKILLER",
       "readme": true,
       "release": false,
       "source": true,
@@ -5699,18 +5694,18 @@
   "schema_version": "scf-1",
   "shared_bottlenecks": [
     {
-      "affected_repositories": 199,
+      "affected_repositories": 196,
       "estimated_shared_effort": 3,
       "gap": "ci",
-      "leverage_score": 995.0,
-      "weighted_impact": 2985
+      "leverage_score": 980.0,
+      "weighted_impact": 2940
     },
     {
-      "affected_repositories": 142,
+      "affected_repositories": 141,
       "estimated_shared_effort": 4,
       "gap": "tests",
-      "leverage_score": 710.0,
-      "weighted_impact": 2840
+      "leverage_score": 705.0,
+      "weighted_impact": 2820
     },
     {
       "affected_repositories": 100,
@@ -5741,11 +5736,11 @@
       "weighted_impact": 865
     },
     {
-      "affected_repositories": 57,
+      "affected_repositories": 56,
       "estimated_shared_effort": 10,
       "gap": "source",
-      "leverage_score": 114.0,
-      "weighted_impact": 1140
+      "leverage_score": 112.0,
+      "weighted_impact": 1120
     }
   ]
 }

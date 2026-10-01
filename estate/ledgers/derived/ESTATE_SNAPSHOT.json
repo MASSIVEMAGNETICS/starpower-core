@@ -1,5 +1,5 @@
 {
-  "average_completion_score": 58.58,
+  "average_completion_score": 58.88,
   "evaluated_repository_count": 289,
   "lineage_candidates": [
     {
@@ -4166,18 +4166,17 @@
       }
     },
     {
-      "completion_score": 70,
+      "completion_score": 85,
       "error": null,
       "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/shared-intelligence",
       "gaps": [
-        "ci",
         "license",
         "release"
       ],
       "normalized_slug": "sharedintelligence",
       "signals": {
-        "ci": false,
+        "ci": true,
         "gitignore": true,
         "license": false,
         "manifest": true,
@@ -4610,43 +4609,39 @@
       }
     },
     {
-      "completion_score": 10,
+      "completion_score": 65,
       "error": null,
       "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/suno-clone-mycelial",
       "gaps": [
-        "ci",
         "gitignore",
         "license",
         "manifest",
-        "release",
-        "source",
-        "tests"
+        "release"
       ],
       "normalized_slug": "sunoclonemycelial",
       "signals": {
-        "ci": false,
+        "ci": true,
         "gitignore": false,
         "license": false,
         "manifest": false,
         "readme": true,
         "release": false,
-        "source": false,
-        "tests": false
+        "source": true,
+        "tests": true
       }
     },
     {
-      "completion_score": 75,
+      "completion_score": 90,
       "error": null,
       "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/SUNOKILLER",
       "gaps": [
-        "ci",
         "release"
       ],
       "normalized_slug": "sunokiller",
       "signals": {
-        "ci": false,
+        "ci": true,
         "gitignore": true,
         "license": true,
         "manifest": true,
@@ -6709,8 +6704,8 @@
   ],
   "repository_count": 297,
   "schema_version": "estate-snapshot/v1",
-  "snapshot_sha256": "adf48329e175b081192b3da664358e29499f5f957a41afc0562be034d8271a69",
-  "source_receipt_sha256": "79e4291ca7715439975ab019b68cc73530c8a8e1a5e0cfdfd292178ed9f9fbf9",
+  "snapshot_sha256": "3ffeaa1a5758ed6770e3e92c08e1a9eea05a3684006355ee2bec3c92a6e14246",
+  "source_receipt_sha256": "789e9a4f877a9d44057efa828d966c54b9584c464a22a665ea184b60ccd3e379",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "source_schema": "scf-1",
   "unknown_repositories": [
