@@ -1,6 +1,6 @@
 {
-  "draft_pull_request_count": 27,
-  "generated_at": "2026-10-01T22:57:17.568845+00:00",
+  "draft_pull_request_count": 28,
+  "generated_at": "2026-10-02T06:12:44.444695+00:00",
   "open_pull_request_count": 60,
   "pull_requests": [
     {
@@ -4021,7 +4021,7 @@
       ],
       "created_at": "2026-09-06T07:36:08Z",
       "deletions": 14,
-      "draft": false,
+      "draft": true,
       "error": null,
       "evidence_status": "complete",
       "head_ref": "chatgpt/close-ai-ear-placeholder-20260906",
@@ -4141,7 +4141,7 @@
       ],
       "state": "open",
       "title": "Close AI Ear placeholder with deterministic local acoustic evidence",
-      "updated_at": "2026-09-06T07:40:56Z"
+      "updated_at": "2026-10-01T23:04:48Z"
     },
     {
       "additions": 232,
@@ -9054,8 +9054,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-08-assembler-sunokiller-canonical",
       "head_sha": "780c30dba29d8b0824d61dc57a4d585ca5284c15",
-      "mergeable": null,
-      "mergeable_state": "unknown",
+      "mergeable": true,
+      "mergeable_state": "clean",
       "number": 3,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -12696,7 +12696,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "8ee1b833015809c0b6a6bb2fc5ba46890ed5ccb16fa39e617e9b4a48c498e54f",
+  "receipt_sha256": "3d1d4b9a019ff802d4b650217474467614bd80f64a73f1d4e93c96ec0d086af4",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
