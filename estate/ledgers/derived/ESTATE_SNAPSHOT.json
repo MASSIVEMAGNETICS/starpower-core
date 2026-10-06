@@ -1,6 +1,6 @@
 {
-  "average_completion_score": 58.88,
-  "evaluated_repository_count": 289,
+  "average_completion_score": 59.56,
+  "evaluated_repository_count": 296,
   "lineage_candidates": [
     {
       "action": "REVIEW_LINEAGE",
@@ -207,6 +207,28 @@
         "release": false,
         "source": true,
         "tests": true
+      }
+    },
+    {
+      "completion_score": 55,
+      "error": null,
+      "evidence_status": "complete",
+      "full_name": "MASSIVEMAGNETICS/agency-agents-vic",
+      "gaps": [
+        "manifest",
+        "release",
+        "tests"
+      ],
+      "normalized_slug": "agencyagentsvic",
+      "signals": {
+        "ci": true,
+        "gitignore": true,
+        "license": true,
+        "manifest": false,
+        "readme": true,
+        "release": false,
+        "source": true,
+        "tests": false
       }
     },
     {
@@ -1067,6 +1089,26 @@
       }
     },
     {
+      "completion_score": 80,
+      "error": null,
+      "evidence_status": "complete",
+      "full_name": "MASSIVEMAGNETICS/caddy-vic",
+      "gaps": [
+        "tests"
+      ],
+      "normalized_slug": "caddyvic",
+      "signals": {
+        "ci": true,
+        "gitignore": true,
+        "license": true,
+        "manifest": true,
+        "readme": true,
+        "release": true,
+        "source": true,
+        "tests": false
+      }
+    },
+    {
       "completion_score": 90,
       "error": null,
       "evidence_status": "complete",
@@ -1163,6 +1205,44 @@
       "normalized_slug": "chatgptexportstudio",
       "signals": {
         "ci": false,
+        "gitignore": true,
+        "license": true,
+        "manifest": true,
+        "readme": true,
+        "release": false,
+        "source": true,
+        "tests": true
+      }
+    },
+    {
+      "completion_score": 100,
+      "error": null,
+      "evidence_status": "complete",
+      "full_name": "MASSIVEMAGNETICS/claude-mem-vic",
+      "gaps": [],
+      "normalized_slug": "claudememvic",
+      "signals": {
+        "ci": true,
+        "gitignore": true,
+        "license": true,
+        "manifest": true,
+        "readme": true,
+        "release": true,
+        "source": true,
+        "tests": true
+      }
+    },
+    {
+      "completion_score": 90,
+      "error": null,
+      "evidence_status": "complete",
+      "full_name": "MASSIVEMAGNETICS/cloudflare-os-vic",
+      "gaps": [
+        "release"
+      ],
+      "normalized_slug": "cloudflareosvic",
+      "signals": {
+        "ci": true,
         "gitignore": true,
         "license": true,
         "manifest": true,
@@ -1580,6 +1660,24 @@
         "release": false,
         "source": true,
         "tests": false
+      }
+    },
+    {
+      "completion_score": 100,
+      "error": null,
+      "evidence_status": "complete",
+      "full_name": "MASSIVEMAGNETICS/e2e-vic",
+      "gaps": [],
+      "normalized_slug": "e2evic",
+      "signals": {
+        "ci": true,
+        "gitignore": true,
+        "license": true,
+        "manifest": true,
+        "readme": true,
+        "release": true,
+        "source": true,
+        "tests": true
       }
     },
     {
@@ -3524,6 +3622,26 @@
         "manifest": true,
         "readme": true,
         "release": true,
+        "source": true,
+        "tests": true
+      }
+    },
+    {
+      "completion_score": 90,
+      "error": null,
+      "evidence_status": "complete",
+      "full_name": "MASSIVEMAGNETICS/OpenMontage-vic",
+      "gaps": [
+        "release"
+      ],
+      "normalized_slug": "openmontagevic",
+      "signals": {
+        "ci": true,
+        "gitignore": true,
+        "license": true,
+        "manifest": true,
+        "readme": true,
+        "release": false,
         "source": true,
         "tests": true
       }
@@ -6578,6 +6696,24 @@
       }
     },
     {
+      "completion_score": 100,
+      "error": null,
+      "evidence_status": "complete",
+      "full_name": "MASSIVEMAGNETICS/VoiceStudio-vic",
+      "gaps": [],
+      "normalized_slug": "voicestudiovic",
+      "signals": {
+        "ci": true,
+        "gitignore": true,
+        "license": true,
+        "manifest": true,
+        "readme": true,
+        "release": true,
+        "source": true,
+        "tests": true
+      }
+    },
+    {
       "completion_score": 75,
       "error": null,
       "evidence_status": "complete",
@@ -6702,10 +6838,10 @@
       }
     }
   ],
-  "repository_count": 297,
+  "repository_count": 304,
   "schema_version": "estate-snapshot/v1",
-  "snapshot_sha256": "3ffeaa1a5758ed6770e3e92c08e1a9eea05a3684006355ee2bec3c92a6e14246",
-  "source_receipt_sha256": "789e9a4f877a9d44057efa828d966c54b9584c464a22a665ea184b60ccd3e379",
+  "snapshot_sha256": "341889252c337baa18b9dfd855d903af7a9545ab138e53ed2661280320b30dd5",
+  "source_receipt_sha256": "9837448b13f4c6ce02780bb255d06217150bc74b68975779e75e450f7cf8ae62",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "source_schema": "scf-1",
   "unknown_repositories": [

@@ -1,9 +1,9 @@
 {
-  "average_completion_score": 58.88,
-  "evaluated_repository_count": 289,
-  "generated_at": "2026-10-06T00:20:47.433230+00:00",
+  "average_completion_score": 59.56,
+  "evaluated_repository_count": 296,
+  "generated_at": "2026-10-06T06:53:20.944291+00:00",
   "partial_or_unknown_repository_count": 8,
-  "receipt_sha256": "789e9a4f877a9d44057efa828d966c54b9584c464a22a665ea184b60ccd3e379",
+  "receipt_sha256": "9837448b13f4c6ce02780bb255d06217150bc74b68975779e75e450f7cf8ae62",
   "repositories": [
     {
       "ci": false,
@@ -2809,6 +2809,25 @@
       "tests": false
     },
     {
+      "ci": true,
+      "completion_score": 55,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "manifest",
+        "tests",
+        "release"
+      ],
+      "gitignore": true,
+      "license": true,
+      "manifest": false,
+      "name": "MASSIVEMAGNETICS/agency-agents-vic",
+      "readme": true,
+      "release": false,
+      "source": true,
+      "tests": false
+    },
+    {
       "ci": false,
       "completion_score": 55,
       "error": null,
@@ -4337,6 +4356,23 @@
       "tests": true
     },
     {
+      "ci": true,
+      "completion_score": 80,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "tests"
+      ],
+      "gitignore": true,
+      "license": true,
+      "manifest": true,
+      "name": "MASSIVEMAGNETICS/caddy-vic",
+      "readme": true,
+      "release": true,
+      "source": true,
+      "tests": false
+    },
+    {
       "ci": false,
       "completion_score": 80,
       "error": null,
@@ -4697,6 +4733,23 @@
       "gitignore": true,
       "license": true,
       "manifest": true,
+      "name": "MASSIVEMAGNETICS/cloudflare-os-vic",
+      "readme": true,
+      "release": false,
+      "source": true,
+      "tests": true
+    },
+    {
+      "ci": true,
+      "completion_score": 90,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "release"
+      ],
+      "gitignore": true,
+      "license": true,
+      "manifest": true,
       "name": "MASSIVEMAGNETICS/gemini-cli",
       "readme": true,
       "release": false,
@@ -4749,6 +4802,23 @@
       "license": true,
       "manifest": true,
       "name": "MASSIVEMAGNETICS/MetaGPT",
+      "readme": true,
+      "release": false,
+      "source": true,
+      "tests": true
+    },
+    {
+      "ci": true,
+      "completion_score": 90,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "release"
+      ],
+      "gitignore": true,
+      "license": true,
+      "manifest": true,
+      "name": "MASSIVEMAGNETICS/OpenMontage-vic",
       "readme": true,
       "release": false,
       "source": true,
@@ -5158,6 +5228,21 @@
       "gitignore": true,
       "license": true,
       "manifest": true,
+      "name": "MASSIVEMAGNETICS/claude-mem-vic",
+      "readme": true,
+      "release": true,
+      "source": true,
+      "tests": true
+    },
+    {
+      "ci": true,
+      "completion_score": 100,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [],
+      "gitignore": true,
+      "license": true,
+      "manifest": true,
       "name": "MASSIVEMAGNETICS/ComfyCortex",
       "readme": true,
       "release": true,
@@ -5174,6 +5259,21 @@
       "license": true,
       "manifest": true,
       "name": "MASSIVEMAGNETICS/deepagents",
+      "readme": true,
+      "release": true,
+      "source": true,
+      "tests": true
+    },
+    {
+      "ci": true,
+      "completion_score": 100,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [],
+      "gitignore": true,
+      "license": true,
+      "manifest": true,
+      "name": "MASSIVEMAGNETICS/e2e-vic",
       "readme": true,
       "release": true,
       "source": true,
@@ -5668,6 +5768,21 @@
       "gitignore": true,
       "license": true,
       "manifest": true,
+      "name": "MASSIVEMAGNETICS/VoiceStudio-vic",
+      "readme": true,
+      "release": true,
+      "source": true,
+      "tests": true
+    },
+    {
+      "ci": true,
+      "completion_score": 100,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [],
+      "gitignore": true,
+      "license": true,
+      "manifest": true,
       "name": "MASSIVEMAGNETICS/WeKnora",
       "readme": true,
       "release": true,
@@ -5690,7 +5805,7 @@
       "tests": true
     }
   ],
-  "repository_count": 297,
+  "repository_count": 304,
   "schema_version": "scf-1",
   "shared_bottlenecks": [
     {
@@ -5701,11 +5816,11 @@
       "weighted_impact": 2940
     },
     {
-      "affected_repositories": 141,
+      "affected_repositories": 143,
       "estimated_shared_effort": 4,
       "gap": "tests",
-      "leverage_score": 705.0,
-      "weighted_impact": 2820
+      "leverage_score": 715.0,
+      "weighted_impact": 2860
     },
     {
       "affected_repositories": 100,
@@ -5715,18 +5830,18 @@
       "weighted_impact": 500
     },
     {
-      "affected_repositories": 223,
+      "affected_repositories": 226,
       "estimated_shared_effort": 5,
       "gap": "release",
-      "leverage_score": 446.0,
-      "weighted_impact": 2230
+      "leverage_score": 452.0,
+      "weighted_impact": 2260
     },
     {
-      "affected_repositories": 94,
+      "affected_repositories": 95,
       "estimated_shared_effort": 5,
       "gap": "manifest",
-      "leverage_score": 282.0,
-      "weighted_impact": 1410
+      "leverage_score": 285.0,
+      "weighted_impact": 1425
     },
     {
       "affected_repositories": 173,
