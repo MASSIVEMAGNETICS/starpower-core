@@ -1,5 +1,5 @@
 {
-  "conflict_count": 78,
+  "conflict_count": 79,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -2743,6 +2743,79 @@
       ]
     },
     {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "FILE_OVERLAP",
+        "STRUCTURAL_BASENAME_COLLISION",
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 34,
+      "protected_concepts": [
+        "canonical",
+        "deployment"
+      ],
+      "repository": "MASSIVEMAGNETICS/dev-ville",
+      "right_pr": 35,
+      "risk_score": 95,
+      "shared_basenames": [
+        "ROLE_RUNTIME.md",
+        "devville_roles.py",
+        "test_devville_roles.py"
+      ],
+      "shared_components": [],
+      "shared_paths": [
+        "ROLE_RUNTIME.md",
+        "devville_roles.py",
+        "test_devville_roles.py"
+      ],
+      "shared_semantic_tokens": [
+        "autonomous",
+        "blocked",
+        "bound",
+        "canonical",
+        "capability",
+        "changed",
+        "check",
+        "closure",
+        "contracts",
+        "deployment",
+        "event",
+        "execution",
+        "existing",
+        "external",
+        "handoffs",
+        "integrate",
+        "json",
+        "labels",
+        "local",
+        "passed",
+        "passing",
+        "predecessor",
+        "python",
+        "recorded",
+        "remains",
+        "role",
+        "runtime",
+        "sandbox",
+        "source",
+        "sqlite",
+        "studio",
+        "tests",
+        "ticket",
+        "trust",
+        "trusted",
+        "unauthenticated",
+        "until",
+        "validation",
+        "verifier",
+        "ville",
+        "workers"
+      ]
+    },
+    {
       "action": "REVIEW",
       "base_ref": "main",
       "both_mergeable_false": false,
@@ -3523,6 +3596,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "b31776643ea62c522125390e64b3e092bb4fe0cd898798fa0ca94af81136f285",
-  "source_development_receipt_sha256": "f8659dcffe429c05aec1d606c3b46f7fb5865c9db8e74707c4fa18e3352207f9"
+  "snapshot_sha256": "fec0e35dcc5b46968646083861444d48c344d80fe5153dfbcbf6489d6324527e",
+  "source_development_receipt_sha256": "dac3b19320db62566fff20112a10d9871bff51157420274e8ed32c82f609bd54"
 }
