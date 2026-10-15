@@ -1,5 +1,5 @@
 {
-  "conflict_count": 79,
+  "conflict_count": 81,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -50,6 +50,69 @@
         "until",
         "verified",
         "verify"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 30,
+      "protected_concepts": [
+        "deployment"
+      ],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 54,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "deployment",
+        "existing",
+        "explicit",
+        "page",
+        "preserves",
+        "public",
+        "source"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "STRUCTURAL_BASENAME_COLLISION",
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 45,
+      "protected_concepts": [
+        "deployment"
+      ],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 54,
+      "risk_score": 95,
+      "shared_basenames": [
+        "index.html"
+      ],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "compiler",
+        "deployment",
+        "explicit",
+        "metadata",
+        "page",
+        "product",
+        "public",
+        "registry",
+        "source",
+        "truth",
+        "verification"
       ]
     },
     {
@@ -3596,6 +3659,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "9169d64e866b1d859751682e337f5b51320f6042f721bf939275ccf4abed021b",
-  "source_development_receipt_sha256": "2a26df89c436571812048ec1dcd7110febd3c6862f007bf0c99b67ff4458ebe1"
+  "snapshot_sha256": "6463e4087f2047b05d36be1d991d29c794e4d44fc7a88b71b0283c0b317ab848",
+  "source_development_receipt_sha256": "96701810642e35f372f6e1485e9e32cc22c0f9a87d9abd17447b3901366e5123"
 }

@@ -439,25 +439,20 @@
       }
     },
     {
-      "completion_score": 50,
-      "error": null,
-      "evidence_status": "complete",
+      "completion_score": 0,
+      "error": "GitHub API 404 for https://api.github.com/repos/MASSIVEMAGNETICS/autoresearch-win-rtx-victor/git/trees/main?recursive=1: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/git/trees#get-a-tree\",\"status\":\"404\"}",
+      "evidence_status": "unknown",
       "full_name": "MASSIVEMAGNETICS/autoresearch-win-rtx-victor",
-      "gaps": [
-        "ci",
-        "license",
-        "release",
-        "tests"
-      ],
+      "gaps": [],
       "normalized_slug": "autoresearchwinrtxvictor",
       "signals": {
         "ci": false,
-        "gitignore": true,
+        "gitignore": false,
         "license": false,
-        "manifest": true,
-        "readme": true,
+        "manifest": false,
+        "readme": false,
         "release": false,
-        "source": true,
+        "source": false,
         "tests": false
       }
     },
@@ -4158,24 +4153,21 @@
       }
     },
     {
-      "completion_score": 85,
-      "error": null,
-      "evidence_status": "complete",
+      "completion_score": 0,
+      "error": "GitHub API 409 for https://api.github.com/repos/MASSIVEMAGNETICS/shared-intelligence/git/trees/main?recursive=1: {\"message\":\"Git Repository is empty.\",\"documentation_url\":\"https://docs.github.com/rest/git/trees#get-a-tree\",\"status\":\"409\"}",
+      "evidence_status": "unknown",
       "full_name": "MASSIVEMAGNETICS/shared-intelligence",
-      "gaps": [
-        "license",
-        "release"
-      ],
+      "gaps": [],
       "normalized_slug": "sharedintelligence",
       "signals": {
-        "ci": true,
-        "gitignore": true,
+        "ci": false,
+        "gitignore": false,
         "license": false,
-        "manifest": true,
-        "readme": true,
+        "manifest": false,
+        "readme": false,
         "release": false,
-        "source": true,
-        "tests": true
+        "source": false,
+        "tests": false
       }
     },
     {
@@ -6713,5 +6705,5 @@
     }
   ],
   "schema_version": "repository-registry/v1",
-  "snapshot_sha256": "341889252c337baa18b9dfd855d903af7a9545ab138e53ed2661280320b30dd5"
+  "snapshot_sha256": "1bc05f3d8d9c894296b7e0c202c2c19f13546b5f869897eaf066ad3d2247f93c"
 }
