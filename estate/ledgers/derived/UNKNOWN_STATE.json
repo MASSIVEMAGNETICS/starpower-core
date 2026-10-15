@@ -1,13 +1,11 @@
 {
   "not_observed_since_previous": [],
   "schema_version": "unknown-state/v1",
-  "snapshot_sha256": "1bc05f3d8d9c894296b7e0c202c2c19f13546b5f869897eaf066ad3d2247f93c",
+  "snapshot_sha256": "341889252c337baa18b9dfd855d903af7a9545ab138e53ed2661280320b30dd5",
   "unknown_repositories": [
-    "MASSIVEMAGNETICS/autoresearch-win-rtx-victor",
     "MASSIVEMAGNETICS/black-hole-prime",
     "MASSIVEMAGNETICS/growing-synthetic-mind",
     "MASSIVEMAGNETICS/paradigm-shatter",
-    "MASSIVEMAGNETICS/shared-intelligence",
     "MASSIVEMAGNETICS/Tensor-Bit",
     "MASSIVEMAGNETICS/victor-godcore-ui",
     "MASSIVEMAGNETICS/victor-os-autodeploy",

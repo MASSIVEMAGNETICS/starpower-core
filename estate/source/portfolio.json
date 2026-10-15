@@ -1,25 +1,10 @@
 {
-  "average_completion_score": 59.51,
-  "evaluated_repository_count": 294,
-  "generated_at": "2026-10-15T05:10:37.279965+00:00",
-  "partial_or_unknown_repository_count": 10,
-  "receipt_sha256": "8c42a305619c6c19cd3c7e8b19110a629608ab4fc59749470daf93cea7110ed4",
+  "average_completion_score": 59.56,
+  "evaluated_repository_count": 296,
+  "generated_at": "2026-10-15T12:07:28.552241+00:00",
+  "partial_or_unknown_repository_count": 8,
+  "receipt_sha256": "9837448b13f4c6ce02780bb255d06217150bc74b68975779e75e450f7cf8ae62",
   "repositories": [
-    {
-      "ci": false,
-      "completion_score": 0,
-      "error": "GitHub API 404 for https://api.github.com/repos/MASSIVEMAGNETICS/autoresearch-win-rtx-victor/git/trees/main?recursive=1: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/git/trees#get-a-tree\",\"status\":\"404\"}",
-      "evidence_status": "unknown",
-      "gaps": [],
-      "gitignore": false,
-      "license": false,
-      "manifest": false,
-      "name": "MASSIVEMAGNETICS/autoresearch-win-rtx-victor",
-      "readme": false,
-      "release": false,
-      "source": false,
-      "tests": false
-    },
     {
       "ci": false,
       "completion_score": 0,
@@ -60,21 +45,6 @@
       "license": false,
       "manifest": false,
       "name": "MASSIVEMAGNETICS/paradigm-shatter",
-      "readme": false,
-      "release": false,
-      "source": false,
-      "tests": false
-    },
-    {
-      "ci": false,
-      "completion_score": 0,
-      "error": "GitHub API 409 for https://api.github.com/repos/MASSIVEMAGNETICS/shared-intelligence/git/trees/main?recursive=1: {\"message\":\"Git Repository is empty.\",\"documentation_url\":\"https://docs.github.com/rest/git/trees#get-a-tree\",\"status\":\"409\"}",
-      "evidence_status": "unknown",
-      "gaps": [],
-      "gitignore": false,
-      "license": false,
-      "manifest": false,
-      "name": "MASSIVEMAGNETICS/shared-intelligence",
       "readme": false,
       "release": false,
       "source": false,
@@ -2413,6 +2383,26 @@
       "gitignore": true,
       "license": false,
       "manifest": true,
+      "name": "MASSIVEMAGNETICS/autoresearch-win-rtx-victor",
+      "readme": true,
+      "release": false,
+      "source": true,
+      "tests": false
+    },
+    {
+      "ci": false,
+      "completion_score": 50,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "tests",
+        "ci",
+        "license",
+        "release"
+      ],
+      "gitignore": true,
+      "license": false,
+      "manifest": true,
       "name": "MASSIVEMAGNETICS/bando-bot-studio",
       "readme": true,
       "release": false,
@@ -4610,6 +4600,24 @@
       "tests": true
     },
     {
+      "ci": true,
+      "completion_score": 85,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "license",
+        "release"
+      ],
+      "gitignore": true,
+      "license": false,
+      "manifest": true,
+      "name": "MASSIVEMAGNETICS/shared-intelligence",
+      "readme": true,
+      "release": false,
+      "source": true,
+      "tests": true
+    },
+    {
       "ci": false,
       "completion_score": 85,
       "error": null,
@@ -5801,18 +5809,18 @@
   "schema_version": "scf-1",
   "shared_bottlenecks": [
     {
-      "affected_repositories": 195,
+      "affected_repositories": 196,
       "estimated_shared_effort": 3,
       "gap": "ci",
-      "leverage_score": 975.0,
-      "weighted_impact": 2925
+      "leverage_score": 980.0,
+      "weighted_impact": 2940
     },
     {
-      "affected_repositories": 142,
+      "affected_repositories": 143,
       "estimated_shared_effort": 4,
       "gap": "tests",
-      "leverage_score": 710.0,
-      "weighted_impact": 2840
+      "leverage_score": 715.0,
+      "weighted_impact": 2860
     },
     {
       "affected_repositories": 100,
@@ -5822,11 +5830,11 @@
       "weighted_impact": 500
     },
     {
-      "affected_repositories": 224,
+      "affected_repositories": 226,
       "estimated_shared_effort": 5,
       "gap": "release",
-      "leverage_score": 448.0,
-      "weighted_impact": 2240
+      "leverage_score": 452.0,
+      "weighted_impact": 2260
     },
     {
       "affected_repositories": 95,
@@ -5836,11 +5844,11 @@
       "weighted_impact": 1425
     },
     {
-      "affected_repositories": 171,
+      "affected_repositories": 173,
       "estimated_shared_effort": 6,
       "gap": "license",
-      "leverage_score": 142.5,
-      "weighted_impact": 855
+      "leverage_score": 144.167,
+      "weighted_impact": 865
     },
     {
       "affected_repositories": 56,

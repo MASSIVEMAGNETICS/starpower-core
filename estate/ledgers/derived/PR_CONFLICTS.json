@@ -1,5 +1,5 @@
 {
-  "conflict_count": 81,
+  "conflict_count": 82,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -2933,6 +2933,29 @@
       ]
     },
     {
+      "action": "REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 4,
+      "protected_concepts": [],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 18,
+      "risk_score": 60,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "integration",
+        "local",
+        "port",
+        "verified",
+        "work"
+      ]
+    },
+    {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
       "both_mergeable_false": true,
@@ -3659,6 +3682,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "6463e4087f2047b05d36be1d991d29c794e4d44fc7a88b71b0283c0b317ab848",
-  "source_development_receipt_sha256": "96701810642e35f372f6e1485e9e32cc22c0f9a87d9abd17447b3901366e5123"
+  "snapshot_sha256": "f7fbde4b9ddc1fd2c48a10271499c35e4e05da1df0873b3b542fe9ac5bbef899",
+  "source_development_receipt_sha256": "fa22ce5558415c562cbae510ba92ed7d09366c493e6f96d79512748c15c93695"
 }

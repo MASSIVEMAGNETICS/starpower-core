@@ -1,6 +1,6 @@
 {
-  "average_completion_score": 59.51,
-  "evaluated_repository_count": 294,
+  "average_completion_score": 59.56,
+  "evaluated_repository_count": 296,
   "lineage_candidates": [
     {
       "action": "REVIEW_LINEAGE",
@@ -124,7 +124,7 @@
     }
   ],
   "not_observed_since_previous": [],
-  "partial_or_unknown_repository_count": 10,
+  "partial_or_unknown_repository_count": 8,
   "repositories": [
     {
       "completion_score": 100,
@@ -565,20 +565,25 @@
       }
     },
     {
-      "completion_score": 0,
-      "error": "GitHub API 404 for https://api.github.com/repos/MASSIVEMAGNETICS/autoresearch-win-rtx-victor/git/trees/main?recursive=1: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/git/trees#get-a-tree\",\"status\":\"404\"}",
-      "evidence_status": "unknown",
+      "completion_score": 50,
+      "error": null,
+      "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/autoresearch-win-rtx-victor",
-      "gaps": [],
+      "gaps": [
+        "ci",
+        "license",
+        "release",
+        "tests"
+      ],
       "normalized_slug": "autoresearchwinrtxvictor",
       "signals": {
         "ci": false,
-        "gitignore": false,
+        "gitignore": true,
         "license": false,
-        "manifest": false,
-        "readme": false,
+        "manifest": true,
+        "readme": true,
         "release": false,
-        "source": false,
+        "source": true,
         "tests": false
       }
     },
@@ -4279,21 +4284,24 @@
       }
     },
     {
-      "completion_score": 0,
-      "error": "GitHub API 409 for https://api.github.com/repos/MASSIVEMAGNETICS/shared-intelligence/git/trees/main?recursive=1: {\"message\":\"Git Repository is empty.\",\"documentation_url\":\"https://docs.github.com/rest/git/trees#get-a-tree\",\"status\":\"409\"}",
-      "evidence_status": "unknown",
+      "completion_score": 85,
+      "error": null,
+      "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/shared-intelligence",
-      "gaps": [],
+      "gaps": [
+        "license",
+        "release"
+      ],
       "normalized_slug": "sharedintelligence",
       "signals": {
-        "ci": false,
-        "gitignore": false,
+        "ci": true,
+        "gitignore": true,
         "license": false,
-        "manifest": false,
-        "readme": false,
+        "manifest": true,
+        "readme": true,
         "release": false,
-        "source": false,
-        "tests": false
+        "source": true,
+        "tests": true
       }
     },
     {
@@ -6832,16 +6840,14 @@
   ],
   "repository_count": 304,
   "schema_version": "estate-snapshot/v1",
-  "snapshot_sha256": "1bc05f3d8d9c894296b7e0c202c2c19f13546b5f869897eaf066ad3d2247f93c",
-  "source_receipt_sha256": "8c42a305619c6c19cd3c7e8b19110a629608ab4fc59749470daf93cea7110ed4",
+  "snapshot_sha256": "341889252c337baa18b9dfd855d903af7a9545ab138e53ed2661280320b30dd5",
+  "source_receipt_sha256": "9837448b13f4c6ce02780bb255d06217150bc74b68975779e75e450f7cf8ae62",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "source_schema": "scf-1",
   "unknown_repositories": [
-    "MASSIVEMAGNETICS/autoresearch-win-rtx-victor",
     "MASSIVEMAGNETICS/black-hole-prime",
     "MASSIVEMAGNETICS/growing-synthetic-mind",
     "MASSIVEMAGNETICS/paradigm-shatter",
-    "MASSIVEMAGNETICS/shared-intelligence",
     "MASSIVEMAGNETICS/Tensor-Bit",
     "MASSIVEMAGNETICS/victor-godcore-ui",
     "MASSIVEMAGNETICS/victor-os-autodeploy",

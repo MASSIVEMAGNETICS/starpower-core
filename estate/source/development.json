@@ -1,7 +1,7 @@
 {
-  "draft_pull_request_count": 33,
-  "generated_at": "2026-10-15T05:11:49.817985+00:00",
-  "open_pull_request_count": 65,
+  "draft_pull_request_count": 34,
+  "generated_at": "2026-10-15T12:09:09.996177+00:00",
+  "open_pull_request_count": 66,
   "pull_requests": [
     {
       "additions": 1017,
@@ -1448,8 +1448,8 @@
       "evidence_status": "complete",
       "head_ref": "agent/executable-role-runtime",
       "head_sha": "65a667bb4e09452b946e89ec8e15378170027b3e",
-      "mergeable": null,
-      "mergeable_state": "unknown",
+      "mergeable": true,
+      "mergeable_state": "clean",
       "number": 34,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/dev-ville",
@@ -4217,7 +4217,7 @@
       "updated_at": "2026-06-10T21:39:19Z"
     },
     {
-      "additions": 0,
+      "additions": 1064,
       "author_association": "OWNER",
       "author_login": "MASSIVEMAGNETICS",
       "author_type": "User",
@@ -11348,7 +11348,7 @@
       "updated_at": "2026-08-09T14:30:16Z"
     },
     {
-      "additions": 0,
+      "additions": 1943,
       "author_association": "OWNER",
       "author_login": "MASSIVEMAGNETICS",
       "author_type": "User",
@@ -11369,7 +11369,7 @@
         "victor_kernel/storage.py"
       ],
       "created_at": "2026-08-09T18:07:38Z",
-      "deletions": 0,
+      "deletions": 12,
       "draft": true,
       "error": null,
       "evidence_status": "complete",
@@ -13253,6 +13253,67 @@
       "updated_at": "2026-08-31T23:19:13Z"
     },
     {
+      "additions": 24,
+      "author_association": "OWNER",
+      "author_login": "MASSIVEMAGNETICS",
+      "author_type": "User",
+      "base_ref": "main",
+      "base_sha": "6191ceeae3085910b777970d170944eed10f31e3",
+      "changed_files": [
+        "docs/engineering/scheduler-outbox-crash-retry-20261015.md"
+      ],
+      "created_at": "2026-10-15T09:35:01Z",
+      "deletions": 0,
+      "draft": true,
+      "error": null,
+      "evidence_status": "complete",
+      "head_ref": "fix/scheduler-idempotent-outbox-20261015",
+      "head_sha": "fc6a63bb9c8b1ec8d825133704f45892b73d4a41",
+      "mergeable": true,
+      "mergeable_state": "clean",
+      "number": 18,
+      "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "semantic_tokens": [
+        "analysis",
+        "authorized",
+        "completed",
+        "crash",
+        "deploy",
+        "engineering",
+        "failure",
+        "founder",
+        "hardening",
+        "injection",
+        "integrated",
+        "integration",
+        "isolated",
+        "local",
+        "needs",
+        "only",
+        "outbox",
+        "patch",
+        "plan",
+        "port",
+        "proof",
+        "regression",
+        "requirements",
+        "retry",
+        "review",
+        "runtime",
+        "scheduler",
+        "sqlite",
+        "staging",
+        "tests",
+        "verified",
+        "window",
+        "work"
+      ],
+      "state": "open",
+      "title": "DRAFT: Scheduler crash-retry outbox hardening plan",
+      "updated_at": "2026-10-15T09:35:01Z"
+    },
+    {
       "additions": 837,
       "author_association": "OWNER",
       "author_login": "MASSIVEMAGNETICS",
@@ -13295,7 +13356,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "96701810642e35f372f6e1485e9e32cc22c0f9a87d9abd17447b3901366e5123",
+  "receipt_sha256": "fa22ce5558415c562cbae510ba92ed7d09366c493e6f96d79512748c15c93695",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
