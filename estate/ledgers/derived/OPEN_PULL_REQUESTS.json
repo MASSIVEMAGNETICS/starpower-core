@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 34,
-  "generated_at": "2026-10-17T05:01:58.198184+00:00",
+  "generated_at": "2026-10-17T11:12:54.657516+00:00",
   "open_pull_request_count": 66,
   "pull_requests": [
     {
@@ -1579,8 +1579,8 @@
       "evidence_status": "complete",
       "head_ref": "feature/role-runtime-v02-20261012",
       "head_sha": "7cdbc105c4221120fdd5e459a3bfab546fc5bf0f",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 35,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/dev-ville",
@@ -13356,7 +13356,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "f2c431391d6b26523aecbbd29d4196c46114a1fb717eb53519f95bf700b2969e",
+  "receipt_sha256": "a050c95f54415cc525b12d83a564035b92d6e84721c5f7d330669503871bbe4f",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
