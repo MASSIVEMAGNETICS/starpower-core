@@ -2336,18 +2336,26 @@
       }
     },
     {
-      "completion_score": 0,
-      "error": "GitHub API 502 for https://api.github.com/repos/MASSIVEMAGNETICS/iambandobandz/git/trees/main?recursive=1: {\n  \"message\": \"Server Error\"\n}\n",
-      "evidence_status": "unknown",
+      "completion_score": 10,
+      "error": null,
+      "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/iambandobandz",
-      "gaps": [],
+      "gaps": [
+        "ci",
+        "gitignore",
+        "license",
+        "manifest",
+        "release",
+        "source",
+        "tests"
+      ],
       "normalized_slug": "iambandobandz",
       "signals": {
         "ci": false,
         "gitignore": false,
         "license": false,
         "manifest": false,
-        "readme": false,
+        "readme": true,
         "release": false,
         "source": false,
         "tests": false
@@ -6705,5 +6713,5 @@
     }
   ],
   "schema_version": "repository-registry/v1",
-  "snapshot_sha256": "ea4d19a3be2e6dd1a91d0b34841ba800a36be7c8fb046f86dd77b007779b808b"
+  "snapshot_sha256": "341889252c337baa18b9dfd855d903af7a9545ab138e53ed2661280320b30dd5"
 }

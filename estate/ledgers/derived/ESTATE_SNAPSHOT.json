@@ -1,6 +1,6 @@
 {
-  "average_completion_score": 59.73,
-  "evaluated_repository_count": 295,
+  "average_completion_score": 59.56,
+  "evaluated_repository_count": 296,
   "lineage_candidates": [
     {
       "action": "REVIEW_LINEAGE",
@@ -124,7 +124,7 @@
     }
   ],
   "not_observed_since_previous": [],
-  "partial_or_unknown_repository_count": 9,
+  "partial_or_unknown_repository_count": 8,
   "repositories": [
     {
       "completion_score": 100,
@@ -2462,18 +2462,26 @@
       }
     },
     {
-      "completion_score": 0,
-      "error": "GitHub API 502 for https://api.github.com/repos/MASSIVEMAGNETICS/iambandobandz/git/trees/main?recursive=1: {\n  \"message\": \"Server Error\"\n}\n",
-      "evidence_status": "unknown",
+      "completion_score": 10,
+      "error": null,
+      "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/iambandobandz",
-      "gaps": [],
+      "gaps": [
+        "ci",
+        "gitignore",
+        "license",
+        "manifest",
+        "release",
+        "source",
+        "tests"
+      ],
       "normalized_slug": "iambandobandz",
       "signals": {
         "ci": false,
         "gitignore": false,
         "license": false,
         "manifest": false,
-        "readme": false,
+        "readme": true,
         "release": false,
         "source": false,
         "tests": false
@@ -6832,14 +6840,13 @@
   ],
   "repository_count": 304,
   "schema_version": "estate-snapshot/v1",
-  "snapshot_sha256": "ea4d19a3be2e6dd1a91d0b34841ba800a36be7c8fb046f86dd77b007779b808b",
-  "source_receipt_sha256": "f66e977ce162c532deac8c5c8dd4e450124821561b540b7b050584da23175d00",
+  "snapshot_sha256": "341889252c337baa18b9dfd855d903af7a9545ab138e53ed2661280320b30dd5",
+  "source_receipt_sha256": "9837448b13f4c6ce02780bb255d06217150bc74b68975779e75e450f7cf8ae62",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "source_schema": "scf-1",
   "unknown_repositories": [
     "MASSIVEMAGNETICS/black-hole-prime",
     "MASSIVEMAGNETICS/growing-synthetic-mind",
-    "MASSIVEMAGNETICS/iambandobandz",
     "MASSIVEMAGNETICS/paradigm-shatter",
     "MASSIVEMAGNETICS/Tensor-Bit",
     "MASSIVEMAGNETICS/victor-godcore-ui",
