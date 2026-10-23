@@ -1068,17 +1068,16 @@
       }
     },
     {
-      "completion_score": 75,
+      "completion_score": 90,
       "error": null,
       "evidence_status": "complete",
       "full_name": "MASSIVEMAGNETICS/chatgpt-export-studio",
       "gaps": [
-        "ci",
         "release"
       ],
       "normalized_slug": "chatgptexportstudio",
       "signals": {
-        "ci": false,
+        "ci": true,
         "gitignore": true,
         "license": true,
         "manifest": true,
@@ -6713,5 +6712,5 @@
     }
   ],
   "schema_version": "repository-registry/v1",
-  "snapshot_sha256": "341889252c337baa18b9dfd855d903af7a9545ab138e53ed2661280320b30dd5"
+  "snapshot_sha256": "cd893c2b76046bdf65b41e0a06dd391a33a03e3a932a0f83a5f3c8088cf5d8be"
 }

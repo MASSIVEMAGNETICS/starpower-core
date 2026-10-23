@@ -1,9 +1,9 @@
 {
-  "average_completion_score": 59.56,
+  "average_completion_score": 59.61,
   "evaluated_repository_count": 296,
-  "generated_at": "2026-10-23T05:21:48.519996+00:00",
+  "generated_at": "2026-10-23T12:06:49.927902+00:00",
   "partial_or_unknown_repository_count": 8,
-  "receipt_sha256": "9837448b13f4c6ce02780bb255d06217150bc74b68975779e75e450f7cf8ae62",
+  "receipt_sha256": "ec223f0c7f4c5c40805e54f351fa47e0e427435eaea59f5dae8ab360830e42b9",
   "repositories": [
     {
       "ci": false,
@@ -4097,24 +4097,6 @@
       "gitignore": true,
       "license": true,
       "manifest": true,
-      "name": "MASSIVEMAGNETICS/chatgpt-export-studio",
-      "readme": true,
-      "release": false,
-      "source": true,
-      "tests": true
-    },
-    {
-      "ci": false,
-      "completion_score": 75,
-      "error": null,
-      "evidence_status": "complete",
-      "gaps": [
-        "ci",
-        "release"
-      ],
-      "gitignore": true,
-      "license": true,
-      "manifest": true,
       "name": "MASSIVEMAGNETICS/docushop",
       "readme": true,
       "release": false,
@@ -4717,6 +4699,23 @@
       "license": true,
       "manifest": true,
       "name": "MASSIVEMAGNETICS/cautious-enigma",
+      "readme": true,
+      "release": false,
+      "source": true,
+      "tests": true
+    },
+    {
+      "ci": true,
+      "completion_score": 90,
+      "error": null,
+      "evidence_status": "complete",
+      "gaps": [
+        "release"
+      ],
+      "gitignore": true,
+      "license": true,
+      "manifest": true,
+      "name": "MASSIVEMAGNETICS/chatgpt-export-studio",
       "readme": true,
       "release": false,
       "source": true,
@@ -5809,11 +5808,11 @@
   "schema_version": "scf-1",
   "shared_bottlenecks": [
     {
-      "affected_repositories": 196,
+      "affected_repositories": 195,
       "estimated_shared_effort": 3,
       "gap": "ci",
-      "leverage_score": 980.0,
-      "weighted_impact": 2940
+      "leverage_score": 975.0,
+      "weighted_impact": 2925
     },
     {
       "affected_repositories": 143,
