@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 33,
-  "generated_at": "2026-10-24T05:03:10.960460+00:00",
+  "generated_at": "2026-10-24T21:14:44.552762+00:00",
   "open_pull_request_count": 65,
   "pull_requests": [
     {
@@ -9710,8 +9710,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-08-assembler-sunokiller-canonical",
       "head_sha": "780c30dba29d8b0824d61dc57a4d585ca5284c15",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 3,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -13413,7 +13413,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "53373825f93ad5646997357edefaa2630d56a435016196e601e8cfa34246d8c0",
+  "receipt_sha256": "b2ef799e684a5fe33cf1de634f16082fbbece3d11fbf3d1b80aef990a8f77419",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
