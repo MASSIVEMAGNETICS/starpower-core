@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 33,
-  "generated_at": "2026-10-26T05:18:33.231722+00:00",
+  "generated_at": "2026-10-26T13:35:19.278055+00:00",
   "open_pull_request_count": 65,
   "pull_requests": [
     {
@@ -2560,8 +2560,8 @@
       "evidence_status": "complete",
       "head_ref": "agent/youtube-primary-admin-auth-2026-08-23",
       "head_sha": "c35b8ba248ec960dfe534d89aa49546f72829222",
-      "mergeable": null,
-      "mergeable_state": "unknown",
+      "mergeable": true,
+      "mergeable_state": "clean",
       "number": 30,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
@@ -2688,8 +2688,8 @@
       "evidence_status": "complete",
       "head_ref": "prototype/convergence-engine-v0",
       "head_sha": "5598a85e411808cfc6b304573e514e55db602b0c",
-      "mergeable": null,
-      "mergeable_state": "unknown",
+      "mergeable": false,
+      "mergeable_state": "dirty",
       "number": 45,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
@@ -2966,8 +2966,8 @@
       "evidence_status": "complete",
       "head_ref": "brand/codeverdict-20261014",
       "head_sha": "f68c79809243c0b33af19152c8467b8b7021d01e",
-      "mergeable": null,
-      "mergeable_state": "unknown",
+      "mergeable": true,
+      "mergeable_state": "unstable",
       "number": 54,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
@@ -13414,7 +13414,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "e3dd0e1b9d53023e0dad0ed7c8ac503252c80b7e4f980918b2a19a6e6009c965",
+  "receipt_sha256": "ad5a3f811455f5e1d50f4852f317da38993dea6d4f45858b0163c603e8f79436",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
