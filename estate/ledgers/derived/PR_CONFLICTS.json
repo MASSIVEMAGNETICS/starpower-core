@@ -1,5 +1,5 @@
 {
-  "conflict_count": 82,
+  "conflict_count": 80,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -2806,79 +2806,6 @@
       ]
     },
     {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "FILE_OVERLAP",
-        "STRUCTURAL_BASENAME_COLLISION",
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 34,
-      "protected_concepts": [
-        "canonical",
-        "deployment"
-      ],
-      "repository": "MASSIVEMAGNETICS/dev-ville",
-      "right_pr": 35,
-      "risk_score": 95,
-      "shared_basenames": [
-        "ROLE_RUNTIME.md",
-        "devville_roles.py",
-        "test_devville_roles.py"
-      ],
-      "shared_components": [],
-      "shared_paths": [
-        "ROLE_RUNTIME.md",
-        "devville_roles.py",
-        "test_devville_roles.py"
-      ],
-      "shared_semantic_tokens": [
-        "autonomous",
-        "blocked",
-        "bound",
-        "canonical",
-        "capability",
-        "changed",
-        "check",
-        "closure",
-        "contracts",
-        "deployment",
-        "event",
-        "execution",
-        "existing",
-        "external",
-        "handoffs",
-        "integrate",
-        "json",
-        "labels",
-        "local",
-        "passed",
-        "passing",
-        "predecessor",
-        "python",
-        "recorded",
-        "remains",
-        "role",
-        "runtime",
-        "sandbox",
-        "source",
-        "sqlite",
-        "studio",
-        "tests",
-        "ticket",
-        "trust",
-        "trusted",
-        "unauthenticated",
-        "until",
-        "validation",
-        "verifier",
-        "ville",
-        "workers"
-      ]
-    },
-    {
       "action": "REVIEW",
       "base_ref": "main",
       "both_mergeable_false": false,
@@ -2929,78 +2856,6 @@
         "task",
         "until",
         "verification",
-        "work"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 4,
-      "protected_concepts": [
-        "deployment",
-        "production",
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/victorOS",
-      "right_pr": 18,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "acceptance",
-        "actions",
-        "artifact",
-        "auto",
-        "before",
-        "bounded",
-        "branch",
-        "capability",
-        "claims",
-        "commits",
-        "cross",
-        "current",
-        "deployment",
-        "does",
-        "empire",
-        "evidence",
-        "exact",
-        "exactly",
-        "execute",
-        "existing",
-        "files",
-        "first",
-        "gate",
-        "github",
-        "head",
-        "human",
-        "intentionally",
-        "keep",
-        "locally",
-        "maintenance",
-        "model",
-        "objective",
-        "open",
-        "preserve",
-        "production",
-        "rather",
-        "receipt",
-        "reconciliation",
-        "release",
-        "remains",
-        "requires",
-        "should",
-        "status",
-        "test",
-        "than",
-        "that",
-        "verification",
-        "victoros",
         "work"
       ]
     },
@@ -3731,6 +3586,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "3fd20e4e5027b1fdc8cd926dd1893d8c8a600c8753c272d1579971d2dd2eb896",
-  "source_development_receipt_sha256": "50da651f5e5caf3fbff9d9eec987f8f1921ac1729738bb7ebe1eec908dfbc012"
+  "snapshot_sha256": "d7cea5b129a9b733c4a510a451332568e529928d2e86290648f2db29ff2db909",
+  "source_development_receipt_sha256": "fe81a1354e49a9d335cf9add17b7b50edba14df3c53ab9a88df5b71e680137cc"
 }
