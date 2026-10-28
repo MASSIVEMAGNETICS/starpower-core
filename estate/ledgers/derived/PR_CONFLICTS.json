@@ -1,5 +1,5 @@
 {
-  "conflict_count": 80,
+  "conflict_count": 81,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -2862,6 +2862,60 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 4,
+      "protected_concepts": [
+        "production"
+      ],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 20,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "actions",
+        "bounded",
+        "branch",
+        "capability",
+        "checks",
+        "commits",
+        "does",
+        "exact",
+        "exactly",
+        "files",
+        "gate",
+        "github",
+        "head",
+        "https",
+        "human",
+        "intentionally",
+        "local",
+        "merged",
+        "objective",
+        "production",
+        "reconciliation",
+        "remains",
+        "required",
+        "requires",
+        "response",
+        "return",
+        "source",
+        "test",
+        "that",
+        "until",
+        "verification",
+        "victoros",
+        "zero"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
       "both_mergeable_false": true,
       "kinds": [
         "STRUCTURAL_BASENAME_COLLISION",
@@ -3586,6 +3640,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "6b70332e982b20944287a6b0f9b5db6f0238da4357c604abe632b9c3ad4f6da0",
-  "source_development_receipt_sha256": "90ed7c99f73be2b9b884010995f85ac2c9d040f45d2e0105533d3ef238a74ec7"
+  "snapshot_sha256": "cc8b26d6b1347a01557b95c12946c1185786999b87c40bc8def5f8f91694eba5",
+  "source_development_receipt_sha256": "2fa019da7f7ac6c3a4e74b51c09d778ae3bcf0f649dadc774dc495d0f87ece65"
 }
