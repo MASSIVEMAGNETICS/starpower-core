@@ -1,5 +1,5 @@
 {
-  "conflict_count": 88,
+  "conflict_count": 89,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -3084,6 +3084,27 @@
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE"
       ],
+      "left_pr": 34,
+      "protected_concepts": [],
+      "repository": "MASSIVEMAGNETICS/dev-ville",
+      "right_pr": 36,
+      "risk_score": 60,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "passed",
+        "replacement",
+        "tests"
+      ]
+    },
+    {
+      "action": "REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE"
+      ],
       "left_pr": 1,
       "protected_concepts": [],
       "repository": "MASSIVEMAGNETICS/omni",
@@ -3922,6 +3943,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "604b1a9b38bb723df0619af978358e6e614473e3d223ef861a283fb8786da878",
-  "source_development_receipt_sha256": "92a7828d2cb96cde3313297fe4671eb7766a8d356224c4b4321fa05b2714afe9"
+  "snapshot_sha256": "b5080c92ba0f8f6c85a281ed84d7774b6c7cfeba4cdcbd9bc64eaadd899a53c7",
+  "source_development_receipt_sha256": "c19809455b816a57995fc10e4d458bc6931a092a256f63f9b08a6be634453bc9"
 }
