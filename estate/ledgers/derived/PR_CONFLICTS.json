@@ -1,5 +1,5 @@
 {
-  "conflict_count": 84,
+  "conflict_count": 88,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -111,6 +111,44 @@
       "base_ref": "main",
       "both_mergeable_false": false,
       "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 30,
+      "protected_concepts": [
+        "deployment",
+        "production"
+      ],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 57,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "backend",
+        "before",
+        "deployed",
+        "deployment",
+        "exact",
+        "existing",
+        "explicit",
+        "head",
+        "https",
+        "massivemagnetics",
+        "origin",
+        "production",
+        "real",
+        "separately",
+        "server",
+        "session"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
         "STRUCTURAL_BASENAME_COLLISION",
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -187,6 +225,66 @@
       "base_ref": "main",
       "both_mergeable_false": false,
       "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 45,
+      "protected_concepts": [
+        "canonical",
+        "deployment",
+        "production"
+      ],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 57,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "actions",
+        "approval",
+        "backend",
+        "candidate",
+        "canonical",
+        "contract",
+        "daily",
+        "deployment",
+        "empire",
+        "evidence",
+        "exact",
+        "explicit",
+        "files",
+        "full",
+        "github",
+        "head",
+        "heard",
+        "integration",
+        "live",
+        "maintenance",
+        "massivemagnetics",
+        "only",
+        "pages",
+        "pass",
+        "payment",
+        "production",
+        "published",
+        "registry",
+        "required",
+        "returns",
+        "rollback",
+        "scope",
+        "signed",
+        "site",
+        "still",
+        "test",
+        "tests"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
         "STRUCTURAL_BASENAME_COLLISION",
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -210,6 +308,83 @@
         "source",
         "stripe",
         "verification"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 54,
+      "protected_concepts": [
+        "checkout",
+        "deployment"
+      ],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 57,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "checkout",
+        "customer",
+        "deployment",
+        "existing",
+        "explicit",
+        "offer",
+        "registry",
+        "stripe"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 56,
+      "protected_concepts": [
+        "checkout"
+      ],
+      "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
+      "right_pr": 57,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "approval",
+        "back",
+        "before",
+        "bheard",
+        "billing",
+        "checkout",
+        "exact",
+        "explicit",
+        "founder",
+        "fulfillment",
+        "head",
+        "heard",
+        "independent",
+        "only",
+        "order",
+        "origin",
+        "payment",
+        "required",
+        "return",
+        "roll",
+        "safety",
+        "scope",
+        "secrets",
+        "stripe",
+        "tests",
+        "webhook"
       ]
     },
     {
@@ -3747,6 +3922,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "fc7d5cf98e9e30eb159a1e895b62c9ad59ac24ef644223c3232a7e43ac3e9028",
-  "source_development_receipt_sha256": "4d55c8d3adf01ca566d9440e96a3f826e4015a1d6e652ac917002de6cd24a61d"
+  "snapshot_sha256": "604b1a9b38bb723df0619af978358e6e614473e3d223ef861a283fb8786da878",
+  "source_development_receipt_sha256": "92a7828d2cb96cde3313297fe4671eb7766a8d356224c4b4321fa05b2714afe9"
 }
