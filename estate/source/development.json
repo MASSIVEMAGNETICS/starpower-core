@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 31,
-  "generated_at": "2026-10-29T23:00:57.393335+00:00",
+  "generated_at": "2026-10-30T06:28:52.417561+00:00",
   "open_pull_request_count": 65,
   "pull_requests": [
     {
@@ -13243,7 +13243,7 @@
       "updated_at": "2026-08-31T23:19:13Z"
     },
     {
-      "additions": 151,
+      "additions": 205,
       "author_association": "OWNER",
       "author_login": "MASSIVEMAGNETICS",
       "author_type": "User",
@@ -13259,7 +13259,7 @@
       "error": null,
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-10-27-victoros-unknown-quiescence",
-      "head_sha": "8e618884e3827dac610b0c90bf576ebd59e8bd37",
+      "head_sha": "121940a9e73acb7f4e8264f88eaa2915855a0868",
       "mergeable": true,
       "mergeable_state": "clean",
       "number": 20,
@@ -13505,7 +13505,7 @@
       ],
       "state": "open",
       "title": "fix(victoros): prevent false quiescence with unresolved capability effects",
-      "updated_at": "2026-10-28T23:13:25Z"
+      "updated_at": "2026-10-29T23:23:21Z"
     },
     {
       "additions": 837,
@@ -13550,7 +13550,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "c639641f7fffe2900d98a4ed28611cd24e2080310bd1738b0c204dd4bc267ab1",
+  "receipt_sha256": "4d55c8d3adf01ca566d9440e96a3f826e4015a1d6e652ac917002de6cd24a61d",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
