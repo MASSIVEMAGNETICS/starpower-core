@@ -135,13 +135,17 @@
         "explicit",
         "head",
         "https",
+        "local",
         "massivemagnetics",
         "origin",
         "production",
+        "public",
         "real",
+        "remains",
         "separately",
         "server",
-        "session"
+        "session",
+        "without"
       ]
     },
     {
@@ -246,13 +250,16 @@
         "backend",
         "candidate",
         "canonical",
+        "commits",
         "contract",
         "daily",
+        "deploy",
         "deployment",
         "empire",
         "evidence",
         "exact",
         "explicit",
+        "fetch",
         "files",
         "full",
         "github",
@@ -260,13 +267,16 @@
         "heard",
         "integration",
         "live",
+        "local",
         "maintenance",
         "massivemagnetics",
         "only",
         "pages",
         "pass",
         "payment",
+        "performed",
         "production",
+        "public",
         "published",
         "registry",
         "required",
@@ -276,8 +286,10 @@
         "signed",
         "site",
         "still",
+        "success",
         "test",
-        "tests"
+        "tests",
+        "validate"
       ]
     },
     {
@@ -336,8 +348,11 @@
         "existing",
         "explicit",
         "offer",
+        "pending",
+        "public",
         "registry",
-        "stripe"
+        "stripe",
+        "urls"
       ]
     },
     {
@@ -364,7 +379,10 @@
         "before",
         "bheard",
         "billing",
+        "cases",
         "checkout",
+        "commits",
+        "deploy",
         "exact",
         "explicit",
         "founder",
@@ -372,6 +390,7 @@
         "head",
         "heard",
         "independent",
+        "isolated",
         "only",
         "order",
         "origin",
@@ -4016,6 +4035,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "8b09c371a656e2edb08576ae861516ce56893678835926bd04e31e973c8d7152",
-  "source_development_receipt_sha256": "1ff8b0bb1da1d8c7f5215046536d9f5427c1aee2e0e264626f4d20b51580e9f2"
+  "snapshot_sha256": "b67f2e797e8aa4914d498c438948a8f0daf97cea192d8f924d40560ecdf7b816",
+  "source_development_receipt_sha256": "4b6c591b9e907c5f843e572eecdbc1d743359380ab9a64e37d33a5e746864987"
 }
