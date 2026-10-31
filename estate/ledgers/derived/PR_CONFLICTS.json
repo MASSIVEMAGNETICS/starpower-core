@@ -1,5 +1,5 @@
 {
-  "conflict_count": 89,
+  "conflict_count": 91,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -3099,6 +3099,79 @@
       ]
     },
     {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 34,
+      "protected_concepts": [
+        "deployment"
+      ],
+      "repository": "MASSIVEMAGNETICS/dev-ville",
+      "right_pr": 40,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "changed",
+        "check",
+        "code",
+        "count",
+        "deployment",
+        "evidence",
+        "execution",
+        "existing",
+        "gates",
+        "json",
+        "local",
+        "machine",
+        "migration",
+        "python",
+        "recorded",
+        "remain",
+        "source",
+        "standalone",
+        "studio",
+        "test",
+        "upstream",
+        "verification",
+        "ville",
+        "work",
+        "write"
+      ]
+    },
+    {
+      "action": "REVIEW",
+      "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 36,
+      "protected_concepts": [],
+      "repository": "MASSIVEMAGNETICS/dev-ville",
+      "right_pr": 40,
+      "risk_score": 60,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "before",
+        "branch",
+        "eight",
+        "exact",
+        "head",
+        "independent",
+        "published",
+        "review",
+        "vsg1"
+      ]
+    },
+    {
       "action": "REVIEW",
       "base_ref": "main",
       "both_mergeable_false": false,
@@ -3943,6 +4016,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "b5080c92ba0f8f6c85a281ed84d7774b6c7cfeba4cdcbd9bc64eaadd899a53c7",
-  "source_development_receipt_sha256": "c19809455b816a57995fc10e4d458bc6931a092a256f63f9b08a6be634453bc9"
+  "snapshot_sha256": "d785974c797c2773265fa2c62b675b35287ec37edbe9bdebe674efcdb9effc2b",
+  "source_development_receipt_sha256": "9afcdbb770addc3f575c4168c948ff45213236b019ea93b36d003602ca0865f0"
 }
