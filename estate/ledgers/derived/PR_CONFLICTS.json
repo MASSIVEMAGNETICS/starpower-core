@@ -4223,6 +4223,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "407191957e85532145b414c6aabe79a1e86a4fdde193823876767917b3ab3179",
-  "source_development_receipt_sha256": "f8b9a1426f7fa89bdb080f0a3613d8eab19da401fe0455430c9b39c09712b9fe"
+  "snapshot_sha256": "4f5a220ea06eb52979dd9c7eaf66acd514ce8d08ffb7cbc1314a8a798f924c2b",
+  "source_development_receipt_sha256": "c4d0adc94f98e2a663d2685cd6420f80aaa8afa8c87b3d1bcb62fac2b03933b5"
 }
