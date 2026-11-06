@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 36,
-  "generated_at": "2026-11-05T20:19:54.918949+00:00",
+  "generated_at": "2026-11-06T07:26:48.078853+00:00",
   "open_pull_request_count": 71,
   "pull_requests": [
     {
@@ -14504,7 +14504,7 @@
       ],
       "state": "open",
       "title": "Issue #19: transactional outbox for cognitive scheduler",
-      "updated_at": "2026-11-05T13:04:41Z"
+      "updated_at": "2026-11-06T00:50:28Z"
     },
     {
       "additions": 837,
@@ -14549,7 +14549,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "90d327225bd1570ae798439212f8857e4005049ae3a8564307a4e1ed70668f63",
+  "receipt_sha256": "fababa10d4f89f8b3351b2a6aa0733008ea9b683b04bc0dc7a786efcb5451b7a",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
