@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 36,
-  "generated_at": "2026-11-08T22:32:07.149841+00:00",
+  "generated_at": "2026-11-09T07:13:26.703103+00:00",
   "open_pull_request_count": 71,
   "pull_requests": [
     {
@@ -10738,8 +10738,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-08-assembler-sunokiller-canonical",
       "head_sha": "780c30dba29d8b0824d61dc57a4d585ca5284c15",
-      "mergeable": null,
-      "mergeable_state": "unknown",
+      "mergeable": true,
+      "mergeable_state": "clean",
       "number": 3,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -14338,7 +14338,7 @@
       "updated_at": "2026-08-31T23:19:13Z"
     },
     {
-      "additions": 894,
+      "additions": 912,
       "author_association": "OWNER",
       "author_login": "MASSIVEMAGNETICS",
       "author_type": "User",
@@ -14355,7 +14355,7 @@
       "error": null,
       "evidence_status": "complete",
       "head_ref": "issue-19-transactional-outbox",
-      "head_sha": "f0c4ce31a0300fccf4799bc5289823871ae503f9",
+      "head_sha": "a39043473ecd0c097248f675977f9e856e2f2e0b",
       "mergeable": true,
       "mergeable_state": "clean",
       "number": 22,
@@ -14504,7 +14504,7 @@
       ],
       "state": "open",
       "title": "Issue #19: transactional outbox for cognitive scheduler",
-      "updated_at": "2026-11-08T00:47:28Z"
+      "updated_at": "2026-11-09T00:11:57Z"
     },
     {
       "additions": 837,
@@ -14549,7 +14549,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "006e635a1b8a00f74538556bc00eca1b04ce90242e4571706fcfe946cb6594db",
+  "receipt_sha256": "962ae17d2611d343ca5beec08e06b7c1752e47619a67f1bb5a80780febd3a853",
   "schema_version": "development-snapshot/v1",
   "source_ref": "c6469878f43a836a0646ac70cacde50dcc0f8755",
   "unknown_pull_request_count": 0
