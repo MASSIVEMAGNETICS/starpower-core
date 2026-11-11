@@ -3099,30 +3099,47 @@
       ]
     },
     {
-      "action": "REVIEW",
+      "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
       "both_mergeable_false": false,
       "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE"
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
       ],
       "left_pr": 34,
-      "protected_concepts": [],
+      "protected_concepts": [
+        "deployment"
+      ],
       "repository": "MASSIVEMAGNETICS/dev-ville",
-      "right_pr": 36,
-      "risk_score": 60,
+      "right_pr": 38,
+      "risk_score": 95,
       "shared_basenames": [],
       "shared_components": [],
       "shared_paths": [],
       "shared_semantic_tokens": [
-        "passed",
-        "replacement",
-        "tests"
+        "check",
+        "deployment",
+        "downstream",
+        "event",
+        "existing",
+        "exists",
+        "format",
+        "integration",
+        "integrity",
+        "limits",
+        "python",
+        "remains",
+        "test",
+        "tests",
+        "until",
+        "validation",
+        "verification"
       ]
     },
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": true,
+      "both_mergeable_false": false,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -3217,30 +3234,44 @@
       ]
     },
     {
-      "action": "REVIEW",
+      "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
       "both_mergeable_false": false,
       "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE"
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
       ],
-      "left_pr": 36,
-      "protected_concepts": [],
+      "left_pr": 38,
+      "protected_concepts": [
+        "deployment"
+      ],
       "repository": "MASSIVEMAGNETICS/dev-ville",
       "right_pr": 40,
-      "risk_score": 60,
+      "risk_score": 95,
       "shared_basenames": [],
       "shared_components": [],
       "shared_paths": [],
       "shared_semantic_tokens": [
         "before",
         "branch",
-        "eight",
+        "check",
+        "deployment",
         "exact",
+        "existing",
+        "gate",
         "head",
         "independent",
-        "published",
-        "review",
-        "vsg1"
+        "malformed",
+        "python",
+        "results",
+        "semantic",
+        "strict",
+        "test",
+        "types",
+        "unittest",
+        "verification",
+        "vsg1",
+        "without"
       ]
     },
     {
@@ -3250,7 +3281,7 @@
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE"
       ],
-      "left_pr": 36,
+      "left_pr": 38,
       "protected_concepts": [],
       "repository": "MASSIVEMAGNETICS/dev-ville",
       "right_pr": 41,
@@ -3260,16 +3291,25 @@
       "shared_paths": [],
       "shared_semantic_tokens": [
         "before",
-        "benchmark",
+        "check",
+        "checks",
+        "event",
         "exact",
+        "existing",
+        "gate",
         "head",
         "independent",
+        "latency",
+        "memory",
         "only",
-        "passed",
-        "require",
-        "review",
+        "python",
         "scope",
-        "tests"
+        "semantic",
+        "test",
+        "tests",
+        "until",
+        "verification",
+        "version"
       ]
     },
     {
@@ -4201,6 +4241,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "210c7a3fee74a6648d1040f8a47756e812f857026ef2bdb304da3abb6f48e49a",
-  "source_development_receipt_sha256": "6804d68170013f18af1f1461fdabde5f68dc024ab0c90a6a1d1ed6e374003cb7"
+  "snapshot_sha256": "782f567d2b0e40acac238d6150829b2b3493cc73d7dc1109aeaf4cdf6861b330",
+  "source_development_receipt_sha256": "28c1e2fad780da0f9dff652e5c0cabc9342aa543d1a23e507189a0f0065cc9ca"
 }
