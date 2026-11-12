@@ -3101,7 +3101,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -3139,7 +3139,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -3236,7 +3236,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -3483,7 +3483,8 @@
       "left_pr": 4,
       "protected_concepts": [
         "canonical",
-        "production"
+        "production",
+        "security"
       ],
       "repository": "MASSIVEMAGNETICS/victorOS",
       "right_pr": 22,
@@ -3492,8 +3493,12 @@
       "shared_components": [],
       "shared_paths": [],
       "shared_semantic_tokens": [
+        "acceptance",
+        "actions",
+        "authenticated",
         "before",
         "bounded",
+        "branch",
         "cannot",
         "canonical",
         "capability",
@@ -3501,17 +3506,37 @@
         "claims",
         "commits",
         "conflict",
+        "direct",
+        "does",
+        "empire",
+        "exact",
         "exactly",
         "existing",
+        "files",
+        "github",
+        "head",
+        "https",
+        "integration",
         "local",
+        "maintenance",
         "owner",
         "production",
+        "provenance",
         "receipt",
         "reconciliation",
         "rejection",
+        "remains",
+        "revenue",
+        "security",
         "source",
+        "state",
         "test",
-        "until"
+        "until",
+        "validation",
+        "verification",
+        "verified",
+        "victoros",
+        "while"
       ]
     },
     {
@@ -4241,6 +4266,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "782f567d2b0e40acac238d6150829b2b3493cc73d7dc1109aeaf4cdf6861b330",
-  "source_development_receipt_sha256": "28c1e2fad780da0f9dff652e5c0cabc9342aa543d1a23e507189a0f0065cc9ca"
+  "snapshot_sha256": "77c5dcab937b3e235369a01cbc1f50ff7aab0bff6d0a250f682aa3e5e2d69a57",
+  "source_development_receipt_sha256": "67e3e008f3709a305910f47a6b29611e7b048facf561c84e21e2b7914e60f376"
 }
