@@ -1,5 +1,5 @@
 {
-  "conflict_count": 94,
+  "conflict_count": 75,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -875,51 +875,6 @@
       ],
       "left_pr": 2,
       "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 10,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "blockquote",
-        "changelog",
-        "code",
-        "details",
-        "documentation",
-        "ensure",
-        "error",
-        "false",
-        "github",
-        "href",
-        "https",
-        "json",
-        "more",
-        "notes",
-        "package",
-        "redirect",
-        "release",
-        "releases",
-        "sourced",
-        "strong",
-        "summary",
-        "valid",
-        "version",
-        "when"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 2,
-      "protected_concepts": [
         "checkout",
         "release"
       ],
@@ -955,48 +910,6 @@
         "version",
         "when",
         "workflow"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 2,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 15,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "actions",
-        "blockquote",
-        "code",
-        "compare",
-        "dependabot",
-        "dependency",
-        "details",
-        "document",
-        "github",
-        "href",
-        "https",
-        "more",
-        "notes",
-        "redirect",
-        "release",
-        "releases",
-        "sourced",
-        "summary",
-        "upgrade",
-        "version",
-        "when"
       ]
     },
     {
@@ -1083,7 +996,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": true,
+      "both_mergeable_false": false,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1147,7 +1060,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": true,
+      "both_mergeable_false": false,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1311,45 +1224,6 @@
         "release"
       ],
       "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 10,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "blockquote",
-        "changelog",
-        "code",
-        "default",
-        "deprecated",
-        "details",
-        "github",
-        "href",
-        "https",
-        "notes",
-        "redirect",
-        "release",
-        "releases",
-        "sourced",
-        "strong",
-        "summary",
-        "support",
-        "test"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 3,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
       "right_pr": 12,
       "risk_score": 95,
       "shared_basenames": [],
@@ -1372,42 +1246,6 @@
         "sourced",
         "summary",
         "support"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 3,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 15,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "actions",
-        "blockquote",
-        "code",
-        "compare",
-        "default",
-        "details",
-        "github",
-        "href",
-        "https",
-        "notes",
-        "redirect",
-        "release",
-        "releases",
-        "sourced",
-        "summary"
       ]
     },
     {
@@ -1494,7 +1332,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": true,
+      "both_mergeable_false": false,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1656,45 +1494,6 @@
         "release"
       ],
       "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 10,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "blockquote",
-        "changelog",
-        "code",
-        "default",
-        "deprecated",
-        "details",
-        "github",
-        "href",
-        "https",
-        "notes",
-        "redirect",
-        "release",
-        "releases",
-        "sourced",
-        "strong",
-        "summary",
-        "support",
-        "test"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 4,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
       "right_pr": 12,
       "risk_score": 95,
       "shared_basenames": [],
@@ -1717,43 +1516,6 @@
         "sourced",
         "summary",
         "support"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 4,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 15,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "actions",
-        "blockquote",
-        "code",
-        "compare",
-        "default",
-        "details",
-        "github",
-        "href",
-        "https",
-        "notes",
-        "redirect",
-        "release",
-        "releases",
-        "server",
-        "sourced",
-        "summary"
       ]
     },
     {
@@ -1938,44 +1700,6 @@
         "release"
       ],
       "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 10,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "blockquote",
-        "changelog",
-        "code",
-        "default",
-        "details",
-        "github",
-        "href",
-        "https",
-        "notes",
-        "redirect",
-        "release",
-        "releases",
-        "sourced",
-        "strong",
-        "summary",
-        "test",
-        "version"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 5,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
       "right_pr": 12,
       "risk_score": 95,
       "shared_basenames": [],
@@ -1986,43 +1710,6 @@
         "blockquote",
         "bump",
         "code",
-        "details",
-        "github",
-        "href",
-        "https",
-        "notes",
-        "redirect",
-        "release",
-        "releases",
-        "sourced",
-        "summary",
-        "version"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 5,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 15,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "actions",
-        "blockquote",
-        "code",
-        "compare",
-        "default",
         "details",
         "github",
         "href",
@@ -2172,46 +1859,6 @@
       ],
       "left_pr": 6,
       "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 10,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "blockquote",
-        "changelog",
-        "cleanup",
-        "code",
-        "details",
-        "docs",
-        "github",
-        "href",
-        "https",
-        "notes",
-        "redirect",
-        "release",
-        "releases",
-        "requirements",
-        "sourced",
-        "strong",
-        "summary",
-        "support",
-        "version"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 6,
-      "protected_concepts": [
         "checkout",
         "release"
       ],
@@ -2243,43 +1890,6 @@
         "summary",
         "support",
         "updated",
-        "version"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 6,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 15,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "actions",
-        "blockquote",
-        "code",
-        "compare",
-        "details",
-        "github",
-        "href",
-        "https",
-        "notes",
-        "redirect",
-        "release",
-        "releases",
-        "requirements",
-        "sourced",
-        "summary",
         "version"
       ]
     },
@@ -2376,49 +1986,6 @@
       ],
       "left_pr": 7,
       "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 10,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "always",
-        "blockquote",
-        "cases",
-        "changelog",
-        "code",
-        "details",
-        "github",
-        "href",
-        "https",
-        "line",
-        "notes",
-        "only",
-        "package",
-        "redirect",
-        "release",
-        "releases",
-        "sourced",
-        "strong",
-        "summary",
-        "support",
-        "type",
-        "when"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 7,
-      "protected_concepts": [
         "checkout",
         "release"
       ],
@@ -2452,45 +2019,6 @@
         "tests",
         "when",
         "workflow"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 7,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 15,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "actions",
-        "blockquote",
-        "code",
-        "compare",
-        "dependency",
-        "details",
-        "github",
-        "href",
-        "https",
-        "name",
-        "notes",
-        "redirect",
-        "release",
-        "releases",
-        "sourced",
-        "summary",
-        "tests",
-        "when"
       ]
     },
     {
@@ -2590,270 +2118,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 10,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 12,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [
-        "gateway"
-      ],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "added",
-        "blockquote",
-        "case",
-        "cases",
-        "code",
-        "details",
-        "documentation",
-        "fixed",
-        "gateway",
-        "github",
-        "href",
-        "https",
-        "improved",
-        "latest",
-        "notes",
-        "package",
-        "permit",
-        "python",
-        "redirect",
-        "release",
-        "releases",
-        "requirement",
-        "requirements",
-        "should",
-        "sourced",
-        "summary",
-        "support",
-        "that",
-        "true",
-        "updates",
-        "version",
-        "when"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 10,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 15,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [
-        "gateway"
-      ],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "also",
-        "been",
-        "blockquote",
-        "code",
-        "default",
-        "details",
-        "gateway",
-        "github",
-        "have",
-        "href",
-        "https",
-        "issues",
-        "latest",
-        "more",
-        "notes",
-        "permit",
-        "redirect",
-        "release",
-        "releases",
-        "requirement",
-        "requirements",
-        "sourced",
-        "summary",
-        "that",
-        "true",
-        "updates",
-        "using",
-        "version",
-        "when",
-        "will"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 10,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 16,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [
-        "gateway"
-      ],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "added",
-        "blob",
-        "blockquote",
-        "case",
-        "changelog",
-        "code",
-        "configuration",
-        "context",
-        "default",
-        "details",
-        "docs",
-        "fixed",
-        "gateway",
-        "github",
-        "href",
-        "html",
-        "https",
-        "issues",
-        "latest",
-        "notes",
-        "omitted",
-        "permit",
-        "redirect",
-        "release",
-        "releases",
-        "requirement",
-        "requirements",
-        "sourced",
-        "strong",
-        "summary",
-        "support",
-        "treat",
-        "truncated",
-        "updates",
-        "valid",
-        "version"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 10,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 17,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "added",
-        "also",
-        "blockquote",
-        "code",
-        "details",
-        "documentation",
-        "fixed",
-        "github",
-        "href",
-        "html",
-        "https",
-        "improved",
-        "notes",
-        "omitted",
-        "redirect",
-        "release",
-        "releases",
-        "sourced",
-        "string",
-        "summary",
-        "support",
-        "when",
-        "where"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 12,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 15,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [
-        "gateway"
-      ],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "actions",
-        "blockquote",
-        "code",
-        "commands",
-        "commit",
-        "dependabot",
-        "details",
-        "gateway",
-        "github",
-        "href",
-        "https",
-        "latest",
-        "made",
-        "notes",
-        "permit",
-        "redirect",
-        "release",
-        "releases",
-        "requirement",
-        "requirements",
-        "sourced",
-        "specified",
-        "summary",
-        "tests",
-        "that",
-        "true",
-        "updates",
-        "version",
-        "when"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -2941,96 +2206,6 @@
         "summary",
         "support",
         "updated",
-        "when"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 15,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 16,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [
-        "gateway"
-      ],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "accept",
-        "blockquote",
-        "code",
-        "commit",
-        "commits",
-        "compare",
-        "default",
-        "details",
-        "gateway",
-        "github",
-        "headers",
-        "href",
-        "https",
-        "ignore",
-        "issues",
-        "latest",
-        "notes",
-        "permit",
-        "redirect",
-        "release",
-        "releases",
-        "requirement",
-        "requirements",
-        "server",
-        "sourced",
-        "start",
-        "summary",
-        "updates",
-        "version"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 15,
-      "protected_concepts": [
-        "release"
-      ],
-      "repository": "MASSIVEMAGNETICS/VICTOR-SSI",
-      "right_pr": 17,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "also",
-        "blockquote",
-        "close",
-        "code",
-        "details",
-        "event",
-        "github",
-        "headers",
-        "href",
-        "https",
-        "notes",
-        "redirect",
-        "release",
-        "releases",
-        "sourced",
-        "summary",
         "when"
       ]
     },
@@ -4260,6 +3435,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "be33ca953f196bd3ff3a6ad4573332194e74b8aff54e10daaebfcc0d76fe7a06",
-  "source_development_receipt_sha256": "6453ca6ede039840fcfa3c61b83e71a3b0ce94097cf5e0f1a1fc2a6777b9dae5"
+  "snapshot_sha256": "c78a0b6222d0f27eb73f680be5c019c319d7855517432c99d295ca53c23e32b1",
+  "source_development_receipt_sha256": "65f798947e32a4e2e6593ca5dfc196dab184d60aa4c6a9c73a73c7b2cd5bbe9c"
 }
