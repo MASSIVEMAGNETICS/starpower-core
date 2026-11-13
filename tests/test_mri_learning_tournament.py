@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import math
 
+import pytest
+
 from starpower_core.research.tournament import TournamentCfg, run_tournament
 
 
@@ -16,6 +18,24 @@ def _tiny_cfg() -> TournamentCfg:
         steps=8,
         learning_rate=0.02,
     )
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    (
+        ("learning_rate", float("nan")),
+        ("learning_rate", float("inf")),
+        ("gradient_clip_norm", float("nan")),
+        ("gradient_clip_norm", float("inf")),
+        ("input_dim", 1),
+        ("hidden_dim", 1),
+    ),
+)
+def test_tournament_config_rejects_invalid_optimizer_values_and_mri_dimensions(
+    field: str, value: float | int
+) -> None:
+    with pytest.raises(ValueError):
+        TournamentCfg(**{field: value})
 
 
 def test_tournament_runs_full_factorial_and_stays_finite() -> None:

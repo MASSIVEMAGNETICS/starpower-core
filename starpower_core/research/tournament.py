@@ -56,16 +56,20 @@ class TournamentCfg:
         )
         if any(value <= 0 for value in positive_ints):
             raise ValueError("all tournament dimensions and budgets must be positive")
+        if self.input_dim < 2:
+            raise ValueError("input_dim must be at least two for structured MRI initialization")
+        if self.hidden_dim < 2:
+            raise ValueError("hidden_dim must be at least two for structured MRI initialization")
         if self.n_classes < 2:
             raise ValueError("n_classes must be at least two")
         if self.batch_size > self.train_size:
             raise ValueError("batch_size cannot exceed train_size")
-        if self.learning_rate <= 0.0:
-            raise ValueError("learning_rate must be positive")
+        if not math.isfinite(self.learning_rate) or self.learning_rate <= 0.0:
+            raise ValueError("learning_rate must be finite and positive")
         if not 0.0 < self.convergence_fraction < 1.0:
             raise ValueError("convergence_fraction must be within (0, 1)")
-        if self.gradient_clip_norm <= 0.0:
-            raise ValueError("gradient_clip_norm must be positive")
+        if not math.isfinite(self.gradient_clip_norm) or self.gradient_clip_norm <= 0.0:
+            raise ValueError("gradient_clip_norm must be finite and positive")
 
 
 class _WeightFactory:
