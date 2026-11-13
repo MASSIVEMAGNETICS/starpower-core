@@ -1,5 +1,5 @@
 {
-  "conflict_count": 75,
+  "conflict_count": 74,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -996,7 +996,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1060,7 +1060,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1214,7 +1214,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1251,7 +1251,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1332,7 +1332,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1484,7 +1484,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1521,7 +1521,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1690,7 +1690,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1726,7 +1726,7 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
+      "both_mergeable_false": true,
       "kinds": [
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -2650,67 +2650,6 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
-      "both_mergeable_false": false,
-      "kinds": [
-        "SEMANTIC_COLLISION_CANDIDATE",
-        "CANONICALITY_COLLISION_CANDIDATE"
-      ],
-      "left_pr": 4,
-      "protected_concepts": [
-        "canonical",
-        "production",
-        "security"
-      ],
-      "repository": "MASSIVEMAGNETICS/victorOS",
-      "right_pr": 22,
-      "risk_score": 95,
-      "shared_basenames": [],
-      "shared_components": [],
-      "shared_paths": [],
-      "shared_semantic_tokens": [
-        "actions",
-        "authenticated",
-        "before",
-        "bounded",
-        "branch",
-        "cannot",
-        "canonical",
-        "capability",
-        "chronos",
-        "claims",
-        "commits",
-        "conflict",
-        "current",
-        "empire",
-        "exact",
-        "exactly",
-        "existing",
-        "fails",
-        "files",
-        "github",
-        "head",
-        "https",
-        "local",
-        "maintenance",
-        "owner",
-        "production",
-        "receipt",
-        "reconciliation",
-        "rejection",
-        "security",
-        "source",
-        "state",
-        "test",
-        "until",
-        "verification",
-        "verified",
-        "victoros",
-        "while"
-      ]
-    },
-    {
-      "action": "BLOCK_PENDING_REVIEW",
-      "base_ref": "main",
       "both_mergeable_false": true,
       "kinds": [
         "STRUCTURAL_BASENAME_COLLISION",
@@ -3435,6 +3374,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "c78a0b6222d0f27eb73f680be5c019c319d7855517432c99d295ca53c23e32b1",
-  "source_development_receipt_sha256": "65f798947e32a4e2e6593ca5dfc196dab184d60aa4c6a9c73a73c7b2cd5bbe9c"
+  "snapshot_sha256": "20ca925867ba4bc5cd3929f7bee54b19785fc240801cac565987a0fa7fda2d48",
+  "source_development_receipt_sha256": "07b15fefa4dfa9a5e73ac430cc30faf1e3994637742a649af63002060fe67ec9"
 }
