@@ -2681,9 +2681,7 @@
         "commits",
         "conflict",
         "current",
-        "does",
         "empire",
-        "evidence",
         "exact",
         "exactly",
         "existing",
@@ -2692,7 +2690,6 @@
         "github",
         "head",
         "https",
-        "independently",
         "local",
         "maintenance",
         "owner",
@@ -3438,6 +3435,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "5d870b89c6825cefec5c69befd11aa317c7adf2857db63ad5548d8f5fd080a2a",
-  "source_development_receipt_sha256": "5f2f9087b37ec1c5ede41b12f1bcda75f0269206252de5706c682861af23aace"
+  "snapshot_sha256": "64fb02849749e1d22465c7c9a9d04f8ff83de57db9ef55e382e330e36df99be5",
+  "source_development_receipt_sha256": "4324806f27d78d2fb52b443db35ffece65aeff2b53ceaa85fcbfa4c3d736a61f"
 }
