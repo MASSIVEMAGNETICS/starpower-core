@@ -1,5 +1,5 @@
 {
-  "conflict_count": 74,
+  "conflict_count": 75,
   "conflicts": [
     {
       "action": "BLOCK_PENDING_REVIEW",
@@ -2650,6 +2650,70 @@
     {
       "action": "BLOCK_PENDING_REVIEW",
       "base_ref": "main",
+      "both_mergeable_false": false,
+      "kinds": [
+        "SEMANTIC_COLLISION_CANDIDATE",
+        "CANONICALITY_COLLISION_CANDIDATE"
+      ],
+      "left_pr": 4,
+      "protected_concepts": [
+        "canonical",
+        "production",
+        "security"
+      ],
+      "repository": "MASSIVEMAGNETICS/victorOS",
+      "right_pr": 22,
+      "risk_score": 95,
+      "shared_basenames": [],
+      "shared_components": [],
+      "shared_paths": [],
+      "shared_semantic_tokens": [
+        "actions",
+        "authenticated",
+        "before",
+        "bounded",
+        "branch",
+        "cannot",
+        "canonical",
+        "capability",
+        "chronos",
+        "claims",
+        "commits",
+        "conflict",
+        "current",
+        "does",
+        "empire",
+        "evidence",
+        "exact",
+        "exactly",
+        "existing",
+        "files",
+        "gate",
+        "github",
+        "head",
+        "https",
+        "independently",
+        "local",
+        "maintenance",
+        "owner",
+        "production",
+        "receipt",
+        "reconciliation",
+        "rejection",
+        "security",
+        "source",
+        "state",
+        "test",
+        "until",
+        "verification",
+        "verified",
+        "victoros",
+        "while"
+      ]
+    },
+    {
+      "action": "BLOCK_PENDING_REVIEW",
+      "base_ref": "main",
       "both_mergeable_false": true,
       "kinds": [
         "STRUCTURAL_BASENAME_COLLISION",
@@ -3374,6 +3438,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "20ca925867ba4bc5cd3929f7bee54b19785fc240801cac565987a0fa7fda2d48",
-  "source_development_receipt_sha256": "07b15fefa4dfa9a5e73ac430cc30faf1e3994637742a649af63002060fe67ec9"
+  "snapshot_sha256": "5d870b89c6825cefec5c69befd11aa317c7adf2857db63ad5548d8f5fd080a2a",
+  "source_development_receipt_sha256": "5f2f9087b37ec1c5ede41b12f1bcda75f0269206252de5706c682861af23aace"
 }
