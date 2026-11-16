@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 44,
-  "generated_at": "2026-11-15T19:10:05.350906+00:00",
+  "generated_at": "2026-11-16T07:19:40.559671+00:00",
   "open_pull_request_count": 74,
   "pull_requests": [
     {
@@ -3173,7 +3173,7 @@
       ],
       "state": "open",
       "title": "Productize the Truth Compiler Evidence Audit",
-      "updated_at": "2026-08-15T03:34:22Z"
+      "updated_at": "2026-11-16T06:03:29Z"
     },
     {
       "additions": 162,
@@ -3965,10 +3965,10 @@
       ],
       "state": "open",
       "title": "feat(bheard): signed Stripe-to-D1 order intake candidate (independent backend)",
-      "updated_at": "2026-11-15T05:11:26Z"
+      "updated_at": "2026-11-16T03:02:20Z"
     },
     {
-      "additions": 1086,
+      "additions": 1120,
       "author_association": "OWNER",
       "author_login": "MASSIVEMAGNETICS",
       "author_type": "User",
@@ -3985,22 +3985,23 @@
         "tests/test_analytics_host_classification.mjs",
         "tests/test_bheard_site_build.py",
         "tests/test_research_registry.py",
-        "tools/build_bheard_site.py"
+        "tools/build_bheard_site.py",
+        "tools/build_site.py"
       ],
       "created_at": "2026-11-14T19:01:46Z",
-      "deletions": 9,
+      "deletions": 15,
       "draft": true,
       "error": null,
       "evidence_status": "complete",
       "head_ref": "fix/bheard-independent-static-root-20261114",
-      "head_sha": "1bb4981d30ee1fc6e719f70f97577d77cb086a1c",
-      "mergeable": null,
-      "mergeable_state": "unknown",
+      "head_sha": "3426b6210641f547843926027a72476144b37cba",
+      "mergeable": false,
+      "mergeable_state": "dirty",
       "number": 58,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/MASSIVEMAGNETICS.github.io",
       "semantic_tokens": [
-        "3ac9c1252db57b8b06dd302b6aa169b9b296a46c",
+        "3ac9c1252db57b8b06dd302b6aa169b9",
         "account",
         "actions",
         "added",
@@ -4017,12 +4018,14 @@
         "assets",
         "audio",
         "authentication",
+        "authorized",
         "availability",
         "back",
         "backed",
         "baseline",
         "bash",
         "behavior",
+        "beheardnetwork",
         "bheard",
         "bheardnetwork",
         "billing",
@@ -4037,7 +4040,6 @@
         "builder",
         "candidate",
         "canonical",
-        "changing",
         "checkout",
         "claim",
         "claimed",
@@ -4048,7 +4050,6 @@
         "communication",
         "configuration",
         "configured",
-        "confirms",
         "constant",
         "contains",
         "contract",
@@ -4075,6 +4076,7 @@
         "engine",
         "establish",
         "exact",
+        "excludes",
         "executed",
         "existing",
         "exists",
@@ -4090,7 +4092,6 @@
         "funnel",
         "gates",
         "generated",
-        "githu",
         "github",
         "globe",
         "head",
@@ -4111,6 +4112,7 @@
         "json",
         "keep",
         "known",
+        "landing",
         "lane",
         "layer",
         "limitations",
@@ -4123,6 +4125,7 @@
         "massivemagnetics",
         "member",
         "merged",
+        "needs",
         "neither",
         "network",
         "noindex",
@@ -4135,11 +4138,11 @@
         "output",
         "ownership",
         "package",
+        "packages",
         "page",
         "pages",
         "palette",
         "party",
-        "passed",
         "path",
         "payment",
         "pins",
@@ -4179,7 +4182,6 @@
         "roll",
         "rollback",
         "root",
-        "route",
         "routes",
         "runs",
         "safe",
@@ -4211,11 +4213,10 @@
         "tests",
         "that",
         "third",
+        "those",
         "tools",
         "totals",
-        "touching",
         "traffic",
-        "unchanged",
         "under",
         "unittest",
         "unless",
@@ -4231,14 +4232,13 @@
         "while",
         "white",
         "wide",
-        "without",
         "wording",
         "work",
         "worker"
       ],
       "state": "open",
       "title": "build(bheard): package independent static network root",
-      "updated_at": "2026-11-15T00:56:59Z"
+      "updated_at": "2026-11-15T23:16:12Z"
     },
     {
       "additions": 218,
@@ -4246,7 +4246,7 @@
       "author_login": "MASSIVEMAGNETICS",
       "author_type": "User",
       "base_ref": "main",
-      "base_sha": "c96a7d34e0031a2e61f343b1597d2a790fd2a1df",
+      "base_sha": "3232240f5cce5fe7d0fe460f8c25ae2a6ce405bc",
       "changed_files": [
         ".gitignore",
         "bheardnetwork/app.js",
@@ -4262,7 +4262,7 @@
       "error": null,
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-11-14-bheard-demo-assets",
-      "head_sha": "9ac6a926b8ffea68f9bb8c3e695b85e39467c20f",
+      "head_sha": "2af11f9ad999a6699587927973838d326ce5d624",
       "mergeable": true,
       "mergeable_state": "clean",
       "number": 59,
@@ -4480,7 +4480,7 @@
       ],
       "state": "open",
       "title": "fix(bheard): make static demo assets reproducible in CI",
-      "updated_at": "2026-11-15T09:24:28Z"
+      "updated_at": "2026-11-16T07:01:14Z"
     },
     {
       "additions": 0,
@@ -9465,7 +9465,7 @@
       "updated_at": "2026-08-15T03:46:28Z"
     },
     {
-      "additions": 1158,
+      "additions": 1264,
       "author_association": "OWNER",
       "author_login": "MASSIVEMAGNETICS",
       "author_type": "User",
@@ -9475,6 +9475,7 @@
         ".github/workflows/daily-empire-maintenance.yml",
         "bando_driver.py",
         "bando_maintenance_sources.json",
+        "bando_stack.json",
         "maintenance_decision.py",
         "README.md",
         "tests/test_bando_driver.py",
@@ -9484,12 +9485,12 @@
         "validate_maintenance_config.py"
       ],
       "created_at": "2026-10-11T23:53:52Z",
-      "deletions": 26,
+      "deletions": 27,
       "draft": true,
       "error": null,
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-10-10-shared-intelligence-daily-receipt",
-      "head_sha": "cf9cb291a39d1b370b5996acbc2ef207dab3afb3",
+      "head_sha": "2b62a820d277d62fb7e904af99fed0ff5708342b",
       "mergeable": true,
       "mergeable_state": "clean",
       "number": 3,
@@ -9724,7 +9725,7 @@
       ],
       "state": "open",
       "title": "ci(empire): daily read-only BANDO_DRIVER maintenance pass",
-      "updated_at": "2026-11-15T18:04:26Z"
+      "updated_at": "2026-11-16T06:07:00Z"
     },
     {
       "additions": 2,
@@ -10475,7 +10476,7 @@
       "updated_at": "2026-03-27T15:28:41Z"
     },
     {
-      "additions": 406,
+      "additions": 423,
       "author_association": "OWNER",
       "author_login": "MASSIVEMAGNETICS",
       "author_type": "User",
@@ -10497,7 +10498,7 @@
       "error": null,
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-11-14-the-ai-ear-bounded-audio-ingress",
-      "head_sha": "05aac510ca4e26d79303ac474f99f53fc2875ed0",
+      "head_sha": "cb3851e497c4b49cb60a3585a4bceba192a41f88",
       "mergeable": true,
       "mergeable_state": "clean",
       "number": 3,
@@ -10748,7 +10749,7 @@
       ],
       "state": "open",
       "title": "fix(api): bound audio upload and WebSocket ingress",
-      "updated_at": "2026-11-15T19:02:26Z"
+      "updated_at": "2026-11-15T21:56:48Z"
     },
     {
       "additions": 165,
@@ -11657,8 +11658,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-08-assembler-sunokiller-canonical",
       "head_sha": "780c30dba29d8b0824d61dc57a4d585ca5284c15",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 3,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -13966,24 +13967,25 @@
       "updated_at": "2026-09-16T23:24:47Z"
     },
     {
-      "additions": 217,
+      "additions": 607,
       "author_association": "OWNER",
       "author_login": "MASSIVEMAGNETICS",
       "author_type": "User",
       "base_ref": "main",
       "base_sha": "037939a286d300e576ec0aa986689351f34affdf",
       "changed_files": [
+        ".github/workflows/closed-loop.yml",
         "README.md",
         "tests/test_closed_loop.py",
         "victor_runtime/organs.py"
       ],
       "created_at": "2026-11-15T07:06:26Z",
-      "deletions": 9,
+      "deletions": 13,
       "draft": true,
       "error": null,
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-11-15-victor-empire-output-bounds",
-      "head_sha": "cf6d4166f3fe8d68f6b1ffa312e7551d3d066ca3",
+      "head_sha": "c88a12e1b5c8d21d714602dba8ee59590d8edcee",
       "mergeable": true,
       "mergeable_state": "clean",
       "number": 10,
@@ -14221,7 +14223,7 @@
       ],
       "state": "open",
       "title": "fix(organ): bound Dev-Ville adapter process output",
-      "updated_at": "2026-11-15T08:04:23Z"
+      "updated_at": "2026-11-16T01:55:44Z"
     },
     {
       "additions": 78,
@@ -15914,7 +15916,7 @@
       ],
       "state": "open",
       "title": "Issue #19: transactional outbox for cognitive scheduler",
-      "updated_at": "2026-11-15T17:00:41Z"
+      "updated_at": "2026-11-16T01:58:53Z"
     },
     {
       "additions": 837,
@@ -15959,7 +15961,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "f641e6cf02c4b186c62ff63ac740cf9c8c2421c6939d085650463bcc06df7d03",
+  "receipt_sha256": "99270daf46785232346d36a4a92ae2aa8aa00cda901e1ecb06a64e765b0cb740",
   "schema_version": "development-snapshot/v1",
   "source_ref": "0081416af8993279153fe73b10f88ebe5a061ac6",
   "unknown_pull_request_count": 0

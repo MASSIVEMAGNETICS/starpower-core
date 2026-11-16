@@ -184,7 +184,6 @@
         "objective",
         "origin",
         "page",
-        "passed",
         "production",
         "public",
         "remains",
@@ -192,8 +191,7 @@
         "side",
         "static",
         "that",
-        "until",
-        "without"
+        "until"
       ]
     },
     {
@@ -396,6 +394,7 @@
       "base_ref": "main",
       "both_mergeable_false": false,
       "kinds": [
+        "FILE_OVERLAP",
         "STRUCTURAL_BASENAME_COLLISION",
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -410,13 +409,16 @@
       "right_pr": 58,
       "risk_score": 95,
       "shared_basenames": [
+        "build_site.py",
         "index.html"
       ],
       "shared_components": [
         "tests",
         "tools"
       ],
-      "shared_paths": [],
+      "shared_paths": [
+        "tools/build_site.py"
+      ],
       "shared_semantic_tokens": [
         "actions",
         "added",
@@ -464,7 +466,6 @@
         "requires",
         "research",
         "rollback",
-        "route",
         "scope",
         "signed",
         "site",
@@ -667,6 +668,7 @@
         "existing",
         "explicit",
         "homepage",
+        "landing",
         "offer",
         "page",
         "public",
@@ -796,7 +798,6 @@
         "independent",
         "only",
         "origin",
-        "passed",
         "payment",
         "proof",
         "return",
@@ -891,6 +892,7 @@
       "shared_paths": [],
       "shared_semantic_tokens": [
         "actions",
+        "authorized",
         "back",
         "bheard",
         "billing",
@@ -920,6 +922,7 @@
         "live",
         "local",
         "massivemagnetics",
+        "needs",
         "network",
         "offer",
         "only",
@@ -952,7 +955,6 @@
         "urls",
         "webhook",
         "were",
-        "without",
         "worker"
       ]
     },
@@ -1044,6 +1046,7 @@
       "base_ref": "main",
       "both_mergeable_false": false,
       "kinds": [
+        "FILE_OVERLAP",
         "STRUCTURAL_BASENAME_COLLISION",
         "SEMANTIC_COLLISION_CANDIDATE",
         "CANONICALITY_COLLISION_CANDIDATE"
@@ -1058,13 +1061,16 @@
       "right_pr": 59,
       "risk_score": 95,
       "shared_basenames": [
+        "build_site.py",
         "index.html"
       ],
       "shared_components": [
         "tests",
         "tools"
       ],
-      "shared_paths": [],
+      "shared_paths": [
+        "tools/build_site.py"
+      ],
       "shared_semantic_tokens": [
         "actions",
         "added",
@@ -1111,7 +1117,6 @@
         "only",
         "output",
         "pages",
-        "passed",
         "path",
         "payment",
         "production",
@@ -1133,13 +1138,12 @@
         "still",
         "test",
         "tests",
+        "those",
         "tools",
-        "unchanged",
         "unverified",
         "verification",
         "webhook",
-        "were",
-        "without"
+        "were"
       ]
     },
     {
@@ -4735,6 +4739,6 @@
     }
   ],
   "schema_version": "conflict-snapshot/v1",
-  "snapshot_sha256": "15c0dc9101207e1477a4a69d26471cf8aafa9db396b14165d0afd8778fcc7030",
-  "source_development_receipt_sha256": "f641e6cf02c4b186c62ff63ac740cf9c8c2421c6939d085650463bcc06df7d03"
+  "snapshot_sha256": "6685b18fc4be7a2d147f26382652a8b0bc755903e79c9acb4a3a5529e1c7c7e0",
+  "source_development_receipt_sha256": "99270daf46785232346d36a4a92ae2aa8aa00cda901e1ecb06a64e765b0cb740"
 }
