@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 48,
-  "generated_at": "2026-11-18T20:57:20.723297+00:00",
+  "generated_at": "2026-11-19T07:58:34.575432+00:00",
   "open_pull_request_count": 78,
   "pull_requests": [
     {
@@ -11899,8 +11899,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-08-assembler-sunokiller-canonical",
       "head_sha": "780c30dba29d8b0824d61dc57a4d585ca5284c15",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 3,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -12104,8 +12104,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-11-16-assembler-private-coverage",
       "head_sha": "a22fd8c6ea21252e275b0bc9f050dd340d594fe0",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 5,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -12349,8 +12349,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-11-16-puzzle-assembler-rem-counter",
       "head_sha": "66006fae4f45483dc7f9ea940e90f2a8a07191be",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 6,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -16910,7 +16910,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "438541f040b72b9542941433bd03627e5a9026c5980bfe30cc597351568c6eb6",
+  "receipt_sha256": "92928ea75a6576647bc9cb1e57dbb473a9ebb4e26f540287d78f40c293411e5e",
   "schema_version": "development-snapshot/v1",
   "source_ref": "0081416af8993279153fe73b10f88ebe5a061ac6",
   "unknown_pull_request_count": 0
