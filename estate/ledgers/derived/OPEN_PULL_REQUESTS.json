@@ -1,6 +1,6 @@
 {
   "draft_pull_request_count": 48,
-  "generated_at": "2026-11-27T21:40:41.709087+00:00",
+  "generated_at": "2026-11-28T08:28:30.658859+00:00",
   "open_pull_request_count": 78,
   "pull_requests": [
     {
@@ -4198,7 +4198,7 @@
       "updated_at": "2026-11-20T23:47:45Z"
     },
     {
-      "additions": 1122,
+      "additions": 1244,
       "author_association": "OWNER",
       "author_login": "MASSIVEMAGNETICS",
       "author_type": "User",
@@ -4224,7 +4224,7 @@
       "error": null,
       "evidence_status": "complete",
       "head_ref": "fix/bheard-independent-static-root-20261114",
-      "head_sha": "d570eba7fdb60ca28054b549f54f35f6c242d7ee",
+      "head_sha": "0fbd8bdce73678050575c4e7df33c0c03cce32fc",
       "mergeable": null,
       "mergeable_state": "unknown",
       "number": 58,
@@ -4468,7 +4468,7 @@
       ],
       "state": "open",
       "title": "build(bheard): package independent static network root",
-      "updated_at": "2026-11-16T23:46:35Z"
+      "updated_at": "2026-11-27T23:30:48Z"
     },
     {
       "additions": 284,
@@ -11899,8 +11899,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-09-08-assembler-sunokiller-canonical",
       "head_sha": "780c30dba29d8b0824d61dc57a4d585ca5284c15",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 3,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -12104,8 +12104,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-11-16-assembler-private-coverage",
       "head_sha": "a22fd8c6ea21252e275b0bc9f050dd340d594fe0",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 5,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -12349,8 +12349,8 @@
       "evidence_status": "complete",
       "head_ref": "empire-maintenance/2026-11-16-puzzle-assembler-rem-counter",
       "head_sha": "66006fae4f45483dc7f9ea940e90f2a8a07191be",
-      "mergeable": true,
-      "mergeable_state": "clean",
+      "mergeable": null,
+      "mergeable_state": "unknown",
       "number": 6,
       "origin_type": "HUMAN_OR_ACCOUNT_OWNER",
       "repository": "MASSIVEMAGNETICS/victor-sovereign-puzzle-assembler",
@@ -16910,7 +16910,7 @@
       "updated_at": "2026-01-04T21:21:51Z"
     }
   ],
-  "receipt_sha256": "b061ab029bf83268f8ac82d3ca9da660559b04f5addb08fdaec5d784f808faf6",
+  "receipt_sha256": "36a08f2d7f51958a4604d2381b9dcd3d8fca6430bb1116274646e29995177642",
   "schema_version": "development-snapshot/v1",
   "source_ref": "0081416af8993279153fe73b10f88ebe5a061ac6",
   "unknown_pull_request_count": 0
